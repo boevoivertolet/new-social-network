@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+.app-wrapper {
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+    "header header header"
+    "nav content content";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav {
+    background: cornflowerblue;
+    grid-area: nav;
+    border: 1px solid black
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header {
+    background: cadetblue;
+    grid-area: header;
+    border: 1px solid black
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header img {
+    width: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+    background: lightskyblue;
+    grid-area: content;
+    border: 1px solid black
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content div img {
+    grid-area: ava;
+    margin: 5px;
+    width: 100%;
+    height: 300px;
+    border: 1px solid black
 }
+
+.avatar-description {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    grid-template-areas:
+    'ava name discription';
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+
+}
+
+.avatar-description div img {
+    width: 100px;
+    height: 100px;
+}
+
+.main-content {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black
+
+}
+
+.name {
+    grid-area: name;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    font-size: large;
+
+}
+
+.description {
+    grid-area: discription;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.my-posts {
+    border: 1px solid black;
+}
+.my-posts textarea{
+    margin: 5px;
+}
+
