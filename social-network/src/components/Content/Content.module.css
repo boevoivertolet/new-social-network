@@ -1,0 +1,13 @@
+.content {
+    background: lightskyblue;
+    grid-area: content;
+    border: 1px solid black
+}
+
+/*.content div img {*/
+/*    grid-area: ava;*/
+/*    margin: 5px;*/
+/*    width: 100%;*/
+/*    height: 300px;*/
+/*    border: 1px solid black*/
+/*}*/

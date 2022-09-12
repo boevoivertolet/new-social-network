@@ -1,0 +1,15 @@
+.name {
+    grid-area: name;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    font-size: large;
+
+}
+
+.description {
+    grid-area: discription;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}

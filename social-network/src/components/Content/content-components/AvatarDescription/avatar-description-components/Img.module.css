@@ -1,0 +1,8 @@
+.img{
+    grid-area: ava;
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black
+
+}
