@@ -6,7 +6,7 @@ import {MainContent} from './profile-components/MainContent/MainContent';
 import styles from './Profile.module.css'
 
 export const Profile = () => {
-    return <div className={styles.content}>
+    return <div className={styles.profile}>
         <WallImg/>
         <AvatarDescription/>
         <MyPosts/>
