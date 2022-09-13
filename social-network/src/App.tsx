@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar} from './components/Navbar/Navbar';
 import {Header} from './components/Header/Header';
-import {Content} from './components/Content/Content';
+import {Profile} from './components/Profile/Profile';
 import styles from './App.module.css'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         <div className={styles.appWrapper}>
             <Header/>
             <Navbar/>
-            <Content/>
+            <Profile/>
         </div>
     );
 }
