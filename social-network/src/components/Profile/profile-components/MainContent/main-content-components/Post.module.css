@@ -1,0 +1,8 @@
+.post{
+    margin-top: 10px;
+    border: 1px solid black;
+    background: bisque;
+}
+.post img{
+    width: 40px;
+}

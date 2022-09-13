@@ -5,18 +5,23 @@
     border: 1px solid black;
 
 }
-.nav a{
+
+.nav a {
     color: bisque;
     text-decoration: none;
 
 }
-.nav a:hover{
+
+.nav a:hover {
     color: lightskyblue;
 }
-.nav a:active{
+
+.nav a:active {
     color: indianred;
 }
-.nav div{
-    margin-top: 10px;
+
+.nav div {
+    margin-top: 15px;
     border: 1px solid black;
 }
+

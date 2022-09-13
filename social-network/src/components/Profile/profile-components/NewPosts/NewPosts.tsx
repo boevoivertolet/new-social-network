@@ -1,9 +1,8 @@
 import React from 'react';
-import styles from './MyPosts.module.css'
+import styles from './NewPosts.module.css'
 
-export const MyPosts = () => {
-    return <div className={styles.myPosts}>
-        <h3>My posts</h3>
+export const NewPosts = () => {
+    return <div className={styles.newPosts}>
         <div>
             <textarea name="yor news"></textarea>
             <button>send</button>
