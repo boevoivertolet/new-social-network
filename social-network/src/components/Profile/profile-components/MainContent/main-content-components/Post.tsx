@@ -12,6 +12,7 @@ export const Post = () => {
         <PostAvatar/>
         <PostMessage postMessage={'postMessage'}/>
         <Button title={'like'}/>
+        <span>likes count</span>
     </div>
 }
 
