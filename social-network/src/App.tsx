@@ -17,10 +17,9 @@ function App() {
                 <Navbar/>
                 <div className={styles.content}>
                     <Routes>
+                        <Route path="/profile" element={<Profile/>}/>
 
                         <Route path="/dialogs" element={<Dialogs/>}/>
-
-                        <Route path="/profile" element={<Profile/>}/>
 
                         <Route path="/news" element={<News/>}/>
 

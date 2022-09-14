@@ -4,7 +4,7 @@ import styles from './Img.module.css'
 export const Img = () => {
     return <div >
         <img className={styles.img}
-            src="https://sun9-37.userapi.com/s/v1/ig2/1NrSBc1EVpXjT8D73Sdi0WJgoTBFVcyENMJssAXOe4umO-wb4jEhDof8IwkGo9bHCimTJxLg0WTHPl8yijZ_y1PJ.jpg?size=200x200&quality=95&crop=252,164,431,431&ava=1"
+            src="https://img01.rl0.ru/afisha/e1200x600i/daily.afisha.ru/uploads/images/2/f2/2f23c421db983f28be0a4d9e84fe1d3d.png"
             alt=" avatar"/>
     </div>
 }
