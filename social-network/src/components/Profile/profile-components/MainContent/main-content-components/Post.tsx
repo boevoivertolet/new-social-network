@@ -10,8 +10,11 @@ export const Post = () => {
     return <div className={styles.post}>
         <PostAvatar/>
         <PostMessage postMessage={'postMessage '}/>
-        <Button title={'like'}/>
-        <PostLikesCount/>
+        <div className={styles.button_likes_count}>
+            <Button title={'like'}/>
+            <PostLikesCount likesCount={'0'}/>
+        </div>
+
     </div>
 }
 

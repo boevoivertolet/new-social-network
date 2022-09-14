@@ -1,9 +1,7 @@
 .likes_count {
-    margin: 10px;
+    margin: 15px;
     border: 1px solid black;
     grid-area: likesC;
-    position: relative;
-    right: 1250px;
     width: max-content;
     height: max-content;
 }

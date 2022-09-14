@@ -4,3 +4,12 @@ export type ButtonType = {
 export type PostMessageType={
     postMessage: string
 }
+export type PostLikesCountType={
+    likesCount: string
+}
+
+
+
+export type DialogsType={
+
+}
