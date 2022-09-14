@@ -3,6 +3,6 @@ import styles from './Header.module.css'
 
 export const Header = () => {
     return <header className={styles.header}><img
-        src="https://play-lh.googleusercontent.com/NuJSG_bIoce6kvvtJnULAf34_Rsa1j-HDEt4MWTOrL_3XA51QH9qOQR5UmAYxPI96jA"
-        alt="tiger"/></header>
+        src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0"
+        alt="logo"/></header>
 }

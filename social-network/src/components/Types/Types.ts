@@ -22,3 +22,8 @@ export type MusicType={
 export type SettingsType={
 
 }
+export type DialogsMessagesType={
+}
+export type DialogsNamesType={
+
+}

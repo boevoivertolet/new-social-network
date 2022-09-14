@@ -1,0 +1,11 @@
+
+.dialogs_messages{
+    border: 1px solid black;
+    height: max-content;
+    grid-area: dm;
+}
+.dialogs_messages div{
+    margin: 3px;
+    border: 1px solid black;
+    height: max-content
+}

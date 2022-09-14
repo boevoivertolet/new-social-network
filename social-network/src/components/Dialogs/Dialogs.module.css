@@ -7,27 +7,4 @@
     /*grid-template-rows: 60px 1fr;*/
     grid-template-columns: 2fr 10fr;
     grid-gap: 10px;
-
-
-
-}
-.dialogs_names{
-    border: 1px solid black;
-    height: max-content;
-    grid-area: dn;
-}
-.dialogs_names div{
-    margin: 3px;
-    border: 1px solid black;
-    height: max-content;
-}
-.dialogs_messages{
-    border: 1px solid black;
-    height: max-content;
-    grid-area: dm;
-}
-.dialogs_messages div{
-    margin: 3px;
-    border: 1px solid black;
-    height: max-content
 }

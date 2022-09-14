@@ -11,7 +11,7 @@ import {Settings} from './components/Settings/Settings';
 
 function App() {
     return (
-        <BrowserRouter>
+
             <div className={styles.appWrapper}>
                 <Header/>
                 <Navbar/>
@@ -30,7 +30,7 @@ function App() {
                     </Routes>
                 </div>
             </div>
-        </BrowserRouter>
+
     );
 }
 

@@ -1,0 +1,10 @@
+.dialogs_names{
+    border: 1px solid black;
+    height: max-content;
+    grid-area: dn;
+}
+.dialogs_names div{
+    margin: 3px;
+    border: 1px solid black;
+    height: max-content;
+}
