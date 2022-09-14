@@ -6,5 +6,5 @@ import {ButtonType} from '../Types/Types';
 
 
 export const Button = (props: ButtonType) => {
-    return <div><button className={styles.button}>{props.title}</button></div>
+    return <span className={styles.button}>{props.title}</span>
 }

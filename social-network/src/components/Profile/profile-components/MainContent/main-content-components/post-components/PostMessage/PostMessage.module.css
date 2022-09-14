@@ -1,0 +1,10 @@
+.post_message {
+    border: 1px solid black;
+    margin: 15px;
+    padding: 15px;
+    height: auto;
+    width: auto;
+    text-align: justify;
+    grid-area: postM;
+
+}
