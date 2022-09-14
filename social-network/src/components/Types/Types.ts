@@ -13,3 +13,12 @@ export type PostLikesCountType={
 export type DialogsType={
 
 }
+export type NewsType={
+
+}
+export type MusicType={
+
+}
+export type SettingsType={
+
+}
