@@ -3,20 +3,19 @@
     background: cornflowerblue;
     grid-area: nav;
     border: 1px solid black;
-
 }
 
-.nav a {
+.nav_link {
     color: bisque;
     text-decoration: none;
 
 }
 
-.nav a:hover {
+.nav_link:hover {
     color: lightskyblue;
 }
 
-.nav a:active {
+.nav_link:active {
     color: indianred;
 }
 
@@ -24,4 +23,10 @@
     margin-top: 15px;
     border: 1px solid black;
 }
+.active {
+    color: indianred;
+    text-decoration: none;
+}
+
+
 
