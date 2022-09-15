@@ -8,22 +8,21 @@ import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 
 export const Dialogs = (props: DialogsType) => {
 
+    let dialogName = props.dialogsData.map(dialog => <DialogsNames name={dialog.name} id={dialog.id}/>);
+
+    let dialogMessage = props.messagesData.map(message => <DialogsMessages message={message.message}/>);
 
 
 
     return <div className={styles.dialogs}>
         <div>
             <DialogsHeader title={'Dialogs'}/>
-            <DialogsNames name={props.dialogsData[0].name} id={props.dialogsData[0].id}/>
-            <DialogsNames name={props.dialogsData[1].name} id={props.dialogsData[1].id}/>
-            <DialogsNames name={props.dialogsData[2].name} id={props.dialogsData[2].id}/>
-
-
+            {dialogName}
         </div>
 
         <div>
             <DialogsHeader title={'Messages'}/>
-            <DialogsMessages message={'message'}/>
+            {dialogMessage}
         </div>
 
 

@@ -13,7 +13,7 @@ export const Profile = (props: ProfileType) => {
         <AvatarDescription/>
         <PostsHeader/>
         <NewPosts/>
-        <MainContent/>
+        <MainContent postData={props.postData}/>
     </div>
 
 
