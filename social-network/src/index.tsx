@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import {dialogsData, messagesData, postData} from './components/Store/Store';
+import {state} from './components/Store/Store';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App postData={postData} messagesData={messagesData} dialogsData={dialogsData}/>
+            <App state={state}/>
         </BrowserRouter>
     </React.StrictMode>
 );

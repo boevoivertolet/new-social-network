@@ -7,11 +7,14 @@ export type PostMessageType = {
 export type PostLikesCountType = {
     likesCount: string
 }
-
-export type AppType = {
+export type StateType ={
     dialogsData: DialogsDataType[]
     messagesData: MessagesDataType[]
-    postData: PostDataType[]
+    postsData: PostsDataType[]
+}
+export type AppType = {
+    state: StateType
+
 }
 export type DialogsDataType = {
     id: string
@@ -21,7 +24,7 @@ export type MessagesDataType = {
     id: string
     message: string
 }
-export type PostDataType = {
+export type PostsDataType = {
     id: string
     message: string
     likesCount: string
@@ -44,13 +47,13 @@ export type DialogsHeaderType = {
     title: string
 }
 export type ProfileType = {
-    postData:PostDataType[]
+    postsData: PostsDataType[]
 }
-export type MainContentType={
-    postData:PostDataType[]
+export type MainContentType = {
+    postsData: PostsDataType[]
 }
 export type PostType = {
-    postData:PostDataType
+    postsData: PostsDataType
 }
 
 

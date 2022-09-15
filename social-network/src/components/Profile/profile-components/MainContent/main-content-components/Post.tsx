@@ -10,10 +10,10 @@ import {PostType} from '../../../../Types/Types';
 export const Post = (props: PostType) => {
     return <div className={styles.post}>
         <PostAvatar/>
-        <PostMessage postMessage={props.postData.message }/>
+        <PostMessage postMessage={props.postsData.message }/>
         <div className={styles.button_likes_count}>
             <Button title={'like'}/>
-            <PostLikesCount likesCount={props.postData.likesCount}/>
+            <PostLikesCount likesCount={props.postsData.likesCount}/>
         </div>
 
     </div>

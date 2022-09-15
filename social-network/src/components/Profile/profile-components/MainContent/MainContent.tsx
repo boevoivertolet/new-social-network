@@ -7,11 +7,11 @@ import {MainContentType} from '../../../Types/Types';
 
 export const MainContent = (props: MainContentType) => {
 
-    let posts = props.postData.map(el => <Post postData={el}/>);
+    let post = props.postsData.map(p => <Post postsData={p}/>);
 
 
     return <div className={styles.mainContent}>
-        {posts}
+        {post}
     </div>
 }
 
