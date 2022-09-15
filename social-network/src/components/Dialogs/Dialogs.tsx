@@ -7,18 +7,23 @@ import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 
 
 export const Dialogs = (props: DialogsType) => {
+
+
+
+
     return <div className={styles.dialogs}>
         <div>
             <DialogsHeader title={'Dialogs'}/>
-            <DialogsNames name={'name1'} id={'1'}/>
-            <DialogsNames name={'name2'} id={'2'}/>
-            <DialogsNames name={'name3'} id={'3'}/>
+            <DialogsNames name={props.dialogsData[0].name} id={props.dialogsData[0].id}/>
+            <DialogsNames name={props.dialogsData[1].name} id={props.dialogsData[1].id}/>
+            <DialogsNames name={props.dialogsData[2].name} id={props.dialogsData[2].id}/>
+
 
         </div>
 
         <div>
             <DialogsHeader title={'Messages'}/>
-            <DialogsMessages/>
+            <DialogsMessages message={'message'}/>
         </div>
 
 

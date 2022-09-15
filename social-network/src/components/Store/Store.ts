@@ -1,0 +1,1 @@
+export let dialogsData = [{id: '1', name: 'Sasha'}, {id: '2', name: 'Ulya'}, {id: '3', name: 'Taras'}]
