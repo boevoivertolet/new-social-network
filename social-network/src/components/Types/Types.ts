@@ -7,15 +7,28 @@ export type PostMessageType = {
 export type PostLikesCountType = {
     likesCount: string
 }
-export type StateType ={
+
+
+export type StateType = {
+    dialogsPage: DialogsPageType
+    profilePage: ProfilePageType
+}
+type DialogsPageType = {
     dialogsData: DialogsDataType[]
     messagesData: MessagesDataType[]
+}
+type ProfilePageType = {
     postsData: PostsDataType[]
 }
+
+
 export type AppType = {
     state: StateType
 
 }
+
+
+
 export type DialogsDataType = {
     id: string
     name: string
@@ -30,8 +43,8 @@ export type PostsDataType = {
     likesCount: string
 }
 export type DialogsType = {
-    dialogsData: DialogsDataType[]
-    messagesData: MessagesDataType[]
+    dialogsPage: DialogsPageType
+
 }
 export type NewsType = {}
 export type MusicType = {}
