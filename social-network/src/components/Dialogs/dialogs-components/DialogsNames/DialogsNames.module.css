@@ -1,13 +1,18 @@
 .dialogs_names{
     border: 1px solid black;
     height: max-content;
-    background: gray;
+    padding: 5px;
+
+
 }
 .dialogs_name{
-    margin: 3px;
+    padding: 5px;
+    background: gray;
+    margin-top: 13px;
     border: 1px solid black;
     height: max-content;
     grid-area: dn;
+
 }
 .dialogs_name a{
     text-decoration: none;

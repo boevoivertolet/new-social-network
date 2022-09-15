@@ -1,10 +1,11 @@
 .dialogs {
+    padding:5px;
     margin: 15px;
     display: grid;
     grid-template-columns: 300px 10fr;
     grid-template-areas:
-    "h h "
     "dn dm"
     "dn dm ";
     grid-gap: 10px;
+
 }

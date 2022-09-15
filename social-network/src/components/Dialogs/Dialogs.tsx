@@ -8,15 +8,19 @@ import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 
 export const Dialogs = (props: DialogsType) => {
     return <div className={styles.dialogs}>
+        <div>
+            <DialogsHeader title={'Dialogs'}/>
+            <DialogsNames name={'name1'} id={'1'}/>
+            <DialogsNames name={'name2'} id={'2'}/>
+            <DialogsNames name={'name3'} id={'3'}/>
 
-        <DialogsHeader title={'Dialogs'}/>
-        <DialogsHeader title={'Messages'}/>
-        <DialogsNames name={'name1'} id={'1'}/>
-        <DialogsNames name={'name2'} id={'2'}/>
-        <DialogsNames name={'name3'} id={'3'}/>
+        </div>
 
+        <div>
+            <DialogsHeader title={'Messages'}/>
+            <DialogsMessages/>
+        </div>
 
-        <DialogsMessages/>
 
     </div>
 }
