@@ -1,29 +1,23 @@
 export type ButtonType = {
     title: string
 }
-export type PostMessageType={
+export type PostMessageType = {
     postMessage: string
 }
-export type PostLikesCountType={
+export type PostLikesCountType = {
     likesCount: string
 }
 
 
-
-export type DialogsType={
-
+export type DialogsType = {}
+export type NewsType = {}
+export type MusicType = {}
+export type SettingsType = {}
+export type DialogsMessagesType = {}
+export type DialogsNamesType = {
+    name: string
+    id: string
 }
-export type NewsType={
-
-}
-export type MusicType={
-
-}
-export type SettingsType={
-
-}
-export type DialogsMessagesType={
-}
-export type DialogsNamesType={
-
+export type DialogsHeaderType={
+    title: string
 }

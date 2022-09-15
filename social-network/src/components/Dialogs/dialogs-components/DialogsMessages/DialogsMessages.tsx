@@ -5,8 +5,8 @@ import styles from './DialogsMessages.module.css'
 
 
 export const DialogsMessages = (props: DialogsMessagesType) => {
-    return <div className={styles.dialogs_messages}>Name + Messages:
-        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur debitis deserunt dolore, dolorem
+    return <div className={styles.dialogs_messages}>
+        <div className={styles.dialogs_message}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur debitis deserunt dolore, dolorem
             dolores earum eveniet laboriosam nihil nostrum, perspiciatis provident quibusdam reprehenderit similique
             tempora ut. Accusantium, aliquid aut blanditiis consequuntur cupiditate distinctio dolore dolores
             exercitationem, facere fugit ipsum mollitia, nihil nisi quaerat quia tempora veniam voluptatem!

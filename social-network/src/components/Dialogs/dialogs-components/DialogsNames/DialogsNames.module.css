@@ -1,10 +1,29 @@
 .dialogs_names{
     border: 1px solid black;
     height: max-content;
-    grid-area: dn;
+    background: gray;
 }
-.dialogs_names div{
+.dialogs_name{
     margin: 3px;
     border: 1px solid black;
     height: max-content;
+    grid-area: dn;
 }
+.dialogs_name a{
+    text-decoration: none;
+    color: bisque;
+    font-size: 13px;
+}
+
+.dialogs_name a:hover {
+    color: lightskyblue;
+}
+
+.dialogs_name a:active {
+    color: indianred;
+}
+.dialogs_name .active{
+    color: red;
+}
+
+

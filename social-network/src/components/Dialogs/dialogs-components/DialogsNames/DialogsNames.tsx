@@ -1,10 +1,13 @@
 import styles from './DialogsNames.module.css';
 import React from 'react';
 import {DialogsNamesType} from '../../../Types/Types';
+import {NavLink} from 'react-router-dom';
 
 export const DialogsNames = (props: DialogsNamesType) => {
-    return <div className={styles.dialogs_names}>Dialogs:
-        <div><a href="#">Name1</a></div>
-        <div><a href="#">Name2</a></div>
+
+    let path ='/dialogs/' + props.id
+
+    return <div className={styles.dialogs_names}>
+        <div className={styles.dialogs_name}><NavLink to={path}>{props.name}</NavLink></div>
     </div>
 }

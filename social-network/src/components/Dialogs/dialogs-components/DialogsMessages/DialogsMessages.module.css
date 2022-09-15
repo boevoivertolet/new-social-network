@@ -2,10 +2,12 @@
 .dialogs_messages{
     border: 1px solid black;
     height: max-content;
+    background: gray;
     grid-area: dm;
 }
-.dialogs_messages div{
+.dialogs_message{
     margin: 3px;
     border: 1px solid black;
     height: max-content
 }
+
