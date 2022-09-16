@@ -1,0 +1,8 @@
+.dialogs_message_in{
+    padding: 5px;
+    background: gray;
+    margin: 10px;
+    border: 1px solid black;
+    height: max-content
+}
+

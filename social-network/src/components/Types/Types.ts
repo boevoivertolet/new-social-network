@@ -69,4 +69,6 @@ export type PostType = {
     postsData: PostsDataType
 }
 
-
+export type DialogsMessagesInType ={
+    message: string
+}
