@@ -1,6 +1,6 @@
-.dialogs_message_in{
+.dialogs_message_out{
     padding: 5px;
-    background: gray;
+    background: honeydew;
     margin: 10px;
     border: 1px solid black;
     height: max-content;

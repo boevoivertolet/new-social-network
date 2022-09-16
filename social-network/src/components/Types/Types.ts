@@ -15,7 +15,7 @@ export type StateType = {
 }
 type DialogsPageType = {
     dialogsData: DialogsDataType[]
-    messagesData: MessagesDataType[]
+    messagesData: MessagesDataType
 }
 type ProfilePageType = {
     postsData: PostsDataType[]
@@ -34,8 +34,16 @@ export type DialogsDataType = {
     name: string
 }
 export type MessagesDataType = {
+    messagesDataIn: MessagesDataInType[]
+    messagesDataOut: MessagesDataOutType[]
+}
+export type MessagesDataInType = {
     id: string
-    message: string
+    messageIn: string
+}
+export type MessagesDataOutType = {
+    id: string
+    messageOut: string
 }
 export type PostsDataType = {
     id: string
@@ -50,8 +58,13 @@ export type NewsType = {}
 export type MusicType = {}
 export type SettingsType = {}
 export type DialogsMessagesType = {
-    message: string
+    dialogsPage: DialogsPageType
+
 }
+
+
+
+
 export type DialogsNamesType = {
     name: string
     id: string
@@ -69,6 +82,11 @@ export type PostType = {
     postsData: PostsDataType
 }
 
+
 export type DialogsMessagesInType ={
-    message: string
+    messagesIn: string
+}
+
+export type DialogsMessagesOutType ={
+    messagesOut: string
 }

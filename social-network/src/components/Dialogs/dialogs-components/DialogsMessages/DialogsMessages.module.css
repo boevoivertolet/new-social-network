@@ -1,8 +1,19 @@
 
-.dialogs_messages{
+.dialogs_messages {
     border: 1px solid black;
     height: max-content;
-
     grid-area: dm;
+
+}
+
+.dialogs_messages_left {
+    margin: 5px;
+    border: 1px solid black;
+
+}
+
+.dialogs_messages_right {
+    margin: 5px;
+    border: 1px solid black;
 
 }

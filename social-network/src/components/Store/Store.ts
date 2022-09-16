@@ -7,11 +7,16 @@ export let state: StateType = {
             {id: '2', name: 'Ulya'},
             {id: '3', name: 'Taras'}
         ],
-        messagesData: [
-            {id: '1', message: 'Hi'},
-            {id: '2', message: 'hello'},
-            {id: '3', message: 'kak dela?'}
-        ],
+        messagesData: {
+            messagesDataIn: [
+                {id: '1', messageIn: ' message'}
+
+            ],
+            messagesDataOut: [
+                {id: '4', messageOut: ' message  message '}
+
+            ],
+        }
     },
     profilePage: {
         postsData: [
