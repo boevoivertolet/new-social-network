@@ -1,4 +1,4 @@
-.dialogs_message_out{
+.dialogs_message_out {
     padding: 5px;
     background: honeydew;
     margin: 10px;
@@ -7,5 +7,11 @@
     width: max-content;
     text-align: center;
 
+}
+
+.avatar {
+    width: 70px;
+    height: 40px;
+    border: 1px solid black;
 }
 

@@ -13,6 +13,7 @@
 }
 
 .dialogs_messages_right {
+    float: right;
     margin: 5px;
     border: 1px solid black;
 

@@ -32,6 +32,7 @@ export type AppType = {
 export type DialogsDataType = {
     id: string
     name: string
+    ava: string
 }
 export type MessagesDataType = {
     messagesDataIn: MessagesDataInType[]
@@ -40,6 +41,7 @@ export type MessagesDataType = {
 export type MessagesDataInType = {
     id: string
     messageIn: string
+    ava: string
 }
 export type MessagesDataOutType = {
     id: string
@@ -68,6 +70,7 @@ export type DialogsMessagesType = {
 export type DialogsNamesType = {
     name: string
     id: string
+    ava:string
 }
 export type DialogsHeaderType = {
     title: string
@@ -85,8 +88,10 @@ export type PostType = {
 
 export type DialogsMessagesInType ={
     messagesIn: string
+    ava: string
 }
 
 export type DialogsMessagesOutType ={
     messagesOut: string
+
 }

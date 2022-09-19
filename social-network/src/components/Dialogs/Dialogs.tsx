@@ -9,7 +9,7 @@ import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 export const Dialogs = (props: DialogsType) => {
 
     let dialogName = props.dialogsPage.dialogsData.map(dialog => <DialogsNames key={dialog.id} name={dialog.name}
-                                                                               id={dialog.id}/>);
+                                                                               id={dialog.id} ava={dialog.ava}/>);
 
     // let dialogMessageIn = props.dialogsPage.messagesData.messagesDataIn.map(m => <DialogsMessages
     //     key={m.id} messages={m.messageIn}/>);

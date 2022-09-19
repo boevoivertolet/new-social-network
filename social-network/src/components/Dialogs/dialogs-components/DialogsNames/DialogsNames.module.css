@@ -1,11 +1,12 @@
-.dialogs_names{
+.dialogs_names {
     border: 1px solid black;
     height: max-content;
     padding: 5px;
 
 
 }
-.dialogs_name{
+
+.dialogs_name {
     padding: 5px;
     background: gray;
     margin-top: 13px;
@@ -14,7 +15,8 @@
     grid-area: dn;
 
 }
-.dialogs_name a{
+
+.dialogs_name a {
     text-decoration: none;
     color: bisque;
     font-size: 13px;
@@ -27,8 +29,16 @@
 .dialogs_name a:active {
     color: indianred;
 }
-.dialogs_name .active{
+
+.dialogs_name .active {
     color: red;
 }
+
+.avatar {
+    margin: 5px;
+    width: 50px;
+    border: 1px solid black;
+}
+
 
 
