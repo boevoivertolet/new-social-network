@@ -51,6 +51,7 @@ export type PostsDataType = {
     id: string
     message: string
     likesCount: string
+    ava:string
 }
 export type DialogsType = {
     dialogsPage: DialogsPageType
@@ -94,4 +95,13 @@ export type DialogsMessagesInType ={
 export type DialogsMessagesOutType ={
     messagesOut: string
 
+}
+export type AvatarDescriptionType={
+    ava: string
+}
+export type ImgType={
+    ava: string
+}
+export type PostAvatarType={
+    ava: string
 }

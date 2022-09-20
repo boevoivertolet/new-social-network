@@ -10,7 +10,7 @@ import {ProfileType} from '../Types/Types';
 export const Profile = (props: ProfileType) => {
     return <div className={styles.profile}>
         <WallImg/>
-        <AvatarDescription/>
+        <AvatarDescription ava={props.postsData[0].ava}/>
         <PostsHeader/>
         <NewPosts/>
         <MainContent postsData={props.postsData}/>

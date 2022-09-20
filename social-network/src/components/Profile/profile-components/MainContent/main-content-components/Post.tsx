@@ -9,7 +9,7 @@ import {PostType} from '../../../../Types/Types';
 
 export const Post = (props: PostType) => {
     return <div className={styles.post}>
-        <PostAvatar/>
+        <PostAvatar ava={props.postsData.ava}/>
         <PostMessage postMessage={props.postsData.message }/>
         <div className={styles.button_likes_count}>
             <Button title={'like'}/>
