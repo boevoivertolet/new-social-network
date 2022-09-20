@@ -5,7 +5,10 @@
     grid-template-columns: 300px 10fr;
     grid-template-areas:
     "dn dm"
-    "dn dm ";
+    "dn tx  ";
     grid-gap: 10px;
 
+}
+.textarea{
+    grid-area: tx;
 }

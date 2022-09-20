@@ -6,5 +6,9 @@ import {ButtonType} from '../Types/Types';
 
 
 export const Button = (props: ButtonType) => {
-    return <span className={styles.button}>{props.title}</span>
+
+    const onClickHAndler = ()=> {alert(props.title)}
+
+
+    return <span className={styles.button} onClick={onClickHAndler}>{props.title}</span>
 }
