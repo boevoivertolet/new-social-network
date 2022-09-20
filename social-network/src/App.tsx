@@ -15,7 +15,7 @@ function App(props: AppType) {
 
             <div className={styles.appWrapper}>
                 <Header/>
-                <Navbar/>
+                <Navbar sidebar={props.state.sidebar}/>
                 <div className={styles.content}>
                     <Routes>
                         <Route path="/profile" element={<Profile postsData={props.state.profilePage.postsData}/>}/>

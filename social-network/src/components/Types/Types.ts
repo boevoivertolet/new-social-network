@@ -12,6 +12,7 @@ export type PostLikesCountType = {
 export type StateType = {
     dialogsPage: DialogsPageType
     profilePage: ProfilePageType
+    sidebar: SidebarType
 }
 type DialogsPageType = {
     dialogsData: DialogsDataType[]
@@ -22,11 +23,11 @@ type ProfilePageType = {
 }
 
 
+
 export type AppType = {
     state: StateType
 
 }
-
 
 
 export type DialogsDataType = {
@@ -51,7 +52,7 @@ export type PostsDataType = {
     id: string
     message: string
     likesCount: string
-    ava:string
+    ava: string
 }
 export type DialogsType = {
     dialogsPage: DialogsPageType
@@ -66,12 +67,10 @@ export type DialogsMessagesType = {
 }
 
 
-
-
 export type DialogsNamesType = {
     name: string
     id: string
-    ava:string
+    ava: string
 }
 export type DialogsHeaderType = {
     title: string
@@ -87,21 +86,39 @@ export type PostType = {
 }
 
 
-export type DialogsMessagesInType ={
+export type DialogsMessagesInType = {
     messagesIn: string
     ava: string
 }
 
-export type DialogsMessagesOutType ={
+export type DialogsMessagesOutType = {
     messagesOut: string
 
 }
-export type AvatarDescriptionType={
+export type AvatarDescriptionType = {
     ava: string
 }
-export type ImgType={
+export type ImgType = {
     ava: string
 }
-export type PostAvatarType={
+export type PostAvatarType = {
     ava: string
+}
+export type NavbarType = {
+   sidebar: SidebarType
+}
+
+
+export type SidebarType = {
+    peoples: PeoplesType[]
+}
+export type AvatarsType={
+    id: string
+    name: string
+    link: string
+}
+export type PeoplesType ={
+    id: string
+    name: string
+    link: string
 }

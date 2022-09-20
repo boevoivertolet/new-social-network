@@ -49,17 +49,23 @@
     width: max-content;
 }
 .sidebar_names{
-    font-size: 12px;
+
     display: flex;
 }
 .sidebar_name{
     margin: 3px;
     border: 1px solid black;
+    font-size: 12px;
+    padding: 3px;
+
 }
 .sidebar_name_img{
-    width: 40px;
+    height: 30px;
+    margin: 3px;
+    width: 30px;
     border: 1px solid black;
 }
+
 
 
 
