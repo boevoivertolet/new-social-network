@@ -4,5 +4,6 @@
     border: 1px solid black;
 }
 .newPosts  textarea{
+    display: inline;
     margin: 5px;
 }

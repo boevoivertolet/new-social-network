@@ -10,5 +10,6 @@
 
 }
 .textarea{
+    display: inline;
     grid-area: tx;
 }

@@ -1,4 +1,5 @@
 import {AvatarsType, StateType} from '../Types/Types';
+import {v1} from 'uuid';
 
 
 let avatars: AvatarsType[] = [
@@ -94,5 +95,8 @@ export let state: StateType = {
 
 }
 
-
+export const addPost = (postMessage: string) => {
+    let newPost = {id: v1(), message: postMessage, likesCount: '0', ava: avatars[3].link}
+    state.profilePage.postsData.push(newPost);
+}
 

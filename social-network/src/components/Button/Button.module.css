@@ -2,7 +2,7 @@
     border: 1px solid black;
     background: cornflowerblue;
     border-radius: 5px;
-    margin: 15px;
+    margin: 5px;
     padding: 3px;
     grid-area: button;
     width: max-content;

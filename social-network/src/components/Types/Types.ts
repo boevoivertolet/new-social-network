@@ -1,5 +1,8 @@
+import {addPost} from '../Store/Store';
+
 export type ButtonType = {
     title: string
+
 }
 export type PostMessageType = {
     postMessage: string
@@ -23,9 +26,9 @@ type ProfilePageType = {
 }
 
 
-
 export type AppType = {
     state: StateType
+    addPost:(postMessage: string)=>void
 
 }
 
@@ -57,6 +60,7 @@ export type PostsDataType = {
 export type DialogsType = {
     dialogsPage: DialogsPageType
 
+
 }
 export type NewsType = {}
 export type MusicType = {}
@@ -77,12 +81,16 @@ export type DialogsHeaderType = {
 }
 export type ProfileType = {
     postsData: PostsDataType[]
+    addPost:(postMessage: string)=> void
+
 }
 export type MainContentType = {
     postsData: PostsDataType[]
+
 }
 export type PostType = {
     postsData: PostsDataType
+
 }
 
 
@@ -105,20 +113,23 @@ export type PostAvatarType = {
     ava: string
 }
 export type NavbarType = {
-   sidebar: SidebarType
+    sidebar: SidebarType
 }
 
 
 export type SidebarType = {
     peoples: PeoplesType[]
 }
-export type AvatarsType={
+export type AvatarsType = {
     id: string
     name: string
     link: string
 }
-export type PeoplesType ={
+export type PeoplesType = {
     id: string
     name: string
     link: string
+}
+export type NewPostType={
+
 }

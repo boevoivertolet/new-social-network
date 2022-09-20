@@ -12,8 +12,8 @@ export const Profile = (props: ProfileType) => {
         <WallImg/>
         <AvatarDescription ava={props.postsData[0].ava}/>
         <PostsHeader/>
-        <NewPosts/>
-        <MainContent postsData={props.postsData}/>
+        <NewPosts />
+        <MainContent  postsData={props.postsData}/>
     </div>
 
 

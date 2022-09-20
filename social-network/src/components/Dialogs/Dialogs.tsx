@@ -5,12 +5,16 @@ import {DialogsMessages} from './dialogs-components/DialogsMessages/DialogsMessa
 import {DialogsNames} from './dialogs-components/DialogsNames/DialogsNames';
 import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 import {UniversalTextarea} from '../Profile/profile-components/NewPosts/newpost-components/UniversalTextarea';
+import {Button} from '../Button/Button';
 
 
 export const Dialogs = (props: DialogsType) => {
 
     let dialogName = props.dialogsPage.dialogsData.map(dialog => <DialogsNames key={dialog.id} name={dialog.name}
                                                                                id={dialog.id} ava={dialog.ava}/>);
+
+
+
 
 
     return <div className={styles.dialogs}>
@@ -26,7 +30,8 @@ export const Dialogs = (props: DialogsType) => {
         </div>
         <div className={styles.textarea}>
 
-                <UniversalTextarea/>
+            <UniversalTextarea/>
+            <Button  title={'send'}/>
 
         </div>
 
