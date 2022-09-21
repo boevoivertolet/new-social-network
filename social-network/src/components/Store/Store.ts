@@ -2,6 +2,17 @@ import {AvatarsType, StateType} from '../Types/Types';
 import {v1} from 'uuid';
 
 
+let rerenderEntireTree = (state: StateType) => {
+    console.log('state was changed')
+}
+
+export const subscribe = (observer: any) => {
+    rerenderEntireTree = observer
+}
+
+
+
+
 let avatars: AvatarsType[] = [
     {
         id: '0',
@@ -95,8 +106,13 @@ export let state: StateType = {
 
 }
 
-export const addPost = (postMessage: string) => {
-    let newPost = {id: v1(), message: postMessage, likesCount: '0', ava: avatars[3].link}
+
+export const addPost = (textareaMessage: string) => {
+    let newPost = {id: v1(), message: textareaMessage, likesCount: '0', ava: avatars[3].link}
     state.profilePage.postsData.push(newPost);
+    console.log(state.profilePage.postsData)
+    rerenderEntireTree(state);
 }
+
+
 

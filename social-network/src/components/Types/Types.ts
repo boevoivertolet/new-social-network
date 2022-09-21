@@ -1,7 +1,11 @@
 import {addPost} from '../Store/Store';
+import {ChangeEvent} from 'react';
 
 export type ButtonType = {
     title: string
+    callBack: () => void
+
+
 
 }
 export type PostMessageType = {
@@ -28,7 +32,7 @@ type ProfilePageType = {
 
 export type AppType = {
     state: StateType
-    addPost:(postMessage: string)=>void
+    addPost: (postMessage: string) => void
 
 }
 
@@ -81,7 +85,7 @@ export type DialogsHeaderType = {
 }
 export type ProfileType = {
     postsData: PostsDataType[]
-    addPost:(postMessage: string)=> void
+    addPost: (postMessage: string) => void
 
 }
 export type MainContentType = {
@@ -130,6 +134,12 @@ export type PeoplesType = {
     name: string
     link: string
 }
-export type NewPostType={
+export type NewPostType = {
+    addPost: (postMessage: string) => void
+}
+export type UniversalTextareaType = {
+    onChange:(textareaMessage: string)=> void
+    textareaMessage: string
+
 
 }

@@ -30,8 +30,8 @@ export const Dialogs = (props: DialogsType) => {
         </div>
         <div className={styles.textarea}>
 
-            <UniversalTextarea/>
-            <Button  title={'send'}/>
+            {/*<UniversalTextarea  />*/}
+            {/*<Button   title={'send'}/>*/}
 
         </div>
 

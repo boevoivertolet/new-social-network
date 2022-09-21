@@ -4,18 +4,31 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import {addPost, state} from './components/Store/Store';
+import {addPost, state, subscribe} from './components/Store/Store';
+import {StateType} from './components/Types/Types';
+
+
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
-root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <App state={state} addPost={addPost} />
-        </BrowserRouter>
-    </React.StrictMode>
-);
+
+const rerenderEntireTree = (state: StateType) => {
+    root.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App state={state} addPost={addPost}/>
+            </BrowserRouter>
+        </React.StrictMode>
+    );
+}
+
+rerenderEntireTree(state);
+subscribe(rerenderEntireTree);
+
+
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

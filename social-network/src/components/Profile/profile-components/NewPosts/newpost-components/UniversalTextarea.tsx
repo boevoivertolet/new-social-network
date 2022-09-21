@@ -1,14 +1,18 @@
 import React, {ChangeEvent, useState} from 'react';
 import styles from './UniversalTextarea.module.css'
+import {UniversalTextareaType} from '../../../../Types/Types';
 
-export const UniversalTextarea = () => {
-    let [postMessage, setPostMessage] = useState('')
+export const UniversalTextarea = (props: UniversalTextareaType) => {
 
-    const onChangeHandler = (e:ChangeEvent<HTMLTextAreaElement>) => {
-      let text = e.currentTarget.value
-        setPostMessage(text);
+
+
+
+    const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        props.onChange(event.currentTarget.value)
+
 
     }
 
-    return <textarea className={styles.textarea} onChange={onChangeHandler}></textarea>
+
+    return <textarea value={props.textareaMessage} className={styles.textarea} onChange={onChangeHandler}></textarea>
 }
