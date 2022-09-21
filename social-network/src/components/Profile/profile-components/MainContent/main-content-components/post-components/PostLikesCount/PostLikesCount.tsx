@@ -6,5 +6,6 @@ import {PostLikesCountType} from '../../../../../../Types/Types';
 
 
 export const PostLikesCount = (props:PostLikesCountType) => {
+
     return <span className={styles.likes_count}>{props.likesCount}</span>
 }

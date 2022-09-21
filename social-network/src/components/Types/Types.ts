@@ -1,5 +1,5 @@
-import {addPost} from '../Store/Store';
-import {ChangeEvent} from 'react';
+import {likesCounter} from '../Store/Store';
+
 
 export type ButtonType = {
     title: string
@@ -12,7 +12,8 @@ export type PostMessageType = {
     postMessage: string
 }
 export type PostLikesCountType = {
-    likesCount: string
+    likesCount: number
+
 }
 
 
@@ -33,6 +34,7 @@ type ProfilePageType = {
 export type AppType = {
     state: StateType
     addPost: (postMessage: string) => void
+    likesCounter:()=> void
 
 }
 
@@ -58,7 +60,7 @@ export type MessagesDataOutType = {
 export type PostsDataType = {
     id: string
     message: string
-    likesCount: string
+    likesCount: number
     ava: string
 }
 export type DialogsType = {
@@ -86,14 +88,18 @@ export type DialogsHeaderType = {
 export type ProfileType = {
     postsData: PostsDataType[]
     addPost: (postMessage: string) => void
+    likesCounter:()=> void
 
 }
 export type MainContentType = {
     postsData: PostsDataType[]
+    likesCounter:()=> void
 
 }
 export type PostType = {
     postsData: PostsDataType
+    likesCounter:()=> void
+
 
 }
 

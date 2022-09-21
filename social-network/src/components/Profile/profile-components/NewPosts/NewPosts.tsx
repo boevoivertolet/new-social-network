@@ -14,7 +14,6 @@ export const NewPosts = (props: NewPostType) => {
     }
 
     const addPost = () => {
-
         props.addPost(textareaMessage)
     }
 

@@ -11,8 +11,6 @@ export const subscribe = (observer: any) => {
 }
 
 
-
-
 let avatars: AvatarsType[] = [
     {
         id: '0',
@@ -70,10 +68,7 @@ export let state: StateType = {
     },
     profilePage: {
         postsData: [
-            {id: '1', message: 'mes1', likesCount: '1', ava: avatars[3].link},
-            {id: '2', message: 'mes2', likesCount: '2', ava: avatars[3].link},
-            {id: '3', message: 'mes3', likesCount: '3', ava: avatars[3].link},
-            {id: '4', message: 'mes4', likesCount: '4', ava: avatars[3].link}
+            {id: '1', message: 'mes', likesCount: 0, ava: avatars[3].link},
         ]
     },
     sidebar: {
@@ -108,9 +103,13 @@ export let state: StateType = {
 
 
 export const addPost = (textareaMessage: string) => {
-    let newPost = {id: v1(), message: textareaMessage, likesCount: '0', ava: avatars[3].link}
+    let newPost = {id: v1(), message: textareaMessage, likesCount: 0, ava: avatars[3].link}
     state.profilePage.postsData.push(newPost);
     console.log(state.profilePage.postsData)
+    rerenderEntireTree(state);
+}
+export const likesCounter = () => {
+    state.profilePage.postsData[0].likesCount = state.profilePage.postsData[0].likesCount + 1
     rerenderEntireTree(state);
 }
 

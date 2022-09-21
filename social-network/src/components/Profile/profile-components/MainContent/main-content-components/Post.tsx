@@ -12,8 +12,8 @@ export const Post = (props: PostType) => {
         <PostAvatar ava={props.postsData.ava}/>
         <PostMessage postMessage={props.postsData.message }/>
         <div className={styles.button_likes_count}>
-            {/*<Button title={'like'}/>*/}
-            <PostLikesCount likesCount={props.postsData.likesCount}/>
+            <Button callBack={props.likesCounter} title={'like'}/>
+            <PostLikesCount  likesCount={props.postsData.likesCount}/>
         </div>
 
     </div>
