@@ -1,10 +1,9 @@
-import {likesCounter} from '../Store/Store';
+import {addMessage, likesCounter, updateNewMessageText, updateNewPostText} from '../Store/Store';
 
 
 export type ButtonType = {
     title: string
     callBack: () => void
-
 
 
 }
@@ -25,16 +24,21 @@ export type StateType = {
 type DialogsPageType = {
     dialogsData: DialogsDataType[]
     messagesData: MessagesDataType
+    newPostText: string
 }
 type ProfilePageType = {
     postsData: PostsDataType[]
+    newPostText:string
 }
 
 
 export type AppType = {
     state: StateType
     addPost: (postMessage: string) => void
-    likesCounter:()=> void
+    addMessage: (postMessage: string) => void
+    likesCounter: () => void
+    updateNewPostText:(newText:string)=> void
+    updateNewMessageText:(newText:string)=> void
 
 }
 
@@ -58,13 +62,16 @@ export type MessagesDataOutType = {
     messageOut: string
 }
 export type PostsDataType = {
-    id: string
+    postId: string
     message: string
     likesCount: number
     ava: string
 }
 export type DialogsType = {
     dialogsPage: DialogsPageType
+    updateNewMessageText:(newPostTex:string)=> void
+    newPostText:string
+    addMessage: (postMessage: string) => void
 
 
 }
@@ -88,17 +95,20 @@ export type DialogsHeaderType = {
 export type ProfileType = {
     postsData: PostsDataType[]
     addPost: (postMessage: string) => void
-    likesCounter:()=> void
+    likesCounter: () => void
+    updateNewPostText:(newPostTex:string)=> void
+    newPostText:string
+
 
 }
 export type MainContentType = {
     postsData: PostsDataType[]
-    likesCounter:()=> void
+    likesCounter: () => void
 
 }
 export type PostType = {
     postsData: PostsDataType
-    likesCounter:()=> void
+    likesCounter: () => void
 
 
 }
@@ -142,10 +152,13 @@ export type PeoplesType = {
 }
 export type NewPostType = {
     addPost: (postMessage: string) => void
+    updateNewPostText:(newPostTex:string)=> void
+    newPostText:string
+
 }
 export type UniversalTextareaType = {
-    onChange:(textareaMessage: string)=> void
-    textareaMessage: string
+    onChange: (textareaMessage: string) => void
+    newPostText: string
 
 
 }

@@ -2,6 +2,7 @@ import {AvatarsType, StateType} from '../Types/Types';
 import {v1} from 'uuid';
 
 
+
 let rerenderEntireTree = (state: StateType) => {
     console.log('state was changed')
 }
@@ -64,12 +65,14 @@ export let state: StateType = {
                 {id: avatars[3].id, messageOut: ' message  message '}
 
             ],
-        }
+        },
+        newPostText: ''
     },
     profilePage: {
         postsData: [
-            {id: '1', message: 'mes', likesCount: 0, ava: avatars[3].link},
-        ]
+            {postId: v1(), message: 'mes', likesCount: 0, ava: avatars[3].link},
+        ],
+        newPostText: ''
     },
     sidebar: {
         peoples: [
@@ -103,9 +106,13 @@ export let state: StateType = {
 
 
 export const addPost = (textareaMessage: string) => {
-    let newPost = {id: v1(), message: textareaMessage, likesCount: 0, ava: avatars[3].link}
+    let newPost = {postId: v1(), message: textareaMessage, likesCount: 0, ava: avatars[3].link}
     state.profilePage.postsData.push(newPost);
-    console.log(state.profilePage.postsData)
+    rerenderEntireTree(state);
+}
+export const addMessage = (textareaMessage: string) => {
+    let newMessage = {id: v1(), messageOut: textareaMessage}
+    state.dialogsPage.messagesData.messagesDataOut.push(newMessage);
     rerenderEntireTree(state);
 }
 export const likesCounter = () => {
@@ -113,5 +120,14 @@ export const likesCounter = () => {
     rerenderEntireTree(state);
 }
 
+export const updateNewPostText = (newPostText: string) => {
+    state.profilePage.newPostText = newPostText
+    rerenderEntireTree(state);
 
+}
+export const updateNewMessageText = (newPostText: string) => {
+    state.dialogsPage.newPostText = newPostText
+    rerenderEntireTree(state);
+
+}
 

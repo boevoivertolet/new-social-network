@@ -7,7 +7,7 @@ import {MainContentType} from '../../../Types/Types';
 
 export const MainContent = (props: MainContentType) => {
 
-    let post = props.postsData.map(p => <Post key={p.id} likesCounter={props.likesCounter}  postsData={p}/>);
+    let post = props.postsData.map(p => <Post key={p.postId} likesCounter={props.likesCounter}  postsData={p}/>);
 
 
     return <div className={styles.mainContent}>

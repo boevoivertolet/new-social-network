@@ -8,6 +8,9 @@ import {PostType} from '../../../../Types/Types';
 
 
 export const Post = (props: PostType) => {
+
+
+
     return <div className={styles.post}>
         <PostAvatar ava={props.postsData.ava}/>
         <PostMessage postMessage={props.postsData.message }/>

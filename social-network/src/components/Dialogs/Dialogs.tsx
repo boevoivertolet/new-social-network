@@ -4,11 +4,18 @@ import styles from './Dialogs.module.css'
 import {DialogsMessages} from './dialogs-components/DialogsMessages/DialogsMessages';
 import {DialogsNames} from './dialogs-components/DialogsNames/DialogsNames';
 import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
-import {UniversalTextarea} from '../Profile/profile-components/NewPosts/newpost-components/UniversalTextarea';
+import {UniversalTextarea} from '../UniversalTextarea/UniversalTextarea';
 import {Button} from '../Button/Button';
 
 
+
 export const Dialogs = (props: DialogsType) => {
+    const addMessage = () => {
+        props.addMessage(props.newPostText)
+
+    }
+
+
 
     let dialogName = props.dialogsPage.dialogsData.map(dialog => <DialogsNames key={dialog.id} name={dialog.name}
                                                                                id={dialog.id} ava={dialog.ava}/>);
@@ -30,8 +37,8 @@ export const Dialogs = (props: DialogsType) => {
         </div>
         <div className={styles.textarea}>
 
-            {/*<UniversalTextarea  />*/}
-            {/*<Button   title={'send'}/>*/}
+            <UniversalTextarea newPostText={props.newPostText} onChange={props.updateNewMessageText} />
+            <Button callBack={addMessage}  title={'send'}/>
 
         </div>
 
