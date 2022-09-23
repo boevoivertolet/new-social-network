@@ -16,6 +16,20 @@ export type PostLikesCountType = {
 }
 
 
+export type StoreType ={
+    _state:StateType
+    getState: ()=> StateType
+    addPost: ()=> void
+    addMessage: ()=> void
+    rerenderEntireTree:(state: StateType)=> void
+    updateNewPostText:(newPostText: string)=> void
+    updateNewMessageText:(newPostText: string)=> void
+    likesCounter:()=> void
+    subscribe:(observer: any)=> void
+
+}
+
+
 export type StateType = {
     dialogsPage: DialogsPageType
     profilePage: ProfilePageType
