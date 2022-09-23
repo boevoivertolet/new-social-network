@@ -10,6 +10,7 @@ export const NewPosts = (props: NewPostType) => {
 
     const addPost = () => {
         props.addPost(props.newPostText)
+        props.updateNewPostText('')
     }
 
     return <div className={styles.newPosts}>

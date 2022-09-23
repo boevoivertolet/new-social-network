@@ -10,6 +10,7 @@ export const UniversalTextarea = (props: UniversalTextareaType) => {
     const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
         props.onChange(event.currentTarget.value)
 
+
     }
 
 

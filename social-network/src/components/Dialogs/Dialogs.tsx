@@ -12,6 +12,7 @@ import {Button} from '../Button/Button';
 export const Dialogs = (props: DialogsType) => {
     const addMessage = () => {
         props.addMessage(props.newPostText)
+        props.updateNewMessageText('')
 
     }
 
