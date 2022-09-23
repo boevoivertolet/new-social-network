@@ -34,8 +34,8 @@ type ProfilePageType = {
 
 export type AppType = {
     state: StateType
-    addPost: (postMessage: string) => void
-    addMessage: (postMessage: string) => void
+    addPost: () => void
+    addMessage: () => void
     likesCounter: () => void
     updateNewPostText:(newText:string)=> void
     updateNewMessageText:(newText:string)=> void
@@ -94,7 +94,7 @@ export type DialogsHeaderType = {
 }
 export type ProfileType = {
     postsData: PostsDataType[]
-    addPost: (postMessage: string) => void
+    addPost: () => void
     likesCounter: () => void
     updateNewPostText:(newPostTex:string)=> void
     newPostText:string

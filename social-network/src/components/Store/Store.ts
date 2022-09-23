@@ -37,6 +37,8 @@ let avatars: AvatarsType[] = [
 ]
 
 
+
+
 export let state: StateType = {
     dialogsPage: {
         dialogsData: [
@@ -105,13 +107,13 @@ export let state: StateType = {
 }
 
 
-export const addPost = (textareaMessage: string) => {
-    let newPost = {postId: v1(), message: textareaMessage, likesCount: 0, ava: avatars[3].link}
+export const addPost = () => {
+    let newPost = {postId: v1(), message: state.profilePage.newPostText, likesCount: 0, ava: avatars[3].link}
     state.profilePage.postsData.push(newPost);
     rerenderEntireTree(state);
 }
-export const addMessage = (textareaMessage: string) => {
-    let newMessage = {id: v1(), messageOut: textareaMessage}
+export const addMessage = () => {
+    let newMessage = {id: v1(), messageOut: state.dialogsPage.newPostText}
     state.dialogsPage.messagesData.messagesDataOut.push(newMessage);
     rerenderEntireTree(state);
 }
