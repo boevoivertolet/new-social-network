@@ -109,17 +109,21 @@ export let state: StateType = {
 
 export const addPost = () => {
     let newPost = {postId: v1(), message: state.profilePage.newPostText, likesCount: 0, ava: avatars[3].link}
-    state.profilePage.postsData.push(newPost);
-    rerenderEntireTree(state);
+    if (state.profilePage.newPostText){
+        state.profilePage.postsData.unshift(newPost);
+        state.profilePage.newPostText = ''
+        rerenderEntireTree(state);
+    }
+
 }
 export const addMessage = () => {
     let newMessage = {id: v1(), messageOut: state.dialogsPage.newPostText}
-    state.dialogsPage.messagesData.messagesDataOut.push(newMessage);
-    rerenderEntireTree(state);
-}
-export const likesCounter = () => {
-    state.profilePage.postsData[0].likesCount = state.profilePage.postsData[0].likesCount + 1
-    rerenderEntireTree(state);
+    if (state.dialogsPage.newPostText){
+        state.dialogsPage.messagesData.messagesDataOut.push(newMessage);
+        state.dialogsPage.newPostText = ''
+        rerenderEntireTree(state);
+    }
+
 }
 
 export const updateNewPostText = (newPostText: string) => {
@@ -131,5 +135,9 @@ export const updateNewMessageText = (newPostText: string) => {
     state.dialogsPage.newPostText = newPostText
     rerenderEntireTree(state);
 
+}
+export const likesCounter = () => {
+    state.profilePage.postsData[0].likesCount = state.profilePage.postsData[0].likesCount + 1
+    rerenderEntireTree(state);
 }
 

@@ -1,4 +1,4 @@
-import {addMessage, likesCounter, updateNewMessageText, updateNewPostText} from '../Store/Store';
+import {addMessage, likesCounter, updateNewMessageText, updateNewPostText} from '../State/State';
 
 
 export type ButtonType = {

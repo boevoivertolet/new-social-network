@@ -12,7 +12,7 @@ import {
     subscribe,
     updateNewMessageText,
     updateNewPostText
-} from './components/Store/Store';
+} from './components/State/State';
 import {StateType} from './components/Types/Types';
 
 

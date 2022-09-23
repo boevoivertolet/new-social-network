@@ -9,7 +9,7 @@ import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
 import {AppType} from './components/Types/Types';
-import {addMessage} from './components/Store/Store';
+import {addMessage} from './components/State/State';
 
 function App(props: AppType) {
     return (
