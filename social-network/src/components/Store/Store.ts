@@ -1,30 +1,6 @@
-import {AvatarsType, StoreType} from '../Types/Types';
+import {StoreType} from '../Types/Types';
 import {v1} from 'uuid';
-
-
-let avatars: AvatarsType[] = [
-    {
-        id: '0',
-        name: 'Galina',
-        link: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwZB-Q5UBGWl2XWzsnMC1vL-MqsVaJok23UFBt79PT2IpZjrAI-yPMb-02qBAp79jJcBw&usqp=CAU'
-    },
-    {
-        id: '1',
-        name: 'Ulya',
-        link: 'https://n1s1.hsmedia.ru/85/64/3f/85643f2e03be52b0bc00cb0f60b12f31/728x546_1_76d11b54618da2bff71c051801a697db@1441x1081_0xac120003_18866572441655464119.jpeg'
-    },
-    {
-        id: '2',
-        name: 'Taras',
-        link: 'https://cdnstatic.rg.ru/uploads/images/gallery/84f24d10/19_b6265e7a.jpg'
-    },
-    {
-        id: '3',
-        name: 'Alexander',
-        link: 'https://img01.rl0.ru/afisha/e1200x600i/daily.afisha.ru/uploads/images/2/f2/2f23c421db983f28be0a4d9e84fe1d3d.png'
-    }
-
-]
+import {avatars} from './Avatars';
 
 
 export let store: StoreType = {
@@ -68,24 +44,24 @@ export let store: StoreType = {
         sidebar: {
             peoples: [
                 {
-                    id: '0',
-                    name: 'Galina',
-                    link: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwZB-Q5UBGWl2XWzsnMC1vL-MqsVaJok23UFBt79PT2IpZjrAI-yPMb-02qBAp79jJcBw&usqp=CAU'
+                    id: avatars[0].id,
+                    name: avatars[0].name,
+                    link: avatars[0].link
                 },
                 {
-                    id: '1',
-                    name: 'Ulya',
-                    link: 'https://n1s1.hsmedia.ru/85/64/3f/85643f2e03be52b0bc00cb0f60b12f31/728x546_1_76d11b54618da2bff71c051801a697db@1441x1081_0xac120003_18866572441655464119.jpeg'
+                    id: avatars[1].id,
+                    name: avatars[1].name,
+                    link: avatars[1].link
                 },
                 {
-                    id: '2',
-                    name: 'Taras',
-                    link: 'https://cdnstatic.rg.ru/uploads/images/gallery/84f24d10/19_b6265e7a.jpg'
+                    id: avatars[2].id,
+                    name: avatars[2].name,
+                    link: avatars[2].link
                 },
                 {
-                    id: '3',
-                    name: 'Alexander',
-                    link: 'https://img01.rl0.ru/afisha/e1200x600i/daily.afisha.ru/uploads/images/2/f2/2f23c421db983f28be0a4d9e84fe1d3d.png'
+                    id: avatars[3].id,
+                    name: avatars[3].name,
+                    link: avatars[3].link
                 }
 
             ]
