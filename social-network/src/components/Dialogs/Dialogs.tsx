@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {DialogsType} from '../Types/Types';
 import styles from './Dialogs.module.css'
 import {DialogsMessages} from './dialogs-components/DialogsMessages/DialogsMessages';
@@ -11,7 +11,12 @@ import {Button} from '../Button/Button';
 
 export const Dialogs = (props: DialogsType) => {
     const addMessage = () => {
-        props.store.addMessage()
+        props.store.dispatch({type:'ADD-MESSAGE'})
+    }
+
+    const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        props.store.dispatch({type:'UPDATE-NEW-MESSAGE-TEXT',newPostText: event.currentTarget.value})
+
     }
 
 
@@ -36,7 +41,7 @@ export const Dialogs = (props: DialogsType) => {
         </div>
         <div className={styles.textarea}>
 
-            <UniversalTextarea newPostText={props.store.getState().dialogsPage.newPostText} onChange={props.store.updateNewMessageText.bind(props.store)} />
+            <UniversalTextarea newPostText={props.store.getState().dialogsPage.newPostText} onChangeHandler={onChangeHandler.bind(props.store)} />
             <Button callBack={addMessage}  title={'send'}/>
 
         </div>

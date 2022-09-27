@@ -7,12 +7,11 @@ export const UniversalTextarea = (props: UniversalTextareaType) => {
 
 
 
-    const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        props.onChange(event.currentTarget.value)
+    // const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    //     props.dispatch({type:'UPDATE-NEW-POST-TEXT',newPostText: event.currentTarget.value})
+    //
+    // }
 
 
-    }
-
-
-    return <textarea value={props.newPostText} className={styles.textarea} onChange={onChangeHandler}></textarea>
+    return <textarea value={props.newPostText} className={styles.textarea} onChange={props.onChangeHandler}></textarea>
 }

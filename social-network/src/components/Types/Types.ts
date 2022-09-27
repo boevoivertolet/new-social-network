@@ -1,4 +1,5 @@
 import {addMessage, likesCounter, updateNewMessageText, updateNewPostText} from '../State/State';
+import {ChangeEvent} from 'react';
 
 
 export type ButtonType = {
@@ -21,11 +22,12 @@ export type StoreType = {
     getState: () => StateType
     addPost: () => void
     addMessage: () => void
-    rerenderEntireTree: (state: StateType) => void
+    _callSubscriber: (state: StateType) => void
     updateNewPostText: (newPostText: string) => void
     updateNewMessageText: (newPostText: string) => void
     likesCounter: () => void
     subscribe: (observer: any) => void
+    dispatch: (action: any) => void
 
 }
 
@@ -167,14 +169,14 @@ export type PeoplesType = {
     link: string
 }
 export type NewPostType = {
-    addPost: (postMessage: string) => void
-    updateNewPostText: (newPostTex: string) => void
+    dispatch: (action: object) => void
     newPostText: string
 
 }
 export type UniversalTextareaType = {
-    onChange: (textareaMessage: string) => void
-    newPostText: string
 
+    newPostText: string
+    // dispatch: (action: any) => void
+    onChangeHandler: (event: ChangeEvent<HTMLTextAreaElement>) => void
 
 }

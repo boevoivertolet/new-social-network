@@ -68,12 +68,17 @@ export let store: StoreType = {
 
         }
     },
+    _callSubscriber() {
+        console.log('state was changed')
+    },
+
     getState() {
         return this._state
     },
-    rerenderEntireTree() {
-        console.log('state was changed')
+    subscribe(observer: any) {
+        this._callSubscriber = observer
     },
+
     addPost() {
         let newPost = {
             postId: v1(),
@@ -84,7 +89,7 @@ export let store: StoreType = {
         if (this.getState().profilePage.newPostText) {
             this.getState().profilePage.postsData.unshift(newPost);
             this.getState().profilePage.newPostText = ''
-            this.rerenderEntireTree(this.getState());
+            this._callSubscriber(this.getState());
         }
 
     },
@@ -93,25 +98,56 @@ export let store: StoreType = {
         if (this.getState().dialogsPage.newPostText) {
             this.getState().dialogsPage.messagesData.messagesDataOut.push(newMessage);
             this.getState().dialogsPage.newPostText = ''
-            this.rerenderEntireTree(this.getState());
+            this._callSubscriber(this.getState());
         }
 
     },
     updateNewPostText(newPostText: string) {
         this.getState().profilePage.newPostText = newPostText
-        this.rerenderEntireTree(this.getState());
+        this._callSubscriber(this.getState());
     },
     updateNewMessageText(newPostText: string) {
         this.getState().dialogsPage.newPostText = newPostText
-        this.rerenderEntireTree(this.getState());
+        this._callSubscriber(this.getState());
 
     },
     likesCounter() {
         this.getState().profilePage.postsData[0].likesCount = this.getState().profilePage.postsData[0].likesCount + 1
-        this.rerenderEntireTree(this.getState());
+        this._callSubscriber(this.getState());
     },
-    subscribe(observer: any) {
-        this.rerenderEntireTree = observer
+    dispatch(action: any) {
+        switch (action.type) {
+            case 'ADD-POST':
+                let newPost = {
+                    postId: v1(),
+                    message: this.getState().profilePage.newPostText,
+                    likesCount: 0,
+                    ava: this.getState().sidebar.peoples[3].link
+                }
+                if (this.getState().profilePage.newPostText) {
+                    this.getState().profilePage.postsData.unshift(newPost);
+                    this.getState().profilePage.newPostText = ''
+                    this._callSubscriber(this.getState());
+                }
+                break;
+            case 'ADD-MESSAGE':
+                let newMessage = {id: v1(), messageOut: this.getState().dialogsPage.newPostText}
+                if (this.getState().dialogsPage.newPostText) {
+                    this.getState().dialogsPage.messagesData.messagesDataOut.push(newMessage);
+                    this.getState().dialogsPage.newPostText = ''
+                    this._callSubscriber(this.getState());
+                }
+                break;
+            case 'UPDATE-NEW-POST-TEXT':
+                this.getState().profilePage.newPostText = action.newPostText
+                this._callSubscriber(this.getState());
+                break;
+            case 'UPDATE-NEW-MESSAGE-TEXT':
+                this.getState().dialogsPage.newPostText = action.newPostText
+                this._callSubscriber(this.getState());
+                break;
+        }
+
     }
 }
 

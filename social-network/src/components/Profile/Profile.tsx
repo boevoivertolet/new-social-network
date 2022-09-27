@@ -12,7 +12,7 @@ export const Profile = (props: ProfileType) => {
         <WallImg/>
         <AvatarDescription ava={props.store.getState().profilePage.postsData[0].ava}/>
         <PostsHeader/>
-        <NewPosts newPostText={props.store.getState().profilePage.newPostText}  updateNewPostText={props.store.updateNewPostText.bind(props.store)}  addPost={props.store.addPost.bind(props.store)} />
+        <NewPosts newPostText={props.store.getState().profilePage.newPostText}  dispatch={props.store.dispatch.bind(props.store)} />
         <MainContent likesCounter={props.store.likesCounter.bind(props.store)}  postsData={props.store.getState().profilePage.postsData}/>
     </div>
 
