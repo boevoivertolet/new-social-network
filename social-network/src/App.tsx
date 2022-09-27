@@ -9,31 +9,23 @@ import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
 import {AppType} from './components/Types/Types';
-import {addMessage} from './components/State/State';
+
 
 function App(props: AppType) {
     return (
 
             <div className={styles.appWrapper}>
                 <Header/>
-                <Navbar sidebar={props.state.sidebar}/>
+                <Navbar sidebar={props.store.getState().sidebar}/>
                 <div className={styles.content}>
                     <Routes>
                         <Route path="/profile" element={<Profile
-                            updateNewPostText={props.updateNewPostText}
-                            likesCounter={props.likesCounter}
-                            addPost={props.addPost}
-                            postsData={props.state.profilePage.postsData}
-                            newPostText={props.state.profilePage.newPostText}
+                            store={props.store}
 
                         />}/>
 
                         <Route path="/dialogs" element={<Dialogs
-                            newPostText={props.state.dialogsPage.newPostText}
-                            addMessage={props.addMessage}
-                            updateNewMessageText={props.updateNewMessageText}
-                            dialogsPage={props.state.dialogsPage}
-
+                            store={props.store}
                         />}/>
 
                         <Route path="/news" element={<News/>}/>

@@ -16,16 +16,16 @@ export type PostLikesCountType = {
 }
 
 
-export type StoreType ={
-    _state:StateType
-    getState: ()=> StateType
-    addPost: ()=> void
-    addMessage: ()=> void
-    rerenderEntireTree:(state: StateType)=> void
-    updateNewPostText:(newPostText: string)=> void
-    updateNewMessageText:(newPostText: string)=> void
-    likesCounter:()=> void
-    subscribe:(observer: any)=> void
+export type StoreType = {
+    _state: StateType
+    getState: () => StateType
+    addPost: () => void
+    addMessage: () => void
+    rerenderEntireTree: (state: StateType) => void
+    updateNewPostText: (newPostText: string) => void
+    updateNewMessageText: (newPostText: string) => void
+    likesCounter: () => void
+    subscribe: (observer: any) => void
 
 }
 
@@ -42,17 +42,18 @@ type DialogsPageType = {
 }
 type ProfilePageType = {
     postsData: PostsDataType[]
-    newPostText:string
+    newPostText: string
 }
 
 
 export type AppType = {
-    state: StateType
-    addPost: () => void
-    addMessage: () => void
-    likesCounter: () => void
-    updateNewPostText:(newText:string)=> void
-    updateNewMessageText:(newText:string)=> void
+    // state: StateType
+    // addPost: () => void
+    // addMessage: () => void
+    // likesCounter: () => void
+    // updateNewPostText:(newText:string)=> void
+    // updateNewMessageText:(newText:string)=> void
+    store: StoreType
 
 }
 
@@ -82,10 +83,11 @@ export type PostsDataType = {
     ava: string
 }
 export type DialogsType = {
-    dialogsPage: DialogsPageType
-    updateNewMessageText:(newPostTex:string)=> void
-    newPostText:string
-    addMessage: (postMessage: string) => void
+    // dialogsPage: DialogsPageType
+    // updateNewMessageText: (newPostTex: string) => void
+    // newPostText: string
+    // addMessage: (postMessage: string) => void
+    store: StoreType
 
 
 }
@@ -107,12 +109,12 @@ export type DialogsHeaderType = {
     title: string
 }
 export type ProfileType = {
-    postsData: PostsDataType[]
-    addPost: () => void
-    likesCounter: () => void
-    updateNewPostText:(newPostTex:string)=> void
-    newPostText:string
-
+    // postsData: PostsDataType[]
+    // addPost: () => void
+    // likesCounter: () => void
+    // updateNewPostText:(newPostTex:string)=> void
+    // newPostText:string
+    store: StoreType
 
 }
 export type MainContentType = {
@@ -166,8 +168,8 @@ export type PeoplesType = {
 }
 export type NewPostType = {
     addPost: (postMessage: string) => void
-    updateNewPostText:(newPostTex:string)=> void
-    newPostText:string
+    updateNewPostText: (newPostTex: string) => void
+    newPostText: string
 
 }
 export type UniversalTextareaType = {

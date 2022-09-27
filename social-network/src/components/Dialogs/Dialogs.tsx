@@ -11,13 +11,12 @@ import {Button} from '../Button/Button';
 
 export const Dialogs = (props: DialogsType) => {
     const addMessage = () => {
-        props.addMessage(props.newPostText)
-
+        props.store.addMessage()
     }
 
 
 
-    let dialogName = props.dialogsPage.dialogsData.map(dialog => <DialogsNames key={dialog.id} name={dialog.name}
+    let dialogName = props.store.getState().dialogsPage.dialogsData.map(dialog => <DialogsNames key={dialog.id} name={dialog.name}
                                                                                id={dialog.id} ava={dialog.ava}/>);
 
 
@@ -33,11 +32,11 @@ export const Dialogs = (props: DialogsType) => {
         <div>
             <DialogsHeader title={'Messages'}/>
 
-            <DialogsMessages dialogsPage={props.dialogsPage}/>
+            <DialogsMessages dialogsPage={props.store.getState().dialogsPage}/>
         </div>
         <div className={styles.textarea}>
 
-            <UniversalTextarea newPostText={props.newPostText} onChange={props.updateNewMessageText} />
+            <UniversalTextarea newPostText={props.store.getState().dialogsPage.newPostText} onChange={props.store.updateNewMessageText.bind(props.store)} />
             <Button callBack={addMessage}  title={'send'}/>
 
         </div>

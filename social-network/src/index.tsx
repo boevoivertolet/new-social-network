@@ -4,16 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import {
-    addMessage,
-    addPost,
-    likesCounter,
-    state,
-    subscribe,
-    updateNewMessageText,
-    updateNewPostText
-} from './components/State/State';
 import {StateType} from './components/Types/Types';
+import {store} from './components/Store/Store';
 
 
 
@@ -25,14 +17,14 @@ const rerenderEntireTree = (state: StateType) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App updateNewPostText={updateNewPostText} updateNewMessageText={updateNewMessageText} likesCounter={likesCounter} state={state} addPost={addPost} addMessage={addMessage}/>
+                <App store={store}/>
             </BrowserRouter>
         </React.StrictMode>
     );
 }
 
-rerenderEntireTree(state);
-subscribe(rerenderEntireTree);
+rerenderEntireTree(store._state);
+store.subscribe(rerenderEntireTree);
 
 
 

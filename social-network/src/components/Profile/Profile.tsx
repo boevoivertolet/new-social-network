@@ -10,10 +10,10 @@ import {ProfileType} from '../Types/Types';
 export const Profile = (props: ProfileType) => {
     return <div className={styles.profile}>
         <WallImg/>
-        <AvatarDescription ava={props.postsData[0].ava}/>
+        <AvatarDescription ava={props.store.getState().profilePage.postsData[0].ava}/>
         <PostsHeader/>
-        <NewPosts newPostText={props.newPostText}  updateNewPostText={props.updateNewPostText}  addPost={props.addPost} />
-        <MainContent likesCounter={props.likesCounter}  postsData={props.postsData}/>
+        <NewPosts newPostText={props.store.getState().profilePage.newPostText}  updateNewPostText={props.store.updateNewPostText.bind(props.store)}  addPost={props.store.addPost.bind(props.store)} />
+        <MainContent likesCounter={props.store.likesCounter.bind(props.store)}  postsData={props.store.getState().profilePage.postsData}/>
     </div>
 
 
