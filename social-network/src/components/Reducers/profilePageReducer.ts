@@ -28,5 +28,9 @@ const profilePageReducer = (store: StoreType, action: ActionType) => {
     return store;
 }
 
+export const addPostAC = () => ({type: 'ADD-POST'} as const)
+export const updateNewPostTextAC = (text: string) => ({type: 'UPDATE-NEW-POST-TEXT', newPostText: text} as const)
+export const likesCounterAC = () => ({type: 'LIKES-COUNTER'} as const)
+
 export default profilePageReducer;
 

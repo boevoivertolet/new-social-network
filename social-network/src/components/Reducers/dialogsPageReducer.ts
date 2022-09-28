@@ -20,4 +20,11 @@ const dialogsPageReducer = (store: StoreType, action: ActionType) => {
 }
 
 
+export const addMessageAC = () => ({type: 'ADD-MESSAGE'} as const)
+export const updateNewMessageTextAC = (text: string) => ({
+    type: 'UPDATE-NEW-MESSAGE-TEXT',
+    newMessageText: text
+} as const)
+
+
 export default dialogsPageReducer;

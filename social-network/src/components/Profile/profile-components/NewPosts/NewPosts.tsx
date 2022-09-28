@@ -3,7 +3,7 @@ import styles from './NewPosts.module.css'
 import {Button} from '../../../Button/Button';
 import {UniversalTextarea} from '../../../UniversalTextarea/UniversalTextarea';
 import {NewPostType} from '../../../Types/Types';
-import {addPostAC, updateNewPostTextAC} from '../../../Store/Store';
+import {addPostAC, updateNewPostTextAC} from '../../../Reducers/profilePageReducer';
 
 export const NewPosts = (props: NewPostType) => {
 

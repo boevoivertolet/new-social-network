@@ -5,7 +5,7 @@ import {PostAvatar} from './post-components/PostAvatar/PostAvatar';
 import {Button} from '../../../../Button/Button';
 import {PostLikesCount} from './post-components/PostLikesCount/PostLikesCount';
 import {PostType} from '../../../../Types/Types';
-import {likesCounterAC} from '../../../../Store/Store';
+import {likesCounterAC} from '../../../../Reducers/profilePageReducer';
 
 
 export const Post = (props: PostType) => {

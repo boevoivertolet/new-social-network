@@ -6,7 +6,8 @@ import {DialogsNames} from './dialogs-components/DialogsNames/DialogsNames';
 import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 import {UniversalTextarea} from '../UniversalTextarea/UniversalTextarea';
 import {Button} from '../Button/Button';
-import {addMessageAC, updateNewMessageTextAC} from '../Store/Store';
+import {addMessageAC, updateNewMessageTextAC} from '../Reducers/dialogsPageReducer';
+
 
 
 export const Dialogs = (props: DialogsType) => {
