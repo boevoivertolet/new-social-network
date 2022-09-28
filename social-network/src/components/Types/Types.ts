@@ -32,7 +32,7 @@ export type StateType = {
     profilePage: ProfilePageType
     sidebar: SidebarType
 }
-type DialogsPageType = {
+export type DialogsPageType = {
     dialogsData: DialogsDataType[]
     messagesData: MessagesDataType
     newMessageText: string

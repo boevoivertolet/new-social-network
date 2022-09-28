@@ -1,6 +1,9 @@
-import {StoreType} from '../Types/Types';
+import {ActionType, StoreType} from '../Types/Types';
 import {v1} from 'uuid';
 import {avatars} from './Avatars';
+import profilePageReducer from '../Reducers/profilePageReducer';
+import dialogsPageReducer from '../Reducers/dialogsPageReducer';
+import sidebarReducer from '../Reducers/sidebarReducer';
 
 
 export let store: StoreType = {
@@ -79,9 +82,12 @@ export let store: StoreType = {
         this._callSubscriber = observer
     },
 
-    dispatch(action: any) {
-        switch (action.type) {
-            case 'ADD-POST':
+    dispatch(action: ActionType) {
+        profilePageReducer(this,action)
+        dialogsPageReducer(this,action)
+        sidebarReducer(this,action)
+        // switch (action.type) {
+            /*case 'ADD-POST':
                 let newPost = {
                     postId: v1(),
                     message: this.getState().profilePage.newPostText,
@@ -93,61 +99,41 @@ export let store: StoreType = {
                     this.getState().profilePage.newPostText = ''
                     this._callSubscriber(this.getState());
                 }
-                break;
-            case 'ADD-MESSAGE':
-                let newMessage = {id: v1(), messageOut: this.getState().dialogsPage.newMessageText}
-                if (this.getState().dialogsPage.newMessageText) {
-                    this.getState().dialogsPage.messagesData.messagesDataOut.push(newMessage);
-                    this.getState().dialogsPage.newMessageText = ''
-                    this._callSubscriber(this.getState());
-                }
-                break;
-            case 'UPDATE-NEW-POST-TEXT':
+                break;*/
+            /*case 'UPDATE-NEW-POST-TEXT':
                 this.getState().profilePage.newPostText = action.newPostText
                 this._callSubscriber(this.getState());
-                break;
-            case 'UPDATE-NEW-MESSAGE-TEXT':
-                this.getState().dialogsPage.newMessageText = action.newMessageText
-                this._callSubscriber(this.getState());
-                break;
-            case 'LIKES-COUNTER':
+                break;*/
+            /*case 'LIKES-COUNTER':
                 this.getState().profilePage.postsData[0].likesCount = this.getState().profilePage.postsData[0].likesCount + 1
                 this._callSubscriber(this.getState());
-                break;
+                break;*/
+            // case 'ADD-MESSAGE':
+            //     let newMessage = {id: v1(), messageOut: this.getState().dialogsPage.newMessageText}
+            //     if (this.getState().dialogsPage.newMessageText) {
+            //         this.getState().dialogsPage.messagesData.messagesDataOut.push(newMessage);
+            //         this.getState().dialogsPage.newMessageText = ''
+            //         this._callSubscriber(this.getState());
+            //     }
+            //     break;
+            // case 'UPDATE-NEW-MESSAGE-TEXT':
+            //     this.getState().dialogsPage.newMessageText = action.newMessageText
+            //     this._callSubscriber(this.getState());
+            //     break;
         }
 
-    }
+
 }
 
 
 export const addPostAC = () => ({type: 'ADD-POST'} as const)
 export const addMessageAC = () => ({type: 'ADD-MESSAGE'} as const)
-export const updateNewPostTextAC = (text:string) => ({type: 'UPDATE-NEW-POST-TEXT', newPostText: text} as const)
-export const updateNewMessageTextAC = (text:string) => ({type: 'UPDATE-NEW-MESSAGE-TEXT', newMessageText: text} as const)
+export const updateNewPostTextAC = (text: string) => ({type: 'UPDATE-NEW-POST-TEXT', newPostText: text} as const)
+export const updateNewMessageTextAC = (text: string) => ({
+    type: 'UPDATE-NEW-MESSAGE-TEXT',
+    newMessageText: text
+} as const)
 export const likesCounterAC = () => ({type: 'LIKES-COUNTER'} as const)
-
-
-
-// export type ActionType = AddPostActionType | updateNewPostTextActionType | updateNewMessageTextActionType | AddMessageActionType | likesCounterActionType
-// export type AddPostActionType = {
-//     type: 'ADD-POST'
-// }
-// export type AddMessageActionType = {
-//     type: 'ADD-MESSAGE'
-// }
-// export type updateNewPostTextActionType = {
-//     type: 'UPDATE-NEW-POST-TEXT'
-//     newText: string
-// }
-// export type updateNewMessageTextActionType = {
-//     type: 'UPDATE-NEW-MESSAGE-TEXT'
-//     body: string
-// }
-// export type likesCounterActionType = {
-//     type: 'LIKES-COUNTER'
-// }
-
-
 
 
 // @ts-ignore
