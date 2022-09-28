@@ -7,22 +7,31 @@ import {NewPostType} from '../../../Types/Types';
 export const NewPosts = (props: NewPostType) => {
 
 
-
+    let addPostAC = () => {
+        return {
+            type: 'ADD-POST'
+        } as const
+    }
     const addPost = () => {
-        // props.addPost(props.newPostText)
-        props.dispatch({type:'ADD-POST'})
+        props.dispatch(addPostAC())
 
     }
-    const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch({type:'UPDATE-NEW-POST-TEXT',newPostText: event.currentTarget.value})
 
+    let updateNewPostTexAC = (text:string) => {
+        return {
+            type: 'UPDATE-NEW-POST-TEXT', newPostText: text
+        }
+    }
+    const updateNewPostTex = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        let text = event.currentTarget.value
+        props.dispatch(updateNewPostTexAC(text))
     }
 
 
     return <div className={styles.newPosts}>
         <div>
-            <UniversalTextarea newPostText={props.newPostText} onChangeHandler={onChangeHandler}/>
-            <Button  callBack={addPost} title={'add post'}/>
+            <UniversalTextarea newPostText={props.newPostText} onChangeHandler={updateNewPostTex}/>
+            <Button callBack={addPost} title={'add post'}/>
         </div>
     </div>
 }
