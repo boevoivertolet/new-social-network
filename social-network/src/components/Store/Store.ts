@@ -118,31 +118,12 @@ export let store: StoreType = {
 
     }
 }
-export const addPostAC = () => {
-    return {
-        type: 'ADD-POST'
-    } as const
-}
-export const addMessageAC = () => {
-    return {
-        type: 'ADD-MESSAGE'
-    } as const
-}
-export const updateNewPostTexAC = (text:string) => {
-    return {
-        type: 'UPDATE-NEW-POST-TEXT', newPostText: text
-    }
-}
-export const updateNewMessageTexAC = (text:string) => {
-    return {
-        type: 'UPDATE-NEW-MESSAGE-TEXT', newPostText: text
-    }
-}
-export const likesCounterAC = () => {
-    return {
-        type: 'LIKES-COUNTER'
-    } as const
-}
+export const addPostAC = () => ({type: 'ADD-POST'} as const)
+export const addMessageAC = () => ({type: 'ADD-MESSAGE'} as const)
+export const updateNewPostTexAC = (text:string) => ({type: 'UPDATE-NEW-POST-TEXT', newPostText: text})
+export const updateNewMessageTexAC = (text:string) => ({type: 'UPDATE-NEW-MESSAGE-TEXT', newPostText: text})
+export const likesCounterAC = () => ({type: 'LIKES-COUNTER'} as const)
+
 
 
 
