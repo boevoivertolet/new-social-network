@@ -19,14 +19,17 @@ export type PostLikesCountType = {
 
 export type StoreType = {
     _state: StateType
-    getState: () => StateType
-    addPost: () => void
-    addMessage: () => void
     _callSubscriber: (state: StateType) => void
-    updateNewPostText: (newPostText: string) => void
-    updateNewMessageText: (newPostText: string) => void
-    likesCounter: () => void
+    getState: () => StateType
+
+    // addPost: () => void
+    // addMessage: () => void
+    // updateNewPostText: (newPostText: string) => void
+    // updateNewMessageText: (newPostText: string) => void
+
+    // likesCounter: () => void
     subscribe: (observer: any) => void
+
     dispatch: (action: any) => void
 
 }
@@ -121,12 +124,15 @@ export type ProfileType = {
 }
 export type MainContentType = {
     postsData: PostsDataType[]
-    likesCounter: () => void
+    dispatch: (action: any) => void
+
+
 
 }
 export type PostType = {
     postsData: PostsDataType
-    likesCounter: () => void
+    // likesCounter: () => void
+    dispatch: (action: object) => void
 
 
 }

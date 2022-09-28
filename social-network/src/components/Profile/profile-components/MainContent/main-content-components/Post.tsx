@@ -9,14 +9,16 @@ import {PostType} from '../../../../Types/Types';
 
 export const Post = (props: PostType) => {
 
-
+    const likesCounter = () => {
+        props.dispatch({type: 'LIKES-COUNTER'})
+    }
 
     return <div className={styles.post}>
         <PostAvatar ava={props.postsData.ava}/>
-        <PostMessage postMessage={props.postsData.message }/>
+        <PostMessage postMessage={props.postsData.message}/>
         <div className={styles.button_likes_count}>
-            <Button callBack={props.likesCounter} title={'like'}/>
-            <PostLikesCount  likesCount={props.postsData.likesCount}/>
+            <Button callBack={likesCounter} title={'like'}/>
+            <PostLikesCount likesCount={props.postsData.likesCount}/>
         </div>
 
     </div>

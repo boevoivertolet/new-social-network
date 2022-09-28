@@ -79,42 +79,6 @@ export let store: StoreType = {
         this._callSubscriber = observer
     },
 
-    addPost() {
-        let newPost = {
-            postId: v1(),
-            message: this.getState().profilePage.newPostText,
-            likesCount: 0,
-            ava: this.getState().sidebar.peoples[3].link
-        }
-        if (this.getState().profilePage.newPostText) {
-            this.getState().profilePage.postsData.unshift(newPost);
-            this.getState().profilePage.newPostText = ''
-            this._callSubscriber(this.getState());
-        }
-
-    },
-    addMessage() {
-        let newMessage = {id: v1(), messageOut: this.getState().dialogsPage.newPostText}
-        if (this.getState().dialogsPage.newPostText) {
-            this.getState().dialogsPage.messagesData.messagesDataOut.push(newMessage);
-            this.getState().dialogsPage.newPostText = ''
-            this._callSubscriber(this.getState());
-        }
-
-    },
-    updateNewPostText(newPostText: string) {
-        this.getState().profilePage.newPostText = newPostText
-        this._callSubscriber(this.getState());
-    },
-    updateNewMessageText(newPostText: string) {
-        this.getState().dialogsPage.newPostText = newPostText
-        this._callSubscriber(this.getState());
-
-    },
-    likesCounter() {
-        this.getState().profilePage.postsData[0].likesCount = this.getState().profilePage.postsData[0].likesCount + 1
-        this._callSubscriber(this.getState());
-    },
     dispatch(action: any) {
         switch (action.type) {
             case 'ADD-POST':
@@ -144,6 +108,10 @@ export let store: StoreType = {
                 break;
             case 'UPDATE-NEW-MESSAGE-TEXT':
                 this.getState().dialogsPage.newPostText = action.newPostText
+                this._callSubscriber(this.getState());
+                break;
+            case 'LIKES-COUNTER':
+                this.getState().profilePage.postsData[0].likesCount = this.getState().profilePage.postsData[0].likesCount + 1
                 this._callSubscriber(this.getState());
                 break;
         }
