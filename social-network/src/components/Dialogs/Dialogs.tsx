@@ -6,26 +6,27 @@ import {DialogsNames} from './dialogs-components/DialogsNames/DialogsNames';
 import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 import {UniversalTextarea} from '../UniversalTextarea/UniversalTextarea';
 import {Button} from '../Button/Button';
-
+import {addMessageAC, updateNewMessageTexAC} from '../Store/Store';
 
 
 export const Dialogs = (props: DialogsType) => {
+
+
     const addMessage = () => {
-        props.store.dispatch({type:'ADD-MESSAGE'})
+        props.store.dispatch(addMessageAC())
     }
 
     const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        props.store.dispatch({type:'UPDATE-NEW-MESSAGE-TEXT',newPostText: event.currentTarget.value})
+        let text = event.currentTarget.value
+        props.store.dispatch(updateNewMessageTexAC(text))
 
     }
 
 
-
-    let dialogName = props.store.getState().dialogsPage.dialogsData.map(dialog => <DialogsNames key={dialog.id} name={dialog.name}
-                                                                               id={dialog.id} ava={dialog.ava}/>);
-
-
-
+    let dialogName = props.store.getState().dialogsPage.dialogsData.map(dialog => <DialogsNames key={dialog.id}
+                                                                                                name={dialog.name}
+                                                                                                id={dialog.id}
+                                                                                                ava={dialog.ava}/>);
 
 
     return <div className={styles.dialogs}>
@@ -41,8 +42,9 @@ export const Dialogs = (props: DialogsType) => {
         </div>
         <div className={styles.textarea}>
 
-            <UniversalTextarea newPostText={props.store.getState().dialogsPage.newPostText} onChangeHandler={onChangeHandler.bind(props.store)} />
-            <Button callBack={addMessage}  title={'send'}/>
+            <UniversalTextarea newPostText={props.store.getState().dialogsPage.newPostText}
+                               onChangeHandler={onChangeHandler.bind(props.store)}/>
+            <Button callBack={addMessage} title={'send'}/>
 
         </div>
 

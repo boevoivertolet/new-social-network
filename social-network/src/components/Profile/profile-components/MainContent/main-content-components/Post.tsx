@@ -5,12 +5,13 @@ import {PostAvatar} from './post-components/PostAvatar/PostAvatar';
 import {Button} from '../../../../Button/Button';
 import {PostLikesCount} from './post-components/PostLikesCount/PostLikesCount';
 import {PostType} from '../../../../Types/Types';
+import {likesCounterAC} from '../../../../Store/Store';
 
 
 export const Post = (props: PostType) => {
 
     const likesCounter = () => {
-        props.dispatch({type: 'LIKES-COUNTER'})
+        props.dispatch(likesCounterAC())
     }
 
     return <div className={styles.post}>
