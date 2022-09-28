@@ -39,7 +39,7 @@ export let store: StoreType = {
 
                 ],
             },
-            newPostText: ''
+            newMessageText: ''
         },
         sidebar: {
             peoples: [
@@ -95,10 +95,10 @@ export let store: StoreType = {
                 }
                 break;
             case 'ADD-MESSAGE':
-                let newMessage = {id: v1(), messageOut: this.getState().dialogsPage.newPostText}
-                if (this.getState().dialogsPage.newPostText) {
+                let newMessage = {id: v1(), messageOut: this.getState().dialogsPage.newMessageText}
+                if (this.getState().dialogsPage.newMessageText) {
                     this.getState().dialogsPage.messagesData.messagesDataOut.push(newMessage);
-                    this.getState().dialogsPage.newPostText = ''
+                    this.getState().dialogsPage.newMessageText = ''
                     this._callSubscriber(this.getState());
                 }
                 break;
@@ -107,7 +107,7 @@ export let store: StoreType = {
                 this._callSubscriber(this.getState());
                 break;
             case 'UPDATE-NEW-MESSAGE-TEXT':
-                this.getState().dialogsPage.newPostText = action.newPostText
+                this.getState().dialogsPage.newMessageText = action.newMessageText
                 this._callSubscriber(this.getState());
                 break;
             case 'LIKES-COUNTER':
@@ -118,13 +118,34 @@ export let store: StoreType = {
 
     }
 }
+
+
 export const addPostAC = () => ({type: 'ADD-POST'} as const)
 export const addMessageAC = () => ({type: 'ADD-MESSAGE'} as const)
-export const updateNewPostTexAC = (text:string) => ({type: 'UPDATE-NEW-POST-TEXT', newPostText: text})
-export const updateNewMessageTexAC = (text:string) => ({type: 'UPDATE-NEW-MESSAGE-TEXT', newPostText: text})
+export const updateNewPostTextAC = (text:string) => ({type: 'UPDATE-NEW-POST-TEXT', newPostText: text} as const)
+export const updateNewMessageTextAC = (text:string) => ({type: 'UPDATE-NEW-MESSAGE-TEXT', newMessageText: text} as const)
 export const likesCounterAC = () => ({type: 'LIKES-COUNTER'} as const)
 
 
+
+// export type ActionType = AddPostActionType | updateNewPostTextActionType | updateNewMessageTextActionType | AddMessageActionType | likesCounterActionType
+// export type AddPostActionType = {
+//     type: 'ADD-POST'
+// }
+// export type AddMessageActionType = {
+//     type: 'ADD-MESSAGE'
+// }
+// export type updateNewPostTextActionType = {
+//     type: 'UPDATE-NEW-POST-TEXT'
+//     newText: string
+// }
+// export type updateNewMessageTextActionType = {
+//     type: 'UPDATE-NEW-MESSAGE-TEXT'
+//     body: string
+// }
+// export type likesCounterActionType = {
+//     type: 'LIKES-COUNTER'
+// }
 
 
 

@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import {StateType} from './components/Types/Types';
 import {store} from './components/Store/Store';
+import {StateType} from './components/Types/Types';
 
 
 
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-const rerenderEntireTree = (state: StateType) => {
+const rerenderEntireTree = (state:StateType) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
@@ -23,7 +23,7 @@ const rerenderEntireTree = (state: StateType) => {
     );
 }
 
-rerenderEntireTree(store._state);
+rerenderEntireTree(store.getState());
 store.subscribe(rerenderEntireTree);
 
 

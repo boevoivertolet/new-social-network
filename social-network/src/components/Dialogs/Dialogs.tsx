@@ -6,7 +6,7 @@ import {DialogsNames} from './dialogs-components/DialogsNames/DialogsNames';
 import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 import {UniversalTextarea} from '../UniversalTextarea/UniversalTextarea';
 import {Button} from '../Button/Button';
-import {addMessageAC, updateNewMessageTexAC} from '../Store/Store';
+import {addMessageAC, updateNewMessageTextAC} from '../Store/Store';
 
 
 export const Dialogs = (props: DialogsType) => {
@@ -18,7 +18,7 @@ export const Dialogs = (props: DialogsType) => {
 
     const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
         let text = event.currentTarget.value
-        props.store.dispatch(updateNewMessageTexAC(text))
+        props.store.dispatch(updateNewMessageTextAC(text))
 
     }
 
@@ -42,7 +42,7 @@ export const Dialogs = (props: DialogsType) => {
         </div>
         <div className={styles.textarea}>
 
-            <UniversalTextarea newPostText={props.store.getState().dialogsPage.newPostText}
+            <UniversalTextarea newText={props.store.getState().dialogsPage.newMessageText}
                                onChangeHandler={onChangeHandler.bind(props.store)}/>
             <Button callBack={addMessage} title={'send'}/>
 

@@ -1,4 +1,3 @@
-import {addMessage, likesCounter, updateNewMessageText, updateNewPostText} from '../State/State';
 import {ChangeEvent} from 'react';
 
 
@@ -22,15 +21,8 @@ export type StoreType = {
     _callSubscriber: (state: StateType) => void
     getState: () => StateType
 
-    // addPost: () => void
-    // addMessage: () => void
-    // updateNewPostText: (newPostText: string) => void
-    // updateNewMessageText: (newPostText: string) => void
-
-    // likesCounter: () => void
     subscribe: (observer: any) => void
-
-    dispatch: (action: any) => void
+    dispatch: (action: ActionType) => void
 
 }
 
@@ -43,7 +35,7 @@ export type StateType = {
 type DialogsPageType = {
     dialogsData: DialogsDataType[]
     messagesData: MessagesDataType
-    newPostText: string
+    newMessageText: string
 }
 type ProfilePageType = {
     postsData: PostsDataType[]
@@ -52,12 +44,6 @@ type ProfilePageType = {
 
 
 export type AppType = {
-    // state: StateType
-    // addPost: () => void
-    // addMessage: () => void
-    // likesCounter: () => void
-    // updateNewPostText:(newText:string)=> void
-    // updateNewMessageText:(newText:string)=> void
     store: StoreType
 
 }
@@ -88,10 +74,6 @@ export type PostsDataType = {
     ava: string
 }
 export type DialogsType = {
-    // dialogsPage: DialogsPageType
-    // updateNewMessageText: (newPostTex: string) => void
-    // newPostText: string
-    // addMessage: (postMessage: string) => void
     store: StoreType
 
 
@@ -114,25 +96,18 @@ export type DialogsHeaderType = {
     title: string
 }
 export type ProfileType = {
-    // postsData: PostsDataType[]
-    // addPost: () => void
-    // likesCounter: () => void
-    // updateNewPostText:(newPostTex:string)=> void
-    // newPostText:string
     store: StoreType
 
 }
 export type MainContentType = {
     postsData: PostsDataType[]
-    dispatch: (action: any) => void
-
+    dispatch: (action: ActionType) => void
 
 
 }
 export type PostType = {
     postsData: PostsDataType
-    // likesCounter: () => void
-    dispatch: (action: object) => void
+    dispatch: (action: ActionType) => void
 
 
 }
@@ -160,7 +135,6 @@ export type NavbarType = {
     sidebar: SidebarType
 }
 
-
 export type SidebarType = {
     peoples: PeoplesType[]
 }
@@ -175,14 +149,37 @@ export type PeoplesType = {
     link: string
 }
 export type NewPostType = {
-    dispatch: (action: object) => void
+    dispatch: (action: ActionType) => void
     newPostText: string
 
 }
 export type UniversalTextareaType = {
-
-    newPostText: string
-    // dispatch: (action: any) => void
+    newText: string
     onChangeHandler: (event: ChangeEvent<HTMLTextAreaElement>) => void
 
+}
+
+
+export type ActionType =
+    AddPostActionType
+    | updateNewPostTextActionType
+    | updateNewMessageTextActionType
+    | AddMessageActionType
+    | likesCounterActionType
+export type AddPostActionType = {
+    type: 'ADD-POST'
+}
+export type AddMessageActionType = {
+    type: 'ADD-MESSAGE'
+}
+export type updateNewPostTextActionType = {
+    type: 'UPDATE-NEW-POST-TEXT'
+    newPostText: string
+}
+export type updateNewMessageTextActionType = {
+    type: 'UPDATE-NEW-MESSAGE-TEXT'
+    newMessageText: string
+}
+export type likesCounterActionType = {
+    type: 'LIKES-COUNTER'
 }

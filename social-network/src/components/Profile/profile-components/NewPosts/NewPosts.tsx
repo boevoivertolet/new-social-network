@@ -3,7 +3,7 @@ import styles from './NewPosts.module.css'
 import {Button} from '../../../Button/Button';
 import {UniversalTextarea} from '../../../UniversalTextarea/UniversalTextarea';
 import {NewPostType} from '../../../Types/Types';
-import {addPostAC, updateNewPostTexAC} from '../../../Store/Store';
+import {addPostAC, updateNewPostTextAC} from '../../../Store/Store';
 
 export const NewPosts = (props: NewPostType) => {
 
@@ -11,18 +11,17 @@ export const NewPosts = (props: NewPostType) => {
 
     const addPost = () => {
         props.dispatch(addPostAC())
-
     }
 
     const updateNewPostTex = (event: ChangeEvent<HTMLTextAreaElement>) => {
         let text = event.currentTarget.value
-        props.dispatch(updateNewPostTexAC(text))
+        props.dispatch(updateNewPostTextAC(text))
     }
 
 
     return <div className={styles.newPosts}>
         <div>
-            <UniversalTextarea newPostText={props.newPostText} onChangeHandler={updateNewPostTex}/>
+            <UniversalTextarea newText={props.newPostText} onChangeHandler={updateNewPostTex}/>
             <Button callBack={addPost} title={'add post'}/>
         </div>
     </div>

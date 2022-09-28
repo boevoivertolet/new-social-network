@@ -68,7 +68,7 @@ export let state: StateType = {
 
             ],
         },
-        newPostText: ''
+        newMessageText: ''
     },
     profilePage: {
         postsData: [
@@ -117,10 +117,10 @@ export const addPost = () => {
 
 }
 export const addMessage = () => {
-    let newMessage = {id: v1(), messageOut: state.dialogsPage.newPostText}
-    if (state.dialogsPage.newPostText){
+    let newMessage = {id: v1(), messageOut: state.dialogsPage.newMessageText}
+    if (state.dialogsPage.newMessageText){
         state.dialogsPage.messagesData.messagesDataOut.push(newMessage);
-        state.dialogsPage.newPostText = ''
+        state.dialogsPage.newMessageText = ''
         rerenderEntireTree(state);
     }
 
@@ -132,7 +132,7 @@ export const updateNewPostText = (newPostText: string) => {
 
 }
 export const updateNewMessageText = (newPostText: string) => {
-    state.dialogsPage.newPostText = newPostText
+    state.dialogsPage.newMessageText = newPostText
     rerenderEntireTree(state);
 
 }
