@@ -1,8 +1,8 @@
-import {ActionType,  StoreType} from '../Types/Types';
+import {ActionType, SidebarType} from '../Types/Types';
 
-export const sidebarReducer = (store: StoreType, action: ActionType) => {
+export const sidebarReducer = (sidebar: SidebarType, action: ActionType) => {
 
 
-    return store;
+    return sidebar;
 }
 export default sidebarReducer;
