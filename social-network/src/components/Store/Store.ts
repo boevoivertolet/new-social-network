@@ -1,6 +1,6 @@
 import {ActionType, StoreType} from '../Types/Types';
 import {v1} from 'uuid';
-import {avatars} from './Avatars';
+import {avatars} from '../Avatars/Avatars';
 import profilePageReducer from '../Reducers/profilePageReducer';
 import dialogsPageReducer from '../Reducers/dialogsPageReducer';
 import sidebarReducer from '../Reducers/sidebarReducer';
