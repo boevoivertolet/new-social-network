@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import {StateType} from './components/Types/Types';
 import {AppRedux} from './AppRedux';
 import store from './components/ReduxStore/ReduxStore';
+import {StateType} from './components/Types/Types';
 
 
 
@@ -25,7 +25,10 @@ const rerenderEntireTree = (state:StateType) => {
 }
 
 rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree);
+store.subscribe(()=> {
+    let state= store.getState()
+    rerenderEntireTree(state);
+});
 
 
 

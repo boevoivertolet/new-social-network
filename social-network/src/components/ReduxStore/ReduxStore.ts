@@ -2,6 +2,7 @@ import {combineReducers, legacy_createStore} from 'redux';
 import profilePageReducer from '../Reducers/profilePageReducer';
 import dialogsPageReducer from '../Reducers/dialogsPageReducer';
 import sidebarReducer from '../Reducers/sidebarReducer';
+import {StoreType} from '../Types/Types';
 
 
 
@@ -13,10 +14,10 @@ let rootReducer = combineReducers(
     }
 )
 
-export type RootReducerType = ReturnType<typeof rootReducer>
+// export type RootReducerType = ReturnType<typeof rootReducer>
 
 
-let store: RootReducerType = legacy_createStore(rootReducer);
+let store: StoreType = legacy_createStore(rootReducer);
 
 
 // @ts-ignore

@@ -44,7 +44,8 @@ export type ProfilePageType = {
 
 
 export type AppType = {
-    store: StoreType
+     store: StoreType
+    // store: RootReducerType
 
 }
 
