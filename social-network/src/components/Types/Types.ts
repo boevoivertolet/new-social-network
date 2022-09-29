@@ -37,7 +37,7 @@ export type DialogsPageType = {
     messagesData: MessagesDataType
     newMessageText: string
 }
-type ProfilePageType = {
+export type ProfilePageType = {
     postsData: PostsDataType[]
     newPostText: string
 }

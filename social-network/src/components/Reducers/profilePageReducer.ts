@@ -1,31 +1,35 @@
-import {ActionType, StoreType} from '../Types/Types';
+import {ActionType, ProfilePageType} from '../Types/Types';
 import {v1} from 'uuid';
+import {avatars} from '../Avatars/Avatars';
 
-const profilePageReducer = (store: StoreType, action: ActionType) => {
+
+const profilePageReducer = (profilePage: ProfilePageType, action: ActionType) => {
     switch (action.type) {
         case 'ADD-POST':
             let newPost = {
                 postId: v1(),
-                message: store.getState().profilePage.newPostText,
+                message: profilePage.newPostText,
                 likesCount: 0,
-                ava: store.getState().sidebar.peoples[3].link
+                ava: avatars[3].link
             }
-            if (store.getState().profilePage.newPostText) {
-                store.getState().profilePage.postsData.unshift(newPost);
-                store.getState().profilePage.newPostText = ''
-                 store._callSubscriber(store.getState());
+            if (profilePage.newPostText) {
+                profilePage.postsData.unshift(newPost);
+                profilePage.newPostText = ''
+                // store._callSubscriber(store.getState());
             }
             break;
         case 'UPDATE-NEW-POST-TEXT':
-            store.getState().profilePage.newPostText = action.newPostText
-            store._callSubscriber(store.getState());
+            profilePage.newPostText = action.newPostText
+            // store._callSubscriber(store.getState());
             break;
         case 'LIKES-COUNTER':
-            store.getState().profilePage.postsData[0].likesCount = store.getState().profilePage.postsData[0].likesCount + 1
-             store._callSubscriber(store.getState());
+            //store.getState().profilePage.postsData[0].likesCount = store.getState().profilePage.postsData[0].likesCount + 1
+            console.log('like')
+            // store._callSubscriber(store.getState());
+
             break;
     }
-    return store;
+    return profilePage;
 }
 
 export const addPostAC = () => ({type: 'ADD-POST'} as const)

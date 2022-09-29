@@ -83,20 +83,15 @@ export let store: StoreType = {
     },
 
     dispatch(action: ActionType) {
-        profilePageReducer(this, action)
-        dialogsPageReducer(this, action)
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsPageReducer(this._state.dialogsPage, action)
         sidebarReducer(this, action)
+        this._callSubscriber(this._state);
 
     }
 
 
 }
-
-
-
-
-
-
 
 
 // @ts-ignore
