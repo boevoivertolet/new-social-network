@@ -3,7 +3,16 @@ import {v1} from 'uuid';
 import {avatars} from '../Avatars/Avatars';
 
 
-const profilePageReducer = (profilePage: ProfilePageType, action: ActionType) => {
+let initialState:ProfilePageType  = {
+    postsData: [
+        {postId: v1(), message: 'mes', likesCount: 0, ava: avatars[3].link},
+    ],
+    newPostText: ''
+}
+
+
+
+const profilePageReducer = (profilePage: ProfilePageType = initialState, action: ActionType) => {
     switch (action.type) {
         case 'ADD-POST':
             let newPost = {

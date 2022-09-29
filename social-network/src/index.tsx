@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import {store} from './components/Store/Store';
 import {StateType} from './components/Types/Types';
 import {AppRedux} from './AppRedux';
+import store from './components/ReduxStore/ReduxStore';
 
 
 
