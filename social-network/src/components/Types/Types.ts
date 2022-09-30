@@ -90,7 +90,6 @@ export type DialogsHeaderType = {
     title: string
 }
 export type ProfileType = {
-    // store: StoreType
     updateNewPostText:(text: string)=> void
     addPost:()=> void
     ava: string

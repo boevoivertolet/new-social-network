@@ -1,5 +1,5 @@
 import React from 'react';
-import {ProfileContainerType, ProfileType} from '../Types/Types';
+import {ProfileContainerType} from '../Types/Types';
 import {Profile} from './Profile';
 import {addPostAC, likesCounterAC, updateNewPostTextAC} from '../Reducers/profilePageReducer';
 

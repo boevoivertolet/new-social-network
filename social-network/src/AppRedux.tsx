@@ -2,7 +2,6 @@ import React from 'react';
 import {Navbar} from './components/Navbar/Navbar';
 import {Header} from './components/Header/Header';
 import styles from './App.module.css'
-import {Profile} from './components/Profile/Profile';
 import { Route, Routes} from 'react-router-dom';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
