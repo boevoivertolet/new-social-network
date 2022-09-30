@@ -20,10 +20,10 @@ function App(props: AppType) {
                 <Navbar sidebar={props.store.getState().sidebar}/>
                 <div className={styles.content}>
                     <Routes>
-                        <Route path="/profile" element={<Profile
+                      {/*  <Route path="/profile" element={<Profile
                             store={props.store}
 
-                        />}/>
+                        />}/>*/}
 
                       {/*  <Route path="/dialogs" element={<Dialogs
                             store={props.store}

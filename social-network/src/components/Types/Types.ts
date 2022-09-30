@@ -90,7 +90,14 @@ export type DialogsHeaderType = {
     title: string
 }
 export type ProfileType = {
-    store: StoreType
+    // store: StoreType
+    updateNewPostText:(text: string)=> void
+    addPost:()=> void
+    ava: string
+    newPostText: string
+    postsData: PostsDataType[]
+    likesCounter: () => void
+
 
 }
 export type MainContentType = {
@@ -175,15 +182,10 @@ export type likesCounterActionType = {
     type: 'LIKES-COUNTER'
 }
 
-export type NewPostContainerType = {
-    store: StoreType
-}
-
-export type MainContentContainerType = {
-    store: StoreType
-}
-
 export type DialogsContainerType = {
     store: StoreType
 
+}
+export type ProfileContainerType = {
+    store: StoreType
 }

@@ -4,19 +4,17 @@ import {AvatarDescription} from './profile-components/AvatarDescription/AvatarDe
 import styles from './Profile.module.css'
 import {PostsHeader} from './profile-components/PostsHeader/PostsHeader';
 import {ProfileType} from '../Types/Types';
-import {NewPostsContainer} from './profile-components/NewPosts/NewPostsContainer';
-import {MainContentContainer} from './profile-components/MainContent/MainContentContainer';
+import {NewPosts} from './profile-components/NewPosts/NewPosts';
+import {MainContent} from './profile-components/MainContent/MainContent';
 
 export const Profile = (props: ProfileType) => {
 
-    let ava = props.store.getState().profilePage.postsData[0].ava
-
     return <div className={styles.profile}>
         <WallImg/>
-        <AvatarDescription ava={ava}/>
+        <AvatarDescription ava={props.ava}/>
         <PostsHeader/>
-        <NewPostsContainer store={props.store}/>
-        <MainContentContainer store={props.store}/>
+        <NewPosts updateNewPost={props.updateNewPostText}  addPost={props.addPost} newPostText={props.newPostText} />
+        <MainContent postsData={props.postsData} likesCounter={props.likesCounter}/>
     </div>
 
 
