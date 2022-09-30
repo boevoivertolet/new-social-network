@@ -11,7 +11,7 @@ import {likesCounterAC} from '../../../../Reducers/profilePageReducer';
 export const Post = (props: PostType) => {
 
     const likesCounter = () => {
-        props.dispatch(likesCounterAC())
+        props.likesCounter()
     }
 
     return <div className={styles.post}>

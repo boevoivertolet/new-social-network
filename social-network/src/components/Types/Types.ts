@@ -102,13 +102,15 @@ export type ProfileType = {
 }
 export type MainContentType = {
     postsData: PostsDataType[]
-    dispatch: (action: ActionType) => void
+    // dispatch: (action: ActionType) => void
+    likesCounter:()=> void
 
 
 }
 export type PostType = {
     postsData: PostsDataType
-    dispatch: (action: ActionType) => void
+    // dispatch: (action: ActionType) => void
+    likesCounter:()=> void
 
 
 }
@@ -189,6 +191,12 @@ export type likesCounterActionType = {
 
 export type NewPostContainerType = {
     store: StoreType
+
+
+}
+
+export type MainContentContainerType = {
+   store: StoreType
 
 
 }
