@@ -14,7 +14,6 @@ let rootReducer = combineReducers(
     }
 )
 
-// export type RootReducerType = ReturnType<typeof rootReducer>
 
 
 let store: StoreType = legacy_createStore(rootReducer);

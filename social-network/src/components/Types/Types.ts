@@ -150,8 +150,10 @@ export type PeoplesType = {
     link: string
 }
 export type NewPostType = {
-    dispatch: (action: ActionType) => void
+    // dispatch: (action: ActionType) => void
     newPostText: string
+    updateNewPost:(text: string)=> void
+    addPost:()=> void
 
 }
 export type UniversalTextareaType = {
@@ -183,4 +185,10 @@ export type updateNewMessageTextActionType = {
 }
 export type likesCounterActionType = {
     type: 'LIKES-COUNTER'
+}
+
+export type NewPostContainerType = {
+    store: StoreType
+
+
 }

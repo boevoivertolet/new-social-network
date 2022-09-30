@@ -1,21 +1,22 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent} from 'react';
 import styles from './NewPosts.module.css'
 import {Button} from '../../../Button/Button';
 import {UniversalTextarea} from '../../../UniversalTextarea/UniversalTextarea';
 import {NewPostType} from '../../../Types/Types';
 import {addPostAC, updateNewPostTextAC} from '../../../Reducers/profilePageReducer';
 
+
 export const NewPosts = (props: NewPostType) => {
 
 
-
     const addPost = () => {
-        props.dispatch(addPostAC())
+        // props.dispatch(addPostAC())
+        props.addPost()
     }
-
     const updateNewPostTex = (event: ChangeEvent<HTMLTextAreaElement>) => {
         let text = event.currentTarget.value
-        props.dispatch(updateNewPostTextAC(text))
+        // props.dispatch(updateNewPostTextAC(text))
+        props.updateNewPost(text)
     }
 
 
