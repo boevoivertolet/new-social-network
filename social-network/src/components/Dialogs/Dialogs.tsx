@@ -6,28 +6,25 @@ import {DialogsNames} from './dialogs-components/DialogsNames/DialogsNames';
 import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 import {UniversalTextarea} from '../UniversalTextarea/UniversalTextarea';
 import {Button} from '../Button/Button';
-import {addMessageAC, updateNewMessageTextAC} from '../Reducers/dialogsPageReducer';
-
 
 
 export const Dialogs = (props: DialogsType) => {
-
+    let dialogsData = props.dialogsPage.dialogsData
 
     const addMessage = () => {
-        props.store.dispatch(addMessageAC())
+        props.addMessage()
     }
-
     const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
         let text = event.currentTarget.value
-        props.store.dispatch(updateNewMessageTextAC(text))
+        props.onChangeHandler(text)
 
     }
 
 
-    let dialogName = props.store.getState().dialogsPage.dialogsData.map(dialog => <DialogsNames key={dialog.id}
-                                                                                                name={dialog.name}
-                                                                                                id={dialog.id}
-                                                                                                ava={dialog.ava}/>);
+    let dialogName = dialogsData.map(dialog => <DialogsNames key={dialog.id}
+                                                             name={dialog.name}
+                                                             id={dialog.id}
+                                                             ava={dialog.ava}/>);
 
 
     return <div className={styles.dialogs}>
@@ -39,12 +36,12 @@ export const Dialogs = (props: DialogsType) => {
         <div>
             <DialogsHeader title={'Messages'}/>
 
-            <DialogsMessages dialogsPage={props.store.getState().dialogsPage}/>
+            <DialogsMessages dialogsPage={props.dialogsPage}/>
         </div>
         <div className={styles.textarea}>
 
-            <UniversalTextarea newText={props.store.getState().dialogsPage.newMessageText}
-                               onChangeHandler={onChangeHandler.bind(props.store)}/>
+            <UniversalTextarea newText={props.dialogsPage.newMessageText}
+                               onChangeHandler={onChangeHandler}/>
             <Button callBack={addMessage} title={'send'}/>
 
         </div>

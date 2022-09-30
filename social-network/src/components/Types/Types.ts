@@ -4,15 +4,12 @@ import {ChangeEvent} from 'react';
 export type ButtonType = {
     title: string
     callBack: () => void
-
-
 }
 export type PostMessageType = {
     postMessage: string
 }
 export type PostLikesCountType = {
     likesCount: number
-
 }
 
 
@@ -23,7 +20,6 @@ export type StoreType = {
 
     subscribe: (observer: any) => void
     dispatch: (action: ActionType) => void
-
 }
 
 
@@ -44,9 +40,7 @@ export type ProfilePageType = {
 
 
 export type AppType = {
-     store: StoreType
-    // store: RootReducerType
-
+    store: StoreType
 }
 
 
@@ -75,16 +69,15 @@ export type PostsDataType = {
     ava: string
 }
 export type DialogsType = {
-    store: StoreType
-
-
+    dialogsPage: DialogsPageType
+    addMessage: () => void
+    onChangeHandler: (text: string) => void
 }
 export type NewsType = {}
 export type MusicType = {}
 export type SettingsType = {}
 export type DialogsMessagesType = {
     dialogsPage: DialogsPageType
-
 }
 
 
@@ -102,17 +95,11 @@ export type ProfileType = {
 }
 export type MainContentType = {
     postsData: PostsDataType[]
-    // dispatch: (action: ActionType) => void
-    likesCounter:()=> void
-
-
+    likesCounter: () => void
 }
 export type PostType = {
     postsData: PostsDataType
-    // dispatch: (action: ActionType) => void
-    likesCounter:()=> void
-
-
+    likesCounter: () => void
 }
 
 
@@ -152,16 +139,13 @@ export type PeoplesType = {
     link: string
 }
 export type NewPostType = {
-    // dispatch: (action: ActionType) => void
     newPostText: string
-    updateNewPost:(text: string)=> void
-    addPost:()=> void
-
+    updateNewPost: (text: string) => void
+    addPost: () => void
 }
 export type UniversalTextareaType = {
     newText: string
     onChangeHandler: (event: ChangeEvent<HTMLTextAreaElement>) => void
-
 }
 
 
@@ -171,6 +155,8 @@ export type ActionType =
     | updateNewMessageTextActionType
     | AddMessageActionType
     | likesCounterActionType
+
+
 export type AddPostActionType = {
     type: 'ADD-POST'
 }
@@ -191,12 +177,13 @@ export type likesCounterActionType = {
 
 export type NewPostContainerType = {
     store: StoreType
-
-
 }
 
 export type MainContentContainerType = {
-   store: StoreType
+    store: StoreType
+}
 
+export type DialogsContainerType = {
+    store: StoreType
 
 }

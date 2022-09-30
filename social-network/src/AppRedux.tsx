@@ -3,12 +3,12 @@ import {Navbar} from './components/Navbar/Navbar';
 import {Header} from './components/Header/Header';
 import styles from './App.module.css'
 import {Profile} from './components/Profile/Profile';
-import {Dialogs} from './components/Dialogs/Dialogs';
 import { Route, Routes} from 'react-router-dom';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
 import {AppType} from './components/Types/Types';
+import {DialogsContainer} from './components/Dialogs/DialogsContainer';
 
 
 export function AppRedux(props: AppType) {
@@ -24,7 +24,8 @@ export function AppRedux(props: AppType) {
 
                         />}/>
 
-                        <Route path="/dialogs" element={<Dialogs
+                        <Route path="/dialogs" element={<DialogsContainer
+
                             store={props.store}
                         />}/>
 

@@ -8,16 +8,16 @@ import {NewPostsContainer} from './profile-components/NewPosts/NewPostsContainer
 import {MainContentContainer} from './profile-components/MainContent/MainContentContainer';
 
 export const Profile = (props: ProfileType) => {
-    let state = props.store.getState()
+
+    let ava = props.store.getState().profilePage.postsData[0].ava
 
     return <div className={styles.profile}>
         <WallImg/>
-        <AvatarDescription ava={state.profilePage.postsData[0].ava}/>
+        <AvatarDescription ava={ava}/>
         <PostsHeader/>
         <NewPostsContainer store={props.store}/>
         <MainContentContainer store={props.store}/>
     </div>
-
 
 
 }

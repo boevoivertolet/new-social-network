@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {Navbar} from './components/Navbar/Navbar';
 import {Header} from './components/Header/Header';
@@ -24,9 +25,9 @@ function App(props: AppType) {
 
                         />}/>
 
-                        <Route path="/dialogs" element={<Dialogs
+                      {/*  <Route path="/dialogs" element={<Dialogs
                             store={props.store}
-                        />}/>
+                        />}/>*/}
 
                         <Route path="/news" element={<News/>}/>
 
@@ -41,6 +42,6 @@ function App(props: AppType) {
     );
 }
 
-export default App;
+
 
 
