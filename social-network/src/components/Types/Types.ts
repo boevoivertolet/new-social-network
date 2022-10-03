@@ -182,7 +182,7 @@ export type likesCounterActionType = {
 }
 
 export type DialogsContainerType = {
-    store: StoreType
+    // store: StoreType
 
 }
 export type ProfileContainerType = {
