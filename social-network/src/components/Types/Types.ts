@@ -1,4 +1,4 @@
-import {ChangeEvent} from 'react';
+import React, {ChangeEvent} from 'react';
 
 
 export type ButtonType = {
@@ -90,8 +90,8 @@ export type DialogsHeaderType = {
     title: string
 }
 export type ProfileType = {
-    updateNewPostText:(text: string)=> void
-    addPost:()=> void
+    updateNewPostText: (text: string) => void
+    addPost: () => void
     ava: string
     newPostText: string
     postsData: PostsDataType[]
@@ -192,4 +192,9 @@ export type ProfileContainerType = {
 
 export type NavbarContainerType = {
     // store: StoreType
+}
+
+export type ProviderType = {
+    store: StoreType
+    children: React.ReactNode
 }

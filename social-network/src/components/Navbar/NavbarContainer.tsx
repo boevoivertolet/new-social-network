@@ -11,7 +11,6 @@ export const NavbarContainer = (props: NavbarContainerType) => {
                     return <Navbar sidebar={store.getState().sidebar}/>
                 }
             }
-
         </StoreContext.Consumer>
 
     )

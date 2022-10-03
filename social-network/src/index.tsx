@@ -6,7 +6,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {AppRedux} from './AppRedux';
 import store from './components/ReduxStore/ReduxStore';
 import {StateType} from './components/Types/Types';
-import StoreContext from './StoreContext';
+import {Provider} from './StoreContext';
 
 
 const root = ReactDOM.createRoot(
@@ -16,12 +16,11 @@ const root = ReactDOM.createRoot(
 const rerenderEntireTree = (state: StateType) => {
     root.render(
         <React.StrictMode>
-            <StoreContext.Provider value={store}>
+            <Provider store={store}>
                 <BrowserRouter>
                     <AppRedux/>
                 </BrowserRouter>
-            </StoreContext.Provider>
-
+            </Provider>
         </React.StrictMode>
     );
 }
