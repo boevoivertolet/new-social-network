@@ -1,8 +1,19 @@
 import React from 'react';
-import {NavbarContainerType} from '../Types/Types';
+import {NavbarContainerType, StoreType} from '../Types/Types';
 import {Navbar} from './Navbar';
+import StoreContext from '../../StoreContext';
 
 export const NavbarContainer = (props: NavbarContainerType) => {
-    return <Navbar sidebar={props.store.getState().sidebar}/>
+    return (
+        <StoreContext.Consumer>
+            {
+                (store:StoreType) => {
+                    return <Navbar sidebar={store.getState().sidebar}/>
+                }
+            }
+
+        </StoreContext.Consumer>
+
+    )
 }
 

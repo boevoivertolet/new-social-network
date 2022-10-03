@@ -40,7 +40,7 @@ export type ProfilePageType = {
 
 
 export type AppType = {
-    store: StoreType
+    // store: StoreType
 }
 
 
@@ -191,5 +191,5 @@ export type ProfileContainerType = {
 
 
 export type NavbarContainerType = {
-    store: StoreType
+    // store: StoreType
 }

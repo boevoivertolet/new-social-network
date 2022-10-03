@@ -18,7 +18,7 @@ const rerenderEntireTree = (state: StateType) => {
         <React.StrictMode>
             <StoreContext.Provider value={store}>
                 <BrowserRouter>
-                    <AppRedux store={store}/>
+                    <AppRedux/>
                 </BrowserRouter>
             </StoreContext.Provider>
 

@@ -17,17 +17,17 @@ export function AppRedux(props: AppType) {
 
             <div className={styles.appWrapper}>
                 <Header/>
-                <NavbarContainer store={props.store}/>
+                <NavbarContainer/>
                 <div className={styles.content}>
                     <Routes>
                         <Route path="/profile" element={<ProfileContainer
-                            store={props.store}
+                            /*store={props.store}*/
 
                         />}/>
 
                         <Route path="/dialogs" element={<DialogsContainer
 
-                            store={props.store}
+                            /*store={props.store}*/
                         />}/>
 
                         <Route path="/news" element={<News/>}/>
