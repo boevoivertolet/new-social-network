@@ -21,13 +21,13 @@ export function AppRedux(props: AppType) {
                 <div className={styles.content}>
                     <Routes>
                         <Route path="/profile" element={<ProfileContainer
-                            /*store={props.store}*/
+
 
                         />}/>
 
                         <Route path="/dialogs" element={<DialogsContainer
 
-                            /*store={props.store}*/
+
                         />}/>
 
                         <Route path="/news" element={<News/>}/>

@@ -186,7 +186,7 @@ export type DialogsContainerType = {
 
 }
 export type ProfileContainerType = {
-    store: StoreType
+    // store: StoreType
 }
 
 
