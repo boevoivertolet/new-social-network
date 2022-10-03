@@ -9,6 +9,7 @@ import {Settings} from './components/Settings/Settings';
 import {AppType} from './components/Types/Types';
 import {DialogsContainer} from './components/Dialogs/DialogsContainer';
 import {ProfileContainer} from './components/Profile/ProfileContainer';
+import {NavbarContainer} from './components/Navbar/NavbarContainer';
 
 
 export function AppRedux(props: AppType) {
@@ -16,7 +17,7 @@ export function AppRedux(props: AppType) {
 
             <div className={styles.appWrapper}>
                 <Header/>
-                <Navbar sidebar={props.store.getState().sidebar}/>
+                <NavbarContainer store={props.store}/>
                 <div className={styles.content}>
                     <Routes>
                         <Route path="/profile" element={<ProfileContainer

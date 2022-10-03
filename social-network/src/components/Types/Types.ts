@@ -188,3 +188,8 @@ export type DialogsContainerType = {
 export type ProfileContainerType = {
     store: StoreType
 }
+
+
+export type NavbarContainerType = {
+    store: StoreType
+}
