@@ -13,23 +13,27 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-const rerenderEntireTree = (state: StateType) => {
-    root.render(
-        <React.StrictMode>
-            <Provider store={store}>
-                <BrowserRouter>
-                    <AppRedux/>
-                </BrowserRouter>
-            </Provider>
-        </React.StrictMode>
-    );
-}
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <BrowserRouter>
+                <AppRedux/>
+            </BrowserRouter>
+        </Provider>
+    </React.StrictMode>
+);
 
-rerenderEntireTree(store.getState());
-store.subscribe(() => {
-    let state = store.getState()
-    rerenderEntireTree(state);
-});
+
+
+// const rerenderEntireTree = (state: StateType) => {
+//
+// }
+
+// rerenderEntireTree(store.getState());
+// store.subscribe(() => {
+//     let state = store.getState()
+//     rerenderEntireTree(state);
+// });
 
 
 // If you want to start measuring performance in your app, pass a function
