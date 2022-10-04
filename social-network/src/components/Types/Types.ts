@@ -108,8 +108,6 @@ export type ProfileMapDispatchToPropsType = {
     addPost: () => void
     updateNewPostText: (text: string) => void
 }
-
-
 export type ProfileType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType/*{
     updateNewPostText: (text: string) => void
     addPost: () => void
@@ -118,6 +116,9 @@ export type ProfileType = ProfileMapStateToPropsType & ProfileMapDispatchToProps
     postsData: PostsDataType[]
     likesCounter: () => void
 }*/
+
+
+
 export type MainContentType = {
     postsData: PostsDataType[]
     likesCounter: () => void
@@ -146,9 +147,16 @@ export type ImgType = {
 export type PostAvatarType = {
     ava: string
 }
-export type NavbarType = {
+
+export type NavbarMapStateToPropsType = {
     sidebar: SidebarType
 }
+export type NavbarMapDispatchToPropsType = {
+
+}
+export type NavbarType = NavbarMapStateToPropsType & NavbarMapDispatchToPropsType /*{
+    sidebar: SidebarType
+}*/
 
 export type SidebarType = {
     peoples: PeoplesType[]
