@@ -101,7 +101,10 @@ export type DialogsHeaderType = {
 }
 
 export type ProfileMapStateToPropsType = {
-    profilePage: ProfilePageType
+    postsData: PostsDataType[]
+    newPostText: string
+    ava:string
+
 }
 export type ProfileMapDispatchToPropsType = {
     likesCounter: () => void
@@ -116,7 +119,6 @@ export type ProfileType = ProfileMapStateToPropsType & ProfileMapDispatchToProps
     postsData: PostsDataType[]
     likesCounter: () => void
 }*/
-
 
 
 export type MainContentType = {
@@ -151,9 +153,7 @@ export type PostAvatarType = {
 export type NavbarMapStateToPropsType = {
     sidebar: SidebarType
 }
-export type NavbarMapDispatchToPropsType = {
-
-}
+export type NavbarMapDispatchToPropsType = {}
 export type NavbarType = NavbarMapStateToPropsType & NavbarMapDispatchToPropsType /*{
     sidebar: SidebarType
 }*/
