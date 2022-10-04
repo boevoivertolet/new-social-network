@@ -198,3 +198,12 @@ export type ProviderType = {
     store: StoreType
     children: React.ReactNode
 }
+
+
+export type MapStateToPropsType ={
+    dialogsPage: DialogsPageType
+}
+export type MapDispatchToPropsType = {
+    addMessage: () => void
+    onChangeHandler:(text: string)=> void
+}
