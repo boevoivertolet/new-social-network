@@ -3,7 +3,7 @@ import {v1} from 'uuid';
 import {avatars} from '../Avatars/Avatars';
 
 
-let initialState:ProfilePageType  = {
+let initialState: ProfilePageType = {
     postsData: [
         {postId: v1(), message: 'mes', likesCount: 0, ava: avatars[3].link},
     ],
@@ -11,8 +11,8 @@ let initialState:ProfilePageType  = {
 }
 
 
-
-const profilePageReducer = (profilePage: ProfilePageType = initialState, action: ActionType):ProfilePageType => {
+const profilePageReducer = (profilePage: ProfilePageType = initialState, action: ActionType): ProfilePageType => {
+    let profilePageCopy = {...profilePage}
     switch (action.type) {
         case 'ADD-POST':
             let newPost = {
@@ -21,16 +21,18 @@ const profilePageReducer = (profilePage: ProfilePageType = initialState, action:
                 likesCount: 0,
                 ava: avatars[3].link
             }
-            if (profilePage.newPostText) {
-                profilePage.postsData.unshift(newPost);
-                profilePage.newPostText = ''
+
+            if (profilePageCopy.newPostText) {
+                profilePageCopy.postsData = [...profilePage.postsData];
+                profilePageCopy.postsData.unshift(newPost);
+                profilePageCopy.newPostText = ''
                 // store._callSubscriber(store.getState());
             }
-            break;
+            return profilePageCopy
         case 'UPDATE-NEW-POST-TEXT':
-            profilePage.newPostText = action.newPostText
+            profilePageCopy.newPostText = action.newPostText
             // store._callSubscriber(store.getState());
-            break;
+            return profilePageCopy
         case 'LIKES-COUNTER':
             //store.getState().profilePage.postsData[0].likesCount = store.getState().profilePage.postsData[0].likesCount + 1
             console.log('like')

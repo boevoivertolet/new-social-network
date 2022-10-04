@@ -28,7 +28,6 @@ root.render(
 // const rerenderEntireTree = (state: StateType) => {
 //
 // }
-
 // rerenderEntireTree(store.getState());
 // store.subscribe(() => {
 //     let state = store.getState()
