@@ -34,22 +34,24 @@ let initialState: DialogsPageType = {
     newMessageText: ''
 }
 
-const dialogsPageReducer = (dialogsPage: DialogsPageType = initialState, action: ActionType):DialogsPageType => {
+const dialogsPageReducer = (dialogsPage: DialogsPageType = initialState, action: ActionType): DialogsPageType => {
+    let dialogsPageCopy = {
+        ...dialogsPage,
+        messageData: {...dialogsPage.messagesData.messagesDataIn = [...dialogsPage.messagesData.messagesDataIn], ...dialogsPage.messagesData.messagesDataOut = [...dialogsPage.messagesData.messagesDataOut]}
+    }
     switch (action.type) {
         case 'ADD-MESSAGE':
             let newMessage = {id: v1(), messageOut: dialogsPage.newMessageText}
-            if (dialogsPage.newMessageText) {
-                dialogsPage.messagesData.messagesDataOut.push(newMessage);
-                dialogsPage.newMessageText = ''
-                // store._callSubscriber(store.getState());
+            if (dialogsPageCopy.newMessageText) {
+                dialogsPageCopy.messagesData.messagesDataOut.push(newMessage);
+                dialogsPageCopy.newMessageText = ''
             }
-            break;
+            return dialogsPageCopy
         case 'UPDATE-NEW-MESSAGE-TEXT':
-            dialogsPage.newMessageText = action.newMessageText
-            // store._callSubscriber(store.getState());
-            break;
+            dialogsPageCopy.newMessageText = action.newMessageText
+            return dialogsPageCopy
     }
-    return dialogsPage;
+    return dialogsPageCopy
 }
 
 

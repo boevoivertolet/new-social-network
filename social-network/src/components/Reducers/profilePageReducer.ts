@@ -38,7 +38,7 @@ const profilePageReducer = (profilePage: ProfilePageType = initialState, action:
             console.log('like')
             // store._callSubscriber(store.getState());
 
-            break;
+            return profilePageCopy
     }
     return profilePage;
 }
