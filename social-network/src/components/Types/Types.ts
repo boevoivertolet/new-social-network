@@ -68,11 +68,21 @@ export type PostsDataType = {
     likesCount: number
     ava: string
 }
-export type DialogsType = {
+
+export type DialogsMapStateToPropsType = {
     dialogsPage: DialogsPageType
+}
+export type DialogsMapDispatchToPropsType = {
     addMessage: () => void
     onChangeHandler: (text: string) => void
 }
+export type DialogsType = DialogsMapStateToPropsType & DialogsMapDispatchToPropsType/*{
+    dialogsPage: DialogsPageType
+    addMessage: () => void
+    onChangeHandler: (text: string) => void
+}*/
+
+
 export type NewsType = {}
 export type MusicType = {}
 export type SettingsType = {}
@@ -89,16 +99,25 @@ export type DialogsNamesType = {
 export type DialogsHeaderType = {
     title: string
 }
-export type ProfileType = {
+
+export type ProfileMapStateToPropsType = {
+    profilePage: ProfilePageType
+}
+export type ProfileMapDispatchToPropsType = {
+    likesCounter: () => void
+    addPost: () => void
+    updateNewPostText: (text: string) => void
+}
+
+
+export type ProfileType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType/*{
     updateNewPostText: (text: string) => void
     addPost: () => void
     ava: string
     newPostText: string
     postsData: PostsDataType[]
     likesCounter: () => void
-
-
-}
+}*/
 export type MainContentType = {
     postsData: PostsDataType[]
     likesCounter: () => void
@@ -200,10 +219,3 @@ export type ProviderType = {
 }
 
 
-export type MapStateToPropsType ={
-    dialogsPage: DialogsPageType
-}
-export type MapDispatchToPropsType = {
-    addMessage: () => void
-    onChangeHandler:(text: string)=> void
-}

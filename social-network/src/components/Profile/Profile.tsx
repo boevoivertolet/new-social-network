@@ -11,10 +11,10 @@ export const Profile = (props: ProfileType) => {
 
     return <div className={styles.profile}>
         <WallImg/>
-        <AvatarDescription ava={props.ava}/>
+        <AvatarDescription ava={props.profilePage.postsData[3].ava}/>
         <PostsHeader/>
-        <NewPosts updateNewPost={props.updateNewPostText}  addPost={props.addPost} newPostText={props.newPostText} />
-        <MainContent postsData={props.postsData} likesCounter={props.likesCounter}/>
+        <NewPosts updateNewPost={props.updateNewPostText}  addPost={props.addPost} newPostText={props.profilePage.newPostText} />
+        <MainContent postsData={props.profilePage.postsData} likesCounter={props.likesCounter}/>
     </div>
 
 
