@@ -12,7 +12,10 @@ export const Dialogs = (props: DialogsType) => {
     let dialogsData = props.dialogsPage.dialogsData
 
     const addMessage = () => {
-        props.addMessage()
+        if(props.dialogsPage.newMessageText){
+            props.addMessage()
+        }
+
     }
     const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>) => {
         let text = event.currentTarget.value

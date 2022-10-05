@@ -10,7 +10,9 @@ export const NewPosts = (props: NewPostType) => {
 
 
     const addPost = () => {
-        props.addPost()
+        if(props.newPostText){
+            props.addPost()
+        }
     }
     const updateNewPostTex = (event: ChangeEvent<HTMLTextAreaElement>) => {
         let text = event.currentTarget.value

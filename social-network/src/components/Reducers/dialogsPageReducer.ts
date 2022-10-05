@@ -44,7 +44,6 @@ const dialogsPageReducer = (dialogsPage: DialogsPageType = initialState, action:
                 messagesData: {
                     ...dialogsPage.messagesData,
                     messagesDataOut: [...dialogsPage.messagesData.messagesDataOut,{id:v1(),messageOut:newMessageText}]
-
                 }
             }
 

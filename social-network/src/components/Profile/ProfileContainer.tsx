@@ -61,7 +61,6 @@ export const mapDispatchToProps = (dispatch: Dispatch): ProfileMapDispatchToProp
         likesCounter: () => {
             dispatch(likesCounterAC())
         },
-
         addPost: () => {
             dispatch(addPostAC())
         },
