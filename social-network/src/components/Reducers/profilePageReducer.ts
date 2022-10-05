@@ -12,7 +12,6 @@ let initialState: ProfilePageType = {
 
 
 const profilePageReducer = (profilePage: ProfilePageType = initialState, action: ActionType): ProfilePageType => {
-    let profilePageCopy = {...profilePage}
     switch (action.type) {
         case 'ADD-POST':
             let newPost = {
@@ -22,23 +21,23 @@ const profilePageReducer = (profilePage: ProfilePageType = initialState, action:
                 ava: avatars[3].link
             }
 
-            if (profilePageCopy.newPostText) {
-                profilePageCopy.postsData = [...profilePage.postsData];
-                profilePageCopy.postsData.unshift(newPost);
-                profilePageCopy.newPostText = ''
-
+            return {
+                ...profilePage,
+                postsData: [...profilePage.postsData, newPost],
+                newPostText: ''
             }
-            return profilePageCopy
         case 'UPDATE-NEW-POST-TEXT':
-            profilePageCopy.newPostText = action.newPostText
+            return {
+                ...profilePage,
+                newPostText: action.newPostText
+            }
 
-            return profilePageCopy
         case 'LIKES-COUNTER':
             //store.getState().profilePage.postsData[0].likesCount = store.getState().profilePage.postsData[0].likesCount + 1
             console.log('like')
 
 
-            return profilePageCopy
+            return profilePage
         default:
             return profilePage;
     }
