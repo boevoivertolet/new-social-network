@@ -35,23 +35,28 @@ let initialState: DialogsPageType = {
 }
 
 const dialogsPageReducer = (dialogsPage: DialogsPageType = initialState, action: ActionType): DialogsPageType => {
-    let dialogsPageCopy = {
-        ...dialogsPage,
-        messageData: {...dialogsPage.messagesData.messagesDataIn = [...dialogsPage.messagesData.messagesDataIn], ...dialogsPage.messagesData.messagesDataOut = [...dialogsPage.messagesData.messagesDataOut]}
-    }
+
     switch (action.type) {
         case 'ADD-MESSAGE':
-            let newMessage = {id: v1(), messageOut: dialogsPage.newMessageText}
-            if (dialogsPageCopy.newMessageText) {
-                dialogsPageCopy.messagesData.messagesDataOut.push(newMessage);
-                dialogsPageCopy.newMessageText = ''
+            let newMessageText = dialogsPage.newMessageText
+            return {
+                ...dialogsPage, newMessageText: '',
+                messagesData: {
+                    ...dialogsPage.messagesData,
+                    messagesDataOut: [...dialogsPage.messagesData.messagesDataOut,{id:v1(),messageOut:newMessageText}]
+
+                }
             }
-            return dialogsPageCopy
+
         case 'UPDATE-NEW-MESSAGE-TEXT':
-            dialogsPageCopy.newMessageText = action.newMessageText
-            return dialogsPageCopy
+            return {
+                ...dialogsPage, newMessageText: action.newMessageText
+            }
+
+        default:
+            return dialogsPage
     }
-    return dialogsPageCopy
+
 }
 
 

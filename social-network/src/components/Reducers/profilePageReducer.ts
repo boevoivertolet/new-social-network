@@ -26,21 +26,23 @@ const profilePageReducer = (profilePage: ProfilePageType = initialState, action:
                 profilePageCopy.postsData = [...profilePage.postsData];
                 profilePageCopy.postsData.unshift(newPost);
                 profilePageCopy.newPostText = ''
-                // store._callSubscriber(store.getState());
+
             }
             return profilePageCopy
         case 'UPDATE-NEW-POST-TEXT':
             profilePageCopy.newPostText = action.newPostText
-            // store._callSubscriber(store.getState());
+
             return profilePageCopy
         case 'LIKES-COUNTER':
             //store.getState().profilePage.postsData[0].likesCount = store.getState().profilePage.postsData[0].likesCount + 1
             console.log('like')
-            // store._callSubscriber(store.getState());
+
 
             return profilePageCopy
+        default:
+            return profilePage;
     }
-    return profilePage;
+
 }
 
 export const addPostAC = () => ({type: 'ADD-POST'} as const)
