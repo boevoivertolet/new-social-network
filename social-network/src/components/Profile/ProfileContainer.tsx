@@ -1,15 +1,14 @@
 import React from 'react';
-import {ProfileMapDispatchToPropsType, ProfileMapStateToPropsType, StateType} from '../Types/Types';
+import {ProfileMapDispatchToPropsType, ProfileMapStateToPropsType} from '../Types/Types';
 import {Profile} from './Profile';
 import {addPostAC, likesCounterAC, updateNewPostTextAC} from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
 import {Dispatch} from 'redux';
 import {avatars} from '../Avatars/Avatars';
+import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 
 
-
-
-export const mapStateToProps = (state: StateType): ProfileMapStateToPropsType => {
+export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsType => {
     return {
         postsData: state.profilePage.postsData,
         newPostText: state.profilePage.newPostText,

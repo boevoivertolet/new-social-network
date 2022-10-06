@@ -10,10 +10,10 @@ import {Dialogs} from './Dialogs';
 import {connect} from 'react-redux';
 
 import {Dispatch} from 'redux';
+import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 
 
-
-const mapStateToProps = (state: StateType): DialogsMapStateToPropsType => {
+const mapStateToProps = (state: ReduxStoreType): DialogsMapStateToPropsType => {
 
     return {
         dialogsPage: state.dialogsPage

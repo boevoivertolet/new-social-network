@@ -1,4 +1,5 @@
 import React, {ChangeEvent} from 'react';
+import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 
 
 export type ButtonType = {
@@ -76,6 +77,13 @@ export type DialogsMapDispatchToPropsType = {
     addMessage: () => void
     onChangeHandler: (text: string) => void
 }
+export type UsersMapDispatchToPropsType = {
+    follow: (usersId: string) => void
+    unfollow: (usersId: string) => void
+    setUsers: (users: InitialUsersType[]) => void
+
+}
+
 export type DialogsType = DialogsMapStateToPropsType & DialogsMapDispatchToPropsType/*{
     dialogsPage: DialogsPageType
     addMessage: () => void
@@ -100,12 +108,6 @@ export type DialogsHeaderType = {
     title: string
 }
 
-export type ProfileMapStateToPropsType = {
-    postsData: PostsDataType[]
-    newPostText: string
-    ava: string
-
-}
 export type ProfileMapDispatchToPropsType = {
     likesCounter: () => void
     addPost: () => void
@@ -221,7 +223,7 @@ export type UnFollowActionType = {
 }
 export type SetUsersActionType = {
     type: 'SET-USERS'
-    users: UsersType[]
+    users: InitialUsersType[]
 }
 
 
@@ -243,10 +245,15 @@ export type ProviderType = {
     children: React.ReactNode
 }
 
-export type UsersInitialStateType = {
-    users: Array<UsersType>
+export type UsersType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
+
+
+
+export type UsersStateType = {
+    users: Array<InitialUsersType>
 }
-export type UsersType = {
+
+export type InitialUsersType = {
     id: string
     followed: boolean
     name: string
@@ -259,3 +266,13 @@ export type LocationType = {
     city: string
 }
 
+export type UsersMapStateToPropsType = {
+    users: InitialUsersType[]
+}
+
+export type ProfileMapStateToPropsType = {
+    postsData: PostsDataType[]
+    newPostText: string
+    ava: string
+
+}

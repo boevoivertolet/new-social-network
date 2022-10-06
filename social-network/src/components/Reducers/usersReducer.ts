@@ -1,9 +1,9 @@
 import {avatars} from '../Avatars/Avatars';
 import {v1} from 'uuid';
-import {ActionType, UsersInitialStateType} from '../Types/Types';
+import {ActionType, InitialUsersType, UsersStateType} from '../Types/Types';
 
 
-let initialState: UsersInitialStateType = {
+let initialState: UsersStateType = {
     users: [
         {
             id: v1(),
@@ -44,7 +44,7 @@ let initialState: UsersInitialStateType = {
 }
 
 
-export const usersReducer = (state: UsersInitialStateType = initialState, action: ActionType): UsersInitialStateType => {
+const usersReducer = (state: UsersStateType = initialState, action: ActionType): UsersStateType => {
     switch (action.type) {
         case 'FOLLOW':
             return {
@@ -69,8 +69,8 @@ export const usersReducer = (state: UsersInitialStateType = initialState, action
 
 }
 
-export const followAC = () => ({type: 'FOLLOW', userId} as const)
-export const unfollowAC = () => ({type: 'UNFOLLOW', userId} as const)
-export const setUsersAC = () => ({type: 'SET-USERS', users} as const)
+export const followAC = (userId: string) => ({type: 'FOLLOW', userId} as const)
+export const unfollowAC = (userId: string) => ({type: 'UNFOLLOW', userId} as const)
+export const setUsersAC = (users: InitialUsersType[]) => ({type: 'SET-USERS', users} as const)
 
-
+export default usersReducer
