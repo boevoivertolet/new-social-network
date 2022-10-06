@@ -10,15 +10,15 @@ let initialState: UsersStateType = {
             followed: true,
             name: avatars[0].name,
             avaLink: avatars[0].link,
-            status: 'hi all',
+            status: 'status',
             location: {country: 'Russia', city: 'Saint-Petersburg'}
         },
         {
             id: v1(),
-            followed: true,
+            followed: false,
             name: avatars[1].name,
             avaLink: avatars[1].link,
-            status: 'have a nice day',
+            status: 'status',
             location: {country: 'Russia', city: 'Saint-Petersburg'}
 
         },
@@ -27,15 +27,15 @@ let initialState: UsersStateType = {
             followed: true,
             name: avatars[2].name,
             avaLink: avatars[2].link,
-            status: 'welcome',
+            status: 'status',
             location: {country: 'Russia', city: 'Saint-Petersburg'}
         },
         {
             id: v1(),
-            followed: true,
+            followed: false,
             name: avatars[3].name,
             avaLink: avatars[3].link,
-            status: 'love music',
+            status: 'status',
             location: {country: 'Russia', city: 'Saint-Petersburg'}
         }
 

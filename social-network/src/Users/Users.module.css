@@ -1,4 +1,14 @@
 .users{
-
+    padding: 5px;
+}
+.users img{
+    width: 80px;
+    padding: 5px;
+}
+.user_block{
+    padding: 5px;
+    margin: 5px;
+    border: 1px black solid;
+    display: block;
 }
 
