@@ -33,7 +33,6 @@ const profilePageReducer = (profilePage: ProfilePageType = initialState, action:
             }
 
         case 'LIKES-COUNTER':
-            //store.getState().profilePage.postsData[0].likesCount = store.getState().profilePage.postsData[0].likesCount + 1
             console.log('like')
 
 

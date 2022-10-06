@@ -226,4 +226,18 @@ export type ProviderType = {
     children: React.ReactNode
 }
 
+export type UsersInitialStateType = {
+    users: Array<UsersType>
+}
+export type UsersType = {
+    id: string
+    name: string
+    avaLink: string
+    status: string
+    location: LocationType
+}
+export type LocationType = {
+    country: string
+    city: string
+}
 
