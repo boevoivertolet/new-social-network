@@ -3,10 +3,10 @@ import {Users} from './Users';
 import {
     UsersMapDispatchToPropsType,
     UsersMapStateToPropsType,
-} from '../components/Types/Types';
+} from '../Types/Types';
 import {Dispatch} from 'redux';
-import {followAC, setUsersAC, unfollowAC} from '../components/Reducers/usersReducer';
-import {ReduxStoreType} from '../components/ReduxStore/ReduxStore';
+import {followAC, setUsersAC, unfollowAC} from '../Reducers/usersReducer';
+import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
 
 

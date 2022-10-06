@@ -1,7 +1,7 @@
-import {UsersType} from '../components/Types/Types';
+import {UsersType} from '../Types/Types';
 import React from 'react';
 import styles from './Users.module.css'
-import {Button} from '../components/Button/Button';
+import {Button} from '../Button/Button';
 
 export const Users = (props: UsersType) => {
 

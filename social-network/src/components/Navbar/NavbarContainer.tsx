@@ -9,6 +9,7 @@ import StoreContext from '../../StoreContext';
 import {Dispatch} from 'redux';
 
 import {connect} from 'react-redux';
+import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 
 
 // export const NavbarContainer = (props: NavbarContainerType) => {
@@ -26,7 +27,7 @@ import {connect} from 'react-redux';
 //
 //
 
-export const mapStateToProps = (state: StateType): NavbarMapStateToPropsType => {
+export const mapStateToProps = (state: ReduxStoreType): NavbarMapStateToPropsType => {
     return {
         sidebar: state.sidebar
 

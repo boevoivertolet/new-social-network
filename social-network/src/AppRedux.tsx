@@ -9,7 +9,7 @@ import {AppType} from './components/Types/Types';
 import {DialogsContainer} from './components/Dialogs/DialogsContainer';
 import {NavbarContainer} from './components/Navbar/NavbarContainer';
 import {ProfileContainer} from './components/Profile/ProfileContainer';
-import { UsersContainer } from './Users/UsersContainer';
+import { UsersContainer } from './components/Users/UsersContainer';
 
 
 

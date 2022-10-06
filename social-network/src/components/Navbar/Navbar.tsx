@@ -25,7 +25,12 @@ export const Navbar = (props: NavbarType) => {
             className={navData => navData.isActive ? styles.active : styles.nav_link} to="/settings">Settings</NavLink>
         </div>
 
-        <Sidebar  peoples={props.sidebar.peoples}/>
+        <div className={styles.nav_users}><NavLink
+            className={navData => navData.isActive ? styles.active : styles.nav_link} to="/users">Users</NavLink>
+        </div>
+
+        <Sidebar peoples={props.sidebar.peoples}/>
+
     </nav>
 }
 
