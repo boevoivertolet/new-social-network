@@ -34,26 +34,26 @@ let initialState: DialogsPageType = {
     newMessageText: ''
 }
 
-const dialogsPageReducer = (dialogsPage: DialogsPageType = initialState, action: ActionType): DialogsPageType => {
+const dialogsPageReducer = (state: DialogsPageType = initialState, action: ActionType): DialogsPageType => {
 
     switch (action.type) {
         case 'ADD-MESSAGE':
-            let newMessageText = dialogsPage.newMessageText
+            let newMessageText = state.newMessageText
             return {
-                ...dialogsPage, newMessageText: '',
+                ...state, newMessageText: '',
                 messagesData: {
-                    ...dialogsPage.messagesData,
-                    messagesDataOut: [...dialogsPage.messagesData.messagesDataOut,{id:v1(),messageOut:newMessageText}]
+                    ...state.messagesData,
+                    messagesDataOut: [...state.messagesData.messagesDataOut,{id:v1(),messageOut:newMessageText}]
                 }
             }
 
         case 'UPDATE-NEW-MESSAGE-TEXT':
             return {
-                ...dialogsPage, newMessageText: action.newMessageText
+                ...state, newMessageText: action.newMessageText
             }
 
         default:
-            return dialogsPage
+            return state
     }
 
 }

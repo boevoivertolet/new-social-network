@@ -103,7 +103,7 @@ export type DialogsHeaderType = {
 export type ProfileMapStateToPropsType = {
     postsData: PostsDataType[]
     newPostText: string
-    ava:string
+    ava: string
 
 }
 export type ProfileMapDispatchToPropsType = {
@@ -188,6 +188,9 @@ export type ActionType =
     | updateNewMessageTextActionType
     | AddMessageActionType
     | likesCounterActionType
+    | FollowActionType
+    | UnFollowActionType
+    | SetUsersActionType
 
 
 export type AddPostActionType = {
@@ -206,7 +209,21 @@ export type updateNewMessageTextActionType = {
 }
 export type likesCounterActionType = {
     type: 'LIKES-COUNTER'
+
 }
+export type FollowActionType = {
+    type: 'FOLLOW'
+    userId: string
+}
+export type UnFollowActionType = {
+    type: 'UNFOLLOW'
+    userId: string
+}
+export type SetUsersActionType = {
+    type: 'SET-USERS'
+    users: UsersType[]
+}
+
 
 export type DialogsContainerType = {
     // store: StoreType
@@ -231,6 +248,7 @@ export type UsersInitialStateType = {
 }
 export type UsersType = {
     id: string
+    followed: boolean
     name: string
     avaLink: string
     status: string

@@ -5,10 +5,12 @@ import {Route, Routes} from 'react-router-dom';
 import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
-import {AppType, UsersType} from './components/Types/Types';
+import {AppType} from './components/Types/Types';
 import {DialogsContainer} from './components/Dialogs/DialogsContainer';
 import {NavbarContainer} from './components/Navbar/NavbarContainer';
 import {ProfileContainer} from './components/Profile/ProfileContainer';
+import UsersContainer from './Users/UsersContainer';
+
 
 
 export function AppRedux(props: AppType) {
@@ -34,7 +36,7 @@ export function AppRedux(props: AppType) {
 
                     <Route path="/settings" element={<Settings/>}/>
 
-                    <Route path="/users" element={<Users/>}/>
+                    <Route path="/users" element={<UsersContainer />}/>
 
                 </Routes>
             </div>
@@ -46,8 +48,3 @@ export function AppRedux(props: AppType) {
 
 
 
-const Users = (props: UsersType) => {
-  return <div>
-      Users
-  </div>
-}

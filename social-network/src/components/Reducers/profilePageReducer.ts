@@ -11,24 +11,24 @@ let initialState: ProfilePageType = {
 }
 
 
-const profilePageReducer = (profilePage: ProfilePageType = initialState, action: ActionType): ProfilePageType => {
+const profilePageReducer = (state: ProfilePageType = initialState, action: ActionType): ProfilePageType => {
     switch (action.type) {
         case 'ADD-POST':
             let newPost = {
                 postId: v1(),
-                message: profilePage.newPostText,
+                message: state.newPostText,
                 likesCount: 0,
                 ava: avatars[3].link
             }
 
             return {
-                ...profilePage,
-                postsData: [...profilePage.postsData, newPost],
+                ...state,
+                postsData: [...state.postsData, newPost],
                 newPostText: ''
             }
         case 'UPDATE-NEW-POST-TEXT':
             return {
-                ...profilePage,
+                ...state,
                 newPostText: action.newPostText
             }
 
@@ -36,9 +36,9 @@ const profilePageReducer = (profilePage: ProfilePageType = initialState, action:
             console.log('like')
 
 
-            return profilePage
+            return state
         default:
-            return profilePage;
+            return state;
     }
 
 }

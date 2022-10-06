@@ -3,14 +3,11 @@ import {v1} from 'uuid';
 import {ActionType, UsersInitialStateType} from '../Types/Types';
 
 
-
-
-
-
 let initialState: UsersInitialStateType = {
     users: [
         {
             id: v1(),
+            followed: true,
             name: avatars[0].name,
             avaLink: avatars[0].link,
             status: 'hi all',
@@ -18,6 +15,7 @@ let initialState: UsersInitialStateType = {
         },
         {
             id: v1(),
+            followed: true,
             name: avatars[1].name,
             avaLink: avatars[1].link,
             status: 'have a nice day',
@@ -26,6 +24,7 @@ let initialState: UsersInitialStateType = {
         },
         {
             id: v1(),
+            followed: true,
             name: avatars[2].name,
             avaLink: avatars[2].link,
             status: 'welcome',
@@ -33,6 +32,7 @@ let initialState: UsersInitialStateType = {
         },
         {
             id: v1(),
+            followed: true,
             name: avatars[3].name,
             avaLink: avatars[3].link,
             status: 'love music',
@@ -46,10 +46,31 @@ let initialState: UsersInitialStateType = {
 
 export const usersReducer = (state: UsersInitialStateType = initialState, action: ActionType): UsersInitialStateType => {
     switch (action.type) {
+        case 'FOLLOW':
+            return {
+                ...state,
+                users: state.users.map(u => u.id === action.userId ? {...u, followed: true} : u)
+            }
+        case 'UNFOLLOW':
+            return {
+                ...state,
+                users: state.users.map(u => u.id === action.userId ? {...u, followed: false} : u)
+            }
+        case 'SET-USERS':
+            return {
+                ...state,
+                users: [...state.users, ...action.users]
+            }
+
         default:
             return state;
     }
 
 
 }
-export default usersReducer;
+
+export const followAC = () => ({type: 'FOLLOW', userId} as const)
+export const unfollowAC = () => ({type: 'UNFOLLOW', userId} as const)
+export const setUsersAC = () => ({type: 'SET-USERS', users} as const)
+
+

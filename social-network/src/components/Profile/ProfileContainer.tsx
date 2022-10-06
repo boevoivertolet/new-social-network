@@ -6,47 +6,7 @@ import {connect} from 'react-redux';
 import {Dispatch} from 'redux';
 import {avatars} from '../Avatars/Avatars';
 
-// export const ProfileContainer = (props: ProfileContainerType) => {
-//     return (
-//         <StoreContext.Consumer>
-//             {
-//                 (store: StoreType) => {
-//
-//                     let ava = store.getState().profilePage.postsData[0].ava
-//                     let newPostText = store.getState().profilePage.newPostText
-//                     let postsData = store.getState().profilePage.postsData
-//
-//
-//                     const likesCounter = () => {
-//                         store.dispatch(likesCounterAC())
-//                     }
-//
-//                     const addPost = () => {
-//                         store.dispatch(addPostAC())
-//                     }
-//                     const updateNewPostText = (text: string) => {
-//                         store.dispatch(updateNewPostTextAC(text))
-//                     }
-//
-//                     return <Profile
-//                         postsData={postsData}
-//                         newPostText={newPostText}
-//                         ava={ava}
-//
-//                         likesCounter={likesCounter}
-//                         addPost={addPost}
-//                         updateNewPostText={updateNewPostText}
-//                     />
-//                 }
-//
-//
-//             }
-//
-//
-//         </StoreContext.Consumer>
-//     )
-//
-// }
+
 
 
 export const mapStateToProps = (state: StateType): ProfileMapStateToPropsType => {

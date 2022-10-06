@@ -30,9 +30,9 @@ let initialState: SidebarType = {
 }
 
 
-export const sidebarReducer = (sidebar: SidebarType = initialState, action: ActionType):SidebarType => {
+export const sidebarReducer = (state: SidebarType = initialState, action: ActionType):SidebarType => {
 
 
-    return sidebar;
+    return state;
 }
 export default sidebarReducer;
