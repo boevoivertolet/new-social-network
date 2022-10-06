@@ -5,7 +5,7 @@ import {ActionType, InitialUsersType, UsersStateType} from '../Types/Types';
 
 let initialState: UsersStateType = {
     users: [
-        {
+       /* {
             id: v1(),
             followed: true,
             name: avatars[0].name,
@@ -37,7 +37,7 @@ let initialState: UsersStateType = {
             avaLink: avatars[3].link,
             status: 'status',
             location: {country: 'Russia', city: 'Saint-Petersburg'}
-        }
+        }*/
 
     ]
 
