@@ -3,7 +3,7 @@ import {v1} from 'uuid';
 import {avatars} from '../Avatars/Avatars';
 
 
-let initialState: ProfilePageType = {
+let initialState = {
     postsData: [
         {postId: v1(), message: 'mes', likesCount: 0, ava: avatars[3].link},
     ],

@@ -2,51 +2,16 @@ import {UsersType} from '../Types/Types';
 import React from 'react';
 import styles from './Users.module.css'
 import {Button} from '../Button/Button';
-import {v1} from 'uuid';
-import {avatars} from '../Avatars/Avatars';
+import axios from 'axios';
+import userPhoto from'../../assets/images/user.jpg'
 
 export const Users = (props: UsersType) => {
 
-
-    if(props.users.length === 0){
-        props.setUsers([
-            {
-                id: v1(),
-                followed: true,
-                name: avatars[0].name,
-                avaLink: avatars[0].link,
-                status: 'status',
-                location: {country: 'Russia', city: 'Saint-Petersburg'}
-            },
-            {
-                id: v1(),
-                followed: false,
-                name: avatars[1].name,
-                avaLink: avatars[1].link,
-                status: 'status',
-                location: {country: 'Russia', city: 'Saint-Petersburg'}
-
-            },
-            {
-                id: v1(),
-                followed: true,
-                name: avatars[2].name,
-                avaLink: avatars[2].link,
-                status: 'status',
-                location: {country: 'Russia', city: 'Saint-Petersburg'}
-            },
-            {
-                id: v1(),
-                followed: false,
-                name: avatars[3].name,
-                avaLink: avatars[3].link,
-                status: 'status',
-                location: {country: 'Russia', city: 'Saint-Petersburg'}
-            }
-
-        ])
+    if (props.users.length === 0) {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            props.setUsers(response.data.items)
+        })
     }
-
 
 
     return <div className={styles.users}>
@@ -61,7 +26,7 @@ export const Users = (props: UsersType) => {
             return <div className={styles.user_block} key={u.id}>
                 <div>
                     <div>
-                        <img src={u.avaLink}/>
+                        <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
                     </div>
                     <div>
                         {u.followed
@@ -75,8 +40,8 @@ export const Users = (props: UsersType) => {
                         <div>{u.name}</div>
                     </div>
                     <div>
-                        <div>{u.location.city}</div>
-                        <div>{u.location.country}</div>
+                        <div>{'u.location.city'}</div>
+                        <div>{'u.location.country'}</div>
                     </div>
                     <div>{u.status}</div>
                 </div>

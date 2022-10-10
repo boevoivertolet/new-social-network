@@ -80,7 +80,7 @@ export type DialogsMapDispatchToPropsType = {
 export type UsersMapDispatchToPropsType = {
     follow: (usersId: string) => void
     unfollow: (usersId: string) => void
-    setUsers: (users: InitialUsersType[]) => void
+    setUsers: (users: UserType[]) => void
 
 }
 
@@ -223,7 +223,7 @@ export type UnFollowActionType = {
 }
 export type SetUsersActionType = {
     type: 'SET-USERS'
-    users: InitialUsersType[]
+    users: UserType[]
 }
 
 
@@ -248,18 +248,23 @@ export type ProviderType = {
 export type UsersType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
 
 
-
-export type UsersStateType = {
-    users: Array<InitialUsersType>
+export type InitialUsersStateType = {
+    users: Array<UserType>
 }
 
-export type InitialUsersType = {
+type PhotosType = {
+    small: string | undefined
+    large: string | undefined
+}
+export type UserType = {
     id: string
     followed: boolean
     name: string
-    avaLink: string
+    // avaLink: string
     status: string
-    location: LocationType
+    // location: LocationType
+    photos: PhotosType
+
 }
 export type LocationType = {
     country: string
@@ -267,7 +272,7 @@ export type LocationType = {
 }
 
 export type UsersMapStateToPropsType = {
-    users: InitialUsersType[]
+    users: UserType[]
 }
 
 export type ProfileMapStateToPropsType = {

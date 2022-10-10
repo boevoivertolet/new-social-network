@@ -3,7 +3,7 @@ import {v1} from 'uuid';
 import {avatars} from '../Avatars/Avatars';
 
 
-let initialState: DialogsPageType = {
+let initialState = {
     dialogsData: [
         {
             id: avatars[0].id,

@@ -4,6 +4,7 @@
 .users img{
     width: 80px;
     padding: 5px;
+    border-radius: 50px;
 }
 .user_block{
     padding: 5px;
