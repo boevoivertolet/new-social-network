@@ -5,16 +5,20 @@ import {Button} from '../Button/Button';
 import axios from 'axios';
 import userPhoto from'../../assets/images/user.jpg'
 
-export const Users = (props: UsersType) => {
-
-    if (props.users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            props.setUsers(response.data.items)
-        })
+const Users = (props: UsersType) => {
+    const getUsers = () => {
+        if (props.users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+                props.setUsers(response.data.items)
+            })
+        }
     }
 
 
+
+
     return <div className={styles.users}>
+        <button onClick={getUsers}>Get Users</button>
         {props.users.map((u) => {
             const follow = () => {
                 props.follow(u.id)
