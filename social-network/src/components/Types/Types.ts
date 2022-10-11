@@ -83,7 +83,7 @@ export type UsersMapDispatchToPropsType = {
     unfollow: (usersId: string) => void
     setUsers: (users: UserType[]) => void
     setCurrentPage:(currentPage: number)=> void
-
+    setTotalUsersCount: (totalCount:number) => void
 }
 
 export type DialogsType = DialogsMapStateToPropsType & DialogsMapDispatchToPropsType/*{
@@ -196,6 +196,7 @@ export type ActionType =
     | UnFollowActionType
     | SetUsersActionType
     | SetCurrentPageActionType
+    | SetUsersTotalCountActionType
 
 
 export type AddPostActionType = {
@@ -219,6 +220,11 @@ export type likesCounterActionType = {
 export type SetCurrentPageActionType = {
     type: 'SET-CURRENT-PAGE'
     currentPage: number
+
+}
+export type SetUsersTotalCountActionType = {
+    type: 'SET-USERS-TOTAL-COUNT'
+    totalCount: number
 
 }
 export type FollowActionType = {
