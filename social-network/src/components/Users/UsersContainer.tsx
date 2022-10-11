@@ -4,11 +4,10 @@ import {
     UsersMapStateToPropsType,
 } from '../Types/Types';
 import {Dispatch} from 'redux';
-import {followAC, setUsersAC, unfollowAC} from '../Reducers/usersReducer';
+import {followAC, setCurrentPageAC, setUsersAC, unfollowAC} from '../Reducers/usersReducer';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
 import Users from './Users';
-
 
 
 const mapStateToProps = (state: ReduxStoreType): UsersMapStateToPropsType => {
@@ -31,6 +30,9 @@ const mapDispatchToProps = (dispatch: Dispatch): UsersMapDispatchToPropsType => 
         },
         setUsers: (users) => {
             dispatch(setUsersAC(users))
+        },
+        setCurrentPage: (currentPage:number) => {
+            dispatch(setCurrentPageAC(currentPage))
         }
     }
 

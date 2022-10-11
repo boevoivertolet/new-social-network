@@ -4,7 +4,7 @@ import {ActionType, UserType, InitialUsersStateType} from '../Types/Types';
 let initialState: InitialUsersStateType = {
     users: [],
     pageSize: 5,
-    totalUsersCount:0,
+    totalUsersCount:19,
     currentPage: 1
 }
 
@@ -26,6 +26,10 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
                 ...state,
                 users: [...state.users, ...action.users]
             }
+        case 'SET-CURRENT-PAGE':
+            return {
+                ...state, currentPage: action.currentPage
+            }
 
         default:
             return state;
@@ -37,5 +41,6 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
 export const followAC = (userId: string) => ({type: 'FOLLOW', userId} as const)
 export const unfollowAC = (userId: string) => ({type: 'UNFOLLOW', userId} as const)
 export const setUsersAC = (users: UserType[]) => ({type: 'SET-USERS', users} as const)
+export const setCurrentPageAC = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)
 
 export default usersReducer

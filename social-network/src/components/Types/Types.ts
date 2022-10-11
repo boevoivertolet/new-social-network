@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from 'react';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
+import {setCurrentPageAC} from '../Reducers/usersReducer';
 
 
 export type ButtonType = {
@@ -81,6 +82,7 @@ export type UsersMapDispatchToPropsType = {
     follow: (usersId: string) => void
     unfollow: (usersId: string) => void
     setUsers: (users: UserType[]) => void
+    setCurrentPage:(currentPage: number)=> void
 
 }
 
@@ -193,6 +195,7 @@ export type ActionType =
     | FollowActionType
     | UnFollowActionType
     | SetUsersActionType
+    | SetCurrentPageActionType
 
 
 export type AddPostActionType = {
@@ -211,6 +214,11 @@ export type updateNewMessageTextActionType = {
 }
 export type likesCounterActionType = {
     type: 'LIKES-COUNTER'
+
+}
+export type SetCurrentPageActionType = {
+    type: 'SET-CURRENT-PAGE'
+    currentPage: number
 
 }
 export type FollowActionType = {
