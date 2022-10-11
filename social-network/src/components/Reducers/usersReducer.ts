@@ -2,7 +2,9 @@ import {ActionType, UserType, InitialUsersStateType} from '../Types/Types';
 
 
 let initialState: InitialUsersStateType = {
-    users: []
+    users: [],
+    pageSize: 5,
+    totalUsersCount:0
 }
 
 
