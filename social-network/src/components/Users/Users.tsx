@@ -26,7 +26,7 @@ class Users extends React.Component<UsersType> {
         return <div className={styles.users}>
             <div>
                 {
-                    pages.map(p => <span className={this.props.currentPage === p ? styles.selectedPage : ''}>{p}</span>)
+                    pages.map(p => <span onClick={()=> {this.props.setCurrentPage(p)}} className={this.props.currentPage === p ? styles.selectedPage : ''}>{p}</span>)
                 }
 
             </div>
