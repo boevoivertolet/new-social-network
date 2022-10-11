@@ -7,18 +7,18 @@ import userPhoto from '../../assets/images/user.jpg'
 
 class Users extends React.Component<UsersType> {
 
-    getUsers = () => {
-        if (this.props.users.length === 0) {
+
+    constructor(props: UsersType) {
+        super(props);
             axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
                 this.props.setUsers(response.data.items)
             })
-        }
     }
 
 
     render() {
         return <div className={styles.users}>
-            <button onClick={this.getUsers}>Get Users</button>
+            {/*<button onClick={this.getUsers}>Get Users</button>*/}
             {this.props.users.map((u) => {
                 const follow = () => {
                     this.props.follow(u.id)
