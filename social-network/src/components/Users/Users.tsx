@@ -1,15 +1,23 @@
 import {UsersType} from '../Types/Types';
-import React from 'react';
+import React, {MouseEvent} from 'react';
 import styles from './Users.module.css'
 import {Button} from '../Button/Button';
 import axios from 'axios';
 import userPhoto from '../../assets/images/user.jpg'
+
 
 class Users extends React.Component<UsersType> {
 
 
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            this.props.setUsers(response.data.items)
+        })
+    }
+
+    onPageChanged = (pageNumber: number) => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items)
         })
     }
@@ -26,7 +34,9 @@ class Users extends React.Component<UsersType> {
         return <div className={styles.users}>
             <div>
                 {
-                    pages.map(p => <span onClick={()=> {this.props.setCurrentPage(p)}} className={this.props.currentPage === p ? styles.selectedPage : ''}>{p}</span>)
+                    pages.map(p => <span onClick={(e: MouseEvent<HTMLSpanElement>) => {
+                        this.onPageChanged(p)
+                    }} className={this.props.currentPage === p ? styles.selectedPage : ''}> {p} </span>)
                 }
 
             </div>

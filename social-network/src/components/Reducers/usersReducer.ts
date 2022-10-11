@@ -24,7 +24,7 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
         case 'SET-USERS':
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                users:[...action.users]
             }
         case 'SET-CURRENT-PAGE':
             return {
