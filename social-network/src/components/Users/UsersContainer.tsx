@@ -15,7 +15,8 @@ const mapStateToProps = (state: ReduxStoreType): UsersMapStateToPropsType => {
     return {
         users: state.users.users,
         pageSize: state.users.pageSize,
-        totalUsersCount: state.users.totalUsersCount
+        totalUsersCount: state.users.totalUsersCount,
+        currentPage: state.users.currentPage
 
 
     }

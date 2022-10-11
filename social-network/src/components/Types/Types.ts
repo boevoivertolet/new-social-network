@@ -252,6 +252,7 @@ export type InitialUsersStateType = {
     users: Array<UserType>
     pageSize: number,
     totalUsersCount:number
+    currentPage: number
 }
 
 type PhotosType = {
@@ -277,6 +278,7 @@ export type UsersMapStateToPropsType = {
     users: UserType[]
     pageSize: number
     totalUsersCount: number
+    currentPage: number
 }
 
 export type ProfileMapStateToPropsType = {

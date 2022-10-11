@@ -15,47 +15,54 @@ class Users extends React.Component<UsersType> {
     }
 
     render() {
-        return <div className={styles.users}>
-            <div>
-                <span >1</span>
-                <span className={styles.selectedPage}>2</span>
-                <span >3</span>
-                <span >4</span>
-                <span >5</span>
-            </div>
-            {this.props.users.map((u) => {
-                const follow = () => {
-                    this.props.follow(u.id)
-                }
-                const unfollow = () => {
-                    this.props.unfollow(u.id)
-                }
+        const pagesCount = this.props.totalUsersCount / this.props.pageSize;
+        let pages = [];
 
-                return <div className={styles.user_block} key={u.id}>
-                    <div>
-                        <div>
-                            <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
-                        </div>
-                        <div>
-                            {u.followed
-                                ? <Button title={'follow'} callBack={unfollow}/>
-                                : <Button title={'unfollow'} callBack={follow}/>
-                            }
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <div>{u.name}</div>
-                        </div>
-                        <div>
-                            <div>{'u.location.city'}</div>
-                            <div>{'u.location.country'}</div>
-                        </div>
-                        <div>{u.status}</div>
-                    </div>
+        for (let i = 1; i <= pagesCount; i++){
+            pages.push(i);
+        }
+
+
+            return <div className={styles.users}>
+                <div>
+                    {
+                        pages.map(p=> <span className={styles.selectedPage}>{p}</span>)
+                    }
+
                 </div>
-            })}
-        </div>
+                {this.props.users.map((u) => {
+                    const follow = () => {
+                        this.props.follow(u.id)
+                    }
+                    const unfollow = () => {
+                        this.props.unfollow(u.id)
+                    }
+
+                    return <div className={styles.user_block} key={u.id}>
+                        <div>
+                            <div>
+                                <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
+                            </div>
+                            <div>
+                                {u.followed
+                                    ? <Button title={'follow'} callBack={unfollow}/>
+                                    : <Button title={'unfollow'} callBack={follow}/>
+                                }
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div>{u.name}</div>
+                            </div>
+                            <div>
+                                <div>{'u.location.city'}</div>
+                                <div>{'u.location.country'}</div>
+                            </div>
+                            <div>{u.status}</div>
+                        </div>
+                    </div>
+                })}
+            </div>
     }
 }
 
