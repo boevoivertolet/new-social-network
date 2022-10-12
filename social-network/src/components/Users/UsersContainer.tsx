@@ -24,22 +24,25 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
 
 
     componentDidMount() {
+        this.props.setFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            this.props.setFetching(false)
             this.props.setUsers(response.data.items)
             this.props.setTotalUsersCount(response.data.totalCount)
         })
     }
 
     onPageChanged = (pageNumber: number) => {
+        this.props.setFetching(true)
         this.props.setCurrentPage(pageNumber);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+            this.props.setFetching(false)
             this.props.setUsers(response.data.items)
         })
     }
 
     render() {
         return <>
-            {this.props.isFetching ? <img src={preloader}/> : ''}
             <Users
                 onPageChanged={this.onPageChanged}
                 users={this.props.users}
@@ -52,6 +55,7 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
                 totalUsersCount={this.props.totalUsersCount}
                 unfollow={this.props.unfollow}
             />
+            {this.props.isFetching ? <img src={preloader}/> : null}
         </>
     }
 }
