@@ -318,3 +318,5 @@ export type ProfileMapStateToPropsType = {
     ava: string
 
 }
+export type PreloaderType = {
+}

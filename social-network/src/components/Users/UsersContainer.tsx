@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-    UsersClassContainerType,
-    UsersMapDispatchToPropsType,
-    UsersMapStateToPropsType,
-} from '../Types/Types';
+import {UsersClassContainerType, UsersMapDispatchToPropsType, UsersMapStateToPropsType,} from '../Types/Types';
 import {Dispatch} from 'redux';
 import {
     followAC,
@@ -17,7 +13,7 @@ import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import {Users} from './Users';
-import preloader from '../../assets/images/preloader.svg'
+import {Preloader} from './Preloader';
 
 
 class UsersClassContainer extends React.Component<UsersClassContainerType> {
@@ -55,7 +51,9 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
                 totalUsersCount={this.props.totalUsersCount}
                 unfollow={this.props.unfollow}
             />
-            {this.props.isFetching ? <img src={preloader}/> : null}
+            {this.props.isFetching ? <Preloader/> : null}
+
+
         </>
     }
 }
@@ -98,3 +96,5 @@ const mapDispatchToProps = (dispatch: Dispatch): UsersMapDispatchToPropsType => 
 
 
 export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersClassContainer);
+
+
