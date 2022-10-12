@@ -259,7 +259,19 @@ export type ProviderType = {
     children: React.ReactNode
 }
 
-export type UsersType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
+export type UsersType = {
+    users: UserType[]
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
+    follow: (usersId: string) => void
+    unfollow: (usersId: string) => void
+    setUsers: (users: UserType[]) => void
+    setCurrentPage:(currentPage: number)=> void
+    setTotalUsersCount: (totalCount:number) => void
+    onPageChanged:(pageNumber: number)=> void
+}
+export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
 
 
 export type InitialUsersStateType = {

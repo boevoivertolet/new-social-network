@@ -1,80 +1,57 @@
-import {UsersType} from '../Types/Types';
+import styles from './Users.module.css';
 import React, {MouseEvent} from 'react';
-import styles from './Users.module.css'
+import userPhoto from '../../assets/images/user.jpg';
 import {Button} from '../Button/Button';
-import axios from 'axios';
-import userPhoto from '../../assets/images/user.jpg'
+import {UsersType} from '../Types/Types';
 
+export const Users = (props: UsersType) => {
+    const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    let pages = [];
 
-class Users extends React.Component<UsersType> {
-
-
-    componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
-            this.props.setUsers(response.data.items)
-            this.props.setTotalUsersCount(response.data.totalCount)
-        })
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
     }
 
-    onPageChanged = (pageNumber: number) => {
-        this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
-            this.props.setUsers(response.data.items)
-        })
-    }
+    return <div className={styles.users}>
+        <div>
+            {
+                pages.map(p => <span onClick={(e: MouseEvent<HTMLSpanElement>) => {
+                    props.onPageChanged(p)
+                }} className={props.currentPage === p ? styles.selectedPage : ''}> {p} </span>)
+            }
 
-    render() {
-        const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
-        let pages = [];
+        </div>
+        {props.users.map((u) => {
+            const follow = () => {
+                props.follow(u.id)
+            }
+            const unfollow = () => {
+                props.unfollow(u.id)
+            }
 
-        for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i);
-        }
-
-
-        return <div className={styles.users}>
-            <div>
-                {
-                    pages.map(p => <span onClick={(e: MouseEvent<HTMLSpanElement>) => {
-                        this.onPageChanged(p)
-                    }} className={this.props.currentPage === p ? styles.selectedPage : ''}> {p} </span>)
-                }
-
-            </div>
-            {this.props.users.map((u) => {
-                const follow = () => {
-                    this.props.follow(u.id)
-                }
-                const unfollow = () => {
-                    this.props.unfollow(u.id)
-                }
-
-                return <div className={styles.user_block} key={u.id}>
+            return <div className={styles.user_block} key={u.id}>
+                <div>
                     <div>
-                        <div>
-                            <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
-                        </div>
-                        <div>
-                            {u.followed
-                                ? <Button title={'follow'} callBack={unfollow}/>
-                                : <Button title={'unfollow'} callBack={follow}/>
-                            }
-                        </div>
+                        <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
                     </div>
                     <div>
-                        <div>
-                            <div>{u.name}</div>
-                        </div>
-                        <div>
-                            <div>{'u.location.city'}</div>
-                            <div>{'u.location.country'}</div>
-                        </div>
-                        <div>{u.status}</div>
+                        {u.followed
+                            ? <Button title={'follow'} callBack={unfollow}/>
+                            : <Button title={'unfollow'} callBack={follow}/>
+                        }
                     </div>
                 </div>
-            })}
-        </div>
-    }
+                <div>
+                    <div>
+                        <div>{u.name}</div>
+                    </div>
+                    <div>
+                        <div>{'u.location.city'}</div>
+                        <div>{'u.location.country'}</div>
+                    </div>
+                    <div>{u.status}</div>
+                </div>
+            </div>
+        })}
+    </div>
 }
-
-export default Users;
