@@ -80,8 +80,9 @@ export type UsersMapDispatchToPropsType = {
     follow: (usersId: string) => void
     unfollow: (usersId: string) => void
     setUsers: (users: UserType[]) => void
-    setCurrentPage:(currentPage: number)=> void
-    setTotalUsersCount: (totalCount:number) => void
+    setCurrentPage: (currentPage: number) => void
+    setTotalUsersCount: (totalCount: number) => void
+    setFetching: (isFetching: boolean) => void
 }
 
 export type DialogsType = DialogsMapStateToPropsType & DialogsMapDispatchToPropsType/*{
@@ -195,6 +196,7 @@ export type ActionType =
     | SetUsersActionType
     | SetCurrentPageActionType
     | SetUsersTotalCountActionType
+    | SetIsFetchingActionType
 
 
 export type AddPostActionType = {
@@ -237,6 +239,10 @@ export type SetUsersActionType = {
     type: 'SET-USERS'
     users: UserType[]
 }
+export type SetIsFetchingActionType = {
+    type: 'SET-IS-FETCHING'
+    isFetching: boolean
+}
 
 
 export type DialogsContainerType = {
@@ -265,10 +271,10 @@ export type UsersType = {
     follow: (usersId: string) => void
     unfollow: (usersId: string) => void
     setUsers: (users: UserType[]) => void
-    setCurrentPage:(currentPage: number)=> void
-    setTotalUsersCount: (totalCount:number) => void
-    onPageChanged:(pageNumber: number)=> void
-    isFetching: boolean
+    setCurrentPage: (currentPage: number) => void
+    setTotalUsersCount: (totalCount: number) => void
+    onPageChanged: (pageNumber: number) => void
+
 }
 export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
 
@@ -276,7 +282,7 @@ export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatc
 export type InitialUsersStateType = {
     users: Array<UserType>
     pageSize: number,
-    totalUsersCount:number
+    totalUsersCount: number
     currentPage: number
     isFetching: boolean
 }

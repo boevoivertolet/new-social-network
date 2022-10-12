@@ -5,12 +5,19 @@ import {
     UsersMapStateToPropsType,
 } from '../Types/Types';
 import {Dispatch} from 'redux';
-import {followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unfollowAC} from '../Reducers/usersReducer';
+import {
+    followAC,
+    setCurrentPageAC,
+    setIsFetchingAC,
+    setTotalUsersCountAC,
+    setUsersAC,
+    unfollowAC
+} from '../Reducers/usersReducer';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import {Users} from './Users';
-
+import preloader from '../../assets/images/preloader.svg'
 
 
 class UsersClassContainer extends React.Component<UsersClassContainerType> {
@@ -31,19 +38,21 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
     }
 
     render() {
-        return <Users
-            onPageChanged={this.onPageChanged}
-            users={this.props.users}
-            setUsers={this.props.setUsers}
-            currentPage={this.props.currentPage}
-            pageSize={this.props.pageSize}
-            follow={this.props.follow}
-            setCurrentPage={this.props.setCurrentPage}
-            setTotalUsersCount={this.props.setTotalUsersCount}
-            totalUsersCount={this.props.totalUsersCount}
-            unfollow={this.props.unfollow}
-            isFetching={this.props.isFetching}
-        />
+        return <>
+            {this.props.isFetching ? <img src={preloader}/> : ''}
+            <Users
+                onPageChanged={this.onPageChanged}
+                users={this.props.users}
+                setUsers={this.props.setUsers}
+                currentPage={this.props.currentPage}
+                pageSize={this.props.pageSize}
+                follow={this.props.follow}
+                setCurrentPage={this.props.setCurrentPage}
+                setTotalUsersCount={this.props.setTotalUsersCount}
+                totalUsersCount={this.props.totalUsersCount}
+                unfollow={this.props.unfollow}
+            />
+        </>
     }
 }
 
@@ -70,14 +79,16 @@ const mapDispatchToProps = (dispatch: Dispatch): UsersMapDispatchToPropsType => 
         setUsers: (users) => {
             dispatch(setUsersAC(users))
         },
-        setCurrentPage: (currentPage:number) => {
+        setCurrentPage: (currentPage: number) => {
             dispatch(setCurrentPageAC(currentPage))
         },
-        setTotalUsersCount: (totalCount:number) => {
+        setTotalUsersCount: (totalCount: number) => {
             dispatch(setTotalUsersCountAC(totalCount))
+        },
+        setFetching: (isFetching: boolean) => {
+            dispatch(setIsFetchingAC(isFetching))
         }
     }
-
 
 }
 

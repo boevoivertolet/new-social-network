@@ -35,6 +35,10 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
             return {
                 ...state, totalUsersCount: action.totalCount
             }
+        case 'SET-IS-FETCHING':
+            return {
+                ...state, isFetching: action.isFetching
+            }
 
         default:
             return state;
@@ -48,5 +52,6 @@ export const unfollowAC = (userId: string) => ({type: 'UNFOLLOW', userId} as con
 export const setUsersAC = (users: UserType[]) => ({type: 'SET-USERS', users} as const)
 export const setCurrentPageAC = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)
 export const setTotalUsersCountAC = (totalCount: number) => ({type: 'SET-USERS-TOTAL-COUNT', totalCount} as const)
+export const setIsFetchingAC = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)
 
 export default usersReducer
