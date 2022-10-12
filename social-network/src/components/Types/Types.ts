@@ -1,6 +1,4 @@
 import React, {ChangeEvent} from 'react';
-import {ReduxStoreType} from '../ReduxStore/ReduxStore';
-import {setCurrentPageAC} from '../Reducers/usersReducer';
 
 
 export type ButtonType = {
@@ -270,6 +268,7 @@ export type UsersType = {
     setCurrentPage:(currentPage: number)=> void
     setTotalUsersCount: (totalCount:number) => void
     onPageChanged:(pageNumber: number)=> void
+    isFetching: boolean
 }
 export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
 
@@ -279,6 +278,7 @@ export type InitialUsersStateType = {
     pageSize: number,
     totalUsersCount:number
     currentPage: number
+    isFetching: boolean
 }
 
 type PhotosType = {
@@ -289,9 +289,7 @@ export type UserType = {
     id: string
     followed: boolean
     name: string
-    // avaLink: string
     status: string
-    // location: LocationType
     photos: PhotosType
 
 }
@@ -305,6 +303,7 @@ export type UsersMapStateToPropsType = {
     pageSize: number
     totalUsersCount: number
     currentPage: number
+    isFetching: boolean
 }
 
 export type ProfileMapStateToPropsType = {

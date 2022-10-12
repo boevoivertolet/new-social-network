@@ -42,6 +42,7 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
             setTotalUsersCount={this.props.setTotalUsersCount}
             totalUsersCount={this.props.totalUsersCount}
             unfollow={this.props.unfollow}
+            isFetching={this.props.isFetching}
         />
     }
 }
@@ -52,7 +53,8 @@ const mapStateToProps = (state: ReduxStoreType): UsersMapStateToPropsType => {
         users: state.users.users,
         pageSize: state.users.pageSize,
         totalUsersCount: state.users.totalUsersCount,
-        currentPage: state.users.currentPage
+        currentPage: state.users.currentPage,
+        isFetching: state.users.isFetching
 
 
     }
