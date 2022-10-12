@@ -82,7 +82,7 @@ export type UsersMapDispatchToPropsType = {
     setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
     setTotalUsersCount: (totalCount: number) => void
-    setFetching: (isFetching: boolean) => void
+    setIsFetching: (isFetching: boolean) => void
 }
 
 export type DialogsType = DialogsMapStateToPropsType & DialogsMapDispatchToPropsType/*{
