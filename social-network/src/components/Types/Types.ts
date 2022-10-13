@@ -266,7 +266,7 @@ export type ProviderType = {
 export type UsersType = {
     users: UserType[]
     pageSize: number
-    totalUsersCount: number
+    totalCount: number
     currentPage: number
     follow: (usersId: string) => void
     unfollow: (usersId: string) => void
@@ -282,7 +282,7 @@ export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatc
 export type InitialUsersStateType = {
     users: Array<UserType>
     pageSize: number,
-    totalUsersCount: number
+    totalCount: number
     currentPage: number
     isFetching: boolean
 }
@@ -307,7 +307,7 @@ export type LocationType = {
 export type UsersMapStateToPropsType = {
     users: UserType[]
     pageSize: number
-    totalUsersCount: number
+    totalCount: number
     currentPage: number
     isFetching: boolean
 }

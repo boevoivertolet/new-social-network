@@ -4,7 +4,7 @@ import {ActionType, UserType, InitialUsersStateType} from '../Types/Types';
 let initialState: InitialUsersStateType = {
     users: [],
     pageSize: 5,
-    totalUsersCount: 100,
+    totalCount: 50,
     currentPage: 1,
     isFetching: false
 }
@@ -33,7 +33,7 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
             }
         case 'SET-USERS-TOTAL-COUNT':
             return {
-                ...state, totalUsersCount: action.totalCount
+                ...state, totalCount: action.totalCount
             }
         case 'SET-IS-FETCHING':
             return {
@@ -47,11 +47,11 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
 
 }
 
-export const follow = (userId: string) => ({type: 'FOLLOW', userId} as const)
-export const unfollow= (userId: string) => ({type: 'UNFOLLOW', userId} as const)
-export const setUsers= (users: UserType[]) => ({type: 'SET-USERS', users} as const)
-export const setCurrentPage = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)
-export const setTotalUsersCount = (totalCount: number) => ({type: 'SET-USERS-TOTAL-COUNT', totalCount} as const)
-export const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)
+export const follow = (userId: string) => ({type: 'FOLLOW', userId} as const)//Action Create
+export const unfollow = (userId: string) => ({type: 'UNFOLLOW', userId} as const)//Action Create
+export const setUsers = (users: UserType[]) => ({type: 'SET-USERS', users} as const)//Action Create
+export const setCurrentPage = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)//Action Create
+export const setTotalUsersCount = (totalCount: number) => ({type: 'SET-USERS-TOTAL-COUNT', totalCount} as const)//Action Create
+export const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
 
 export default usersReducer

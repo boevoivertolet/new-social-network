@@ -5,7 +5,7 @@ import {Button} from '../Button/Button';
 import {UsersType} from '../Types/Types';
 
 export const Users = (props: UsersType) => {
-    const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    const pagesCount = Math.ceil(props.totalCount / props.pageSize);
     let pages = [];
 
     for (let i = 1; i <= pagesCount; i++) {
@@ -15,9 +15,9 @@ export const Users = (props: UsersType) => {
     return <div className={styles.users}>
         <div>
             {
-                pages.map(p => <span onClick={(e: MouseEvent<HTMLSpanElement>) => {
+                pages.map(p => <span  onClick={(e: MouseEvent<HTMLSpanElement>) => {
                     props.onPageChanged(p)
-                }} className={props.currentPage === p ? styles.selectedPage : ''}> {p} </span>)
+                }} className={props.currentPage === p ? styles.selectedPage : ''}>{ p } </span>)
             }
 
         </div>
