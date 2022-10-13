@@ -13,7 +13,7 @@ import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import {Users} from './Users';
-import {Preloader} from './Preloader';
+import {Preloader} from '../Preloader/Preloader';
 
 
 class UsersClassContainer extends React.Component<UsersClassContainerType> {
@@ -22,7 +22,6 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
     componentDidMount() {
         this.props.setIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
-            debugger;
             this.props.setIsFetching(false)
             this.props.setUsers(response.data.items)
             this.props.setTotalUsersCount(this.props.totalCount)

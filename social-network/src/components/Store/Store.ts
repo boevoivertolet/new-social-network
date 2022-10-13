@@ -6,7 +6,7 @@ import dialogsPageReducer from '../Reducers/dialogsPageReducer';
 import sidebarReducer from '../Reducers/sidebarReducer';
 
 
-export let store: StoreType = {
+ let store: StoreType = {
     _state: {
         profilePage: {
             postsData: [
@@ -83,6 +83,7 @@ export let store: StoreType = {
     },
 
     dispatch(action: ActionType) {
+        // @ts-ignore
         this._state.profilePage = profilePageReducer(this._state.profilePage, action)
         this._state.dialogsPage = dialogsPageReducer(this._state.dialogsPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
@@ -94,5 +95,3 @@ export let store: StoreType = {
 }
 
 
-// @ts-ignore
-window.store = store

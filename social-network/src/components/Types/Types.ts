@@ -1,4 +1,5 @@
 import React, {ChangeEvent} from 'react';
+import {setUserProfile} from '../Reducers/profilePageReducer';
 
 
 export type ButtonType = {
@@ -36,6 +37,13 @@ export type DialogsPageType = {
 export type ProfilePageType = {
     postsData: PostsDataType[]
     newPostText: string
+
+}
+export type InitialProfilePageType = {
+    postsData: PostsDataType[]
+    newPostText: string
+    isFetching: boolean
+    profile: null | ProfileType
 }
 
 
@@ -113,15 +121,21 @@ export type ProfileMapDispatchToPropsType = {
     likesCounter: () => void
     addPost: () => void
     updateNewPostText: (text: string) => void
+    setIsFetching: (isFetching: boolean) => void
+    setUserProfile: (profile:ProfileType) => void
 }
-export type ProfileType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType/*{
+
+export type ProfileClassContainerType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType
+
+export type ProfileType = {
     updateNewPostText: (text: string) => void
     addPost: () => void
     ava: string
     newPostText: string
     postsData: PostsDataType[]
     likesCounter: () => void
-}*/
+
+}
 
 
 export type MainContentType = {
@@ -197,6 +211,7 @@ export type ActionType =
     | SetCurrentPageActionType
     | SetUsersTotalCountActionType
     | SetIsFetchingActionType
+    | SetUserProfileActionType
 
 
 export type AddPostActionType = {
@@ -220,6 +235,11 @@ export type likesCounterActionType = {
 export type SetCurrentPageActionType = {
     type: 'SET-CURRENT-PAGE'
     currentPage: number
+
+}
+export type SetUserProfileActionType = {
+    type: 'SET-USER-PROFILE'
+    profile: null | ProfileType
 
 }
 export type SetUsersTotalCountActionType = {
@@ -248,9 +268,6 @@ export type SetIsFetchingActionType = {
 export type DialogsContainerType = {
     // store: StoreType
 
-}
-export type ProfileContainerType = {
-    // store: StoreType
 }
 
 
@@ -318,5 +335,4 @@ export type ProfileMapStateToPropsType = {
     ava: string
 
 }
-export type PreloaderType = {
-}
+export type PreloaderType = {}

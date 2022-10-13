@@ -1,11 +1,39 @@
 import React from 'react';
-import {ProfileMapDispatchToPropsType, ProfileMapStateToPropsType} from '../Types/Types';
+import {ProfileClassContainerType, ProfileMapStateToPropsType} from '../Types/Types';
 import {Profile} from './Profile';
-import {addPostAC, likesCounterAC, updateNewPostTextAC} from '../Reducers/profilePageReducer';
+import {addPost, likesCounter, setIsFetching, setUserProfile, updateNewPostText} from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
-import {Dispatch} from 'redux';
+
 import {avatars} from '../Avatars/Avatars';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
+import axios from 'axios';
+
+
+class ProfileClassContainer extends React.Component<ProfileClassContainerType> {
+    componentDidMount() {
+        this.props.setIsFetching(true)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`).then(response => {
+            this.props.setIsFetching(false)
+            this.props.setUserProfile(response.data)
+
+        })
+
+    }
+
+
+    render() {
+        return (
+            <Profile updateNewPostText={this.props.updateNewPostText}
+                     addPost={this.props.addPost}
+                     ava={this.props.ava}
+                     newPostText={this.props.newPostText}
+                     postsData={this.props.postsData}
+                     likesCounter={this.props.likesCounter}
+                     />
+        )
+    }
+
+}
 
 
 export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsType => {
@@ -15,21 +43,16 @@ export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsTy
         ava: avatars[3].link
     }
 }
-export const mapDispatchToProps = (dispatch: Dispatch): ProfileMapDispatchToPropsType => {
-    return {
-        likesCounter: () => {
-            dispatch(likesCounterAC())
-        },
-        addPost: () => {
-            dispatch(addPostAC())
-        },
-        updateNewPostText: (text: string) => {
-            dispatch(updateNewPostTextAC(text))
-        }
-    }
-
-}
 
 
-export const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);
+export const ProfileContainer = connect(mapStateToProps, {
+    likesCounter,
+    addPost,
+    updateNewPostText,
+    setIsFetching,
+    setUserProfile
+})(ProfileClassContainer);
+
+
+
 

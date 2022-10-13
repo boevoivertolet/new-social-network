@@ -7,7 +7,7 @@ let rerenderEntireTree = (state: StateType) => {
     console.log('state was changed')
 }
 
-export const subscribe = (observer: any) => {
+ const subscribe = (observer: any) => {
     rerenderEntireTree = observer
 }
 
@@ -39,7 +39,7 @@ let avatars: AvatarsType[] = [
 
 
 
-export let state: StateType = {
+ let state: StateType = {
     dialogsPage: {
         dialogsData: [
             {
@@ -107,7 +107,7 @@ export let state: StateType = {
 }
 
 
-export const addPost = () => {
+ const addPost = () => {
     let newPost = {postId: v1(), message: state.profilePage.newPostText, likesCount: 0, ava: avatars[3].link}
     if (state.profilePage.newPostText){
         state.profilePage.postsData.unshift(newPost);
@@ -116,7 +116,7 @@ export const addPost = () => {
     }
 
 }
-export const addMessage = () => {
+ const addMessage = () => {
     let newMessage = {id: v1(), messageOut: state.dialogsPage.newMessageText}
     if (state.dialogsPage.newMessageText){
         state.dialogsPage.messagesData.messagesDataOut.push(newMessage);
@@ -126,17 +126,17 @@ export const addMessage = () => {
 
 }
 
-export const updateNewPostText = (newPostText: string) => {
+ const updateNewPostText = (newPostText: string) => {
     state.profilePage.newPostText = newPostText
     rerenderEntireTree(state);
 
 }
-export const updateNewMessageText = (newPostText: string) => {
+ const updateNewMessageText = (newPostText: string) => {
     state.dialogsPage.newMessageText = newPostText
     rerenderEntireTree(state);
 
 }
-export const likesCounter = () => {
+ const likesCounter = () => {
     state.profilePage.postsData[0].likesCount = state.profilePage.postsData[0].likesCount + 1
     rerenderEntireTree(state);
 }

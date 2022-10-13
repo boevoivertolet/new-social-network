@@ -3,6 +3,7 @@ import React, {MouseEvent} from 'react';
 import userPhoto from '../../assets/images/user.jpg';
 import {Button} from '../Button/Button';
 import {UsersType} from '../Types/Types';
+import {NavLink} from 'react-router-dom';
 
 export const Users = (props: UsersType) => {
     const pagesCount = Math.ceil(props.totalCount / props.pageSize);
@@ -32,7 +33,9 @@ export const Users = (props: UsersType) => {
             return <div className={styles.user_block} key={u.id}>
                 <div>
                     <div>
-                        <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
+                        <NavLink to={'/profile'}>
+                            <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
+                        </NavLink>
                     </div>
                     <div>
                         {u.followed
