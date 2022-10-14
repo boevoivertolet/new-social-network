@@ -6,15 +6,20 @@ import {PostsHeader} from './profile-components/PostsHeader/PostsHeader';
 import {ProfileType} from '../Types/Types';
 import {NewPosts} from './profile-components/NewPosts/NewPosts';
 import {MainContent} from './profile-components/MainContent/MainContent';
+import {Preloader} from '../Preloader/Preloader';
 
 
 export const Profile = (props: ProfileType) => {
+    if (!props.userProfile) {
+        return <Preloader/>
+
+    }
 
     return <div className={styles.profile}>
         <WallImg/>
-        <AvatarDescription ava={props.ava}/>
+        <AvatarDescription ava={props.userProfile.photos.large}/>
         <PostsHeader/>
-        <NewPosts updateNewPost={props.updateNewPostText}  addPost={props.addPost} newPostText={props.newPostText} />
+        <NewPosts updateNewPost={props.updateNewPostText} addPost={props.addPost} newPostText={props.newPostText}/>
         <MainContent postsData={props.postsData} likesCounter={props.likesCounter}/>
     </div>
 

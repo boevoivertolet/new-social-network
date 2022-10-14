@@ -43,7 +43,7 @@ export type InitialProfilePageType = {
     postsData: PostsDataType[]
     newPostText: string
     isFetching: boolean
-    profile: null | ProfileType
+    userProfile: null | UserProfileType
 }
 
 
@@ -122,18 +122,37 @@ export type ProfileMapDispatchToPropsType = {
     addPost: () => void
     updateNewPostText: (text: string) => void
     setIsFetching: (isFetching: boolean) => void
-    setUserProfile: (profile:ProfileType) => void
+    setUserProfile: (userProfile: UserProfileType) => void
 }
 
 export type ProfileClassContainerType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType
 
+
+type ContactsType = {
+    facebook:string
+    github: string
+    instagram: string
+    twitter: string
+    vk:string
+}
+
+export type UserProfileType = {
+    aboutMe?: string
+    contacts?: ContactsType
+    fullName: string
+    lookingForAJob:boolean
+    lookingForAJobDescription: string
+    photos:{small:string, large:string}
+    userId:number
+
+}
 export type ProfileType = {
     updateNewPostText: (text: string) => void
     addPost: () => void
-    ava: string
     newPostText: string
     postsData: PostsDataType[]
     likesCounter: () => void
+    userProfile: UserProfileType | null
 
 }
 
@@ -158,10 +177,10 @@ export type DialogsMessagesOutType = {
 
 }
 export type AvatarDescriptionType = {
-    ava: string
+    ava: string | undefined
 }
 export type ImgType = {
-    ava: string
+    ava: string | undefined
 }
 export type PostAvatarType = {
     ava: string
@@ -239,7 +258,7 @@ export type SetCurrentPageActionType = {
 }
 export type SetUserProfileActionType = {
     type: 'SET-USER-PROFILE'
-    profile: null | ProfileType
+    userProfile: null | UserProfileType
 
 }
 export type SetUsersTotalCountActionType = {
@@ -332,7 +351,8 @@ export type UsersMapStateToPropsType = {
 export type ProfileMapStateToPropsType = {
     postsData: PostsDataType[]
     newPostText: string
-    ava: string
+    // ava: string | undefined
+    userProfile: null | UserProfileType
 
 }
 export type PreloaderType = {}

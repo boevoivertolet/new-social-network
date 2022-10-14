@@ -25,10 +25,10 @@ class ProfileClassContainer extends React.Component<ProfileClassContainerType> {
         return (
             <Profile updateNewPostText={this.props.updateNewPostText}
                      addPost={this.props.addPost}
-                     ava={this.props.ava}
                      newPostText={this.props.newPostText}
                      postsData={this.props.postsData}
                      likesCounter={this.props.likesCounter}
+                     userProfile={this.props.userProfile}
                      />
         )
     }
@@ -40,7 +40,8 @@ export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsTy
     return {
         postsData: state.profilePage.postsData,
         newPostText: state.profilePage.newPostText,
-        ava: avatars[3].link
+        // ava: state.profilePage.userProfile?.photos.large,// holder
+        userProfile: state.profilePage.userProfile
     }
 }
 
