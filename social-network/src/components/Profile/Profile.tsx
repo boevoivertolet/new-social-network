@@ -17,7 +17,7 @@ export const Profile = (props: ProfileType) => {
 
     return <div className={styles.profile}>
         <WallImg/>
-        <AvatarDescription ava={props.userProfile.photos.large}/>
+        <AvatarDescription userProfile={props.userProfile}/>
         <PostsHeader/>
         <NewPosts updateNewPost={props.updateNewPostText} addPost={props.addPost} newPostText={props.newPostText}/>
         <MainContent postsData={props.postsData} likesCounter={props.likesCounter}/>

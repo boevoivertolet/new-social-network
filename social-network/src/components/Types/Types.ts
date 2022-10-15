@@ -129,21 +129,21 @@ export type ProfileClassContainerType = ProfileMapStateToPropsType & ProfileMapD
 
 
 type ContactsType = {
-    facebook:string
-    github: string
-    instagram: string
-    twitter: string
-    vk:string
+    facebook?: string
+    github?: string
+    instagram?: string
+    twitter?: string
+    vk?: string
 }
 
 export type UserProfileType = {
     aboutMe?: string
     contacts?: ContactsType
     fullName: string
-    lookingForAJob:boolean
+    lookingForAJob: boolean
     lookingForAJobDescription: string
-    photos:{small:string, large:string}
-    userId:number
+    photos: { small: string, large: string }
+    userId: number
 
 }
 export type ProfileType = {
@@ -177,7 +177,7 @@ export type DialogsMessagesOutType = {
 
 }
 export type AvatarDescriptionType = {
-    ava: string | undefined
+    userProfile: UserProfileType
 }
 export type ImgType = {
     ava: string | undefined
@@ -356,3 +356,12 @@ export type ProfileMapStateToPropsType = {
 
 }
 export type PreloaderType = {}
+
+export type NameDescriptionType = {
+    userName: string
+    aboutMe: string | undefined
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    contacts: ContactsType | undefined
+
+}

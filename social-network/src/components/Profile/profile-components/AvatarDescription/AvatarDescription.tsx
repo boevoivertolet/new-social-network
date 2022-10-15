@@ -7,7 +7,14 @@ import {AvatarDescriptionType} from '../../../Types/Types';
 
 export const AvatarDescription = (props: AvatarDescriptionType) => {
     return <div className={styles.avatarDescription}>
-        <Img ava={props.ava}/>
-        <NameDescription/>
+        <Img ava={props.userProfile.photos.large}/>
+        <NameDescription
+            key={props.userProfile.userId}
+            userName={props.userProfile.fullName}
+            lookingForAJobDescription={props.userProfile.lookingForAJobDescription}
+            aboutMe={props.userProfile.aboutMe}
+            contacts={props.userProfile.contacts}
+            lookingForAJob={props.userProfile.lookingForAJob}
+        />
     </div>
 }
