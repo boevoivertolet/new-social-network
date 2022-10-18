@@ -1,18 +1,19 @@
 import React from 'react';
-import {ProfileClassContainerType, ProfileMapStateToPropsType} from '../Types/Types';
+import {ProfileContainerType, ProfileMapStateToPropsType} from '../Types/Types';
 import {Profile} from './Profile';
 import {addPost, likesCounter, setIsFetching, setUserProfile, updateNewPostText} from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
-
-import {avatars} from '../Avatars/Avatars';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import axios from 'axios';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 
-class ProfileClassContainer extends React.Component<ProfileClassContainerType> {
+class ProfileContainer extends React.Component<ProfileContainerType> {
     componentDidMount() {
         this.props.setIsFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`).then(response => {
+         let userId = this.props.router.params.userId;
+         if (!userId) userId = 2;
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${11}`).then(response => {
             this.props.setIsFetching(false)
             this.props.setUserProfile(response.data)
 
@@ -29,7 +30,7 @@ class ProfileClassContainer extends React.Component<ProfileClassContainerType> {
                      postsData={this.props.postsData}
                      likesCounter={this.props.likesCounter}
                      userProfile={this.props.userProfile}
-                     />
+            />
         )
     }
 
@@ -40,19 +41,28 @@ export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsTy
     return {
         postsData: state.profilePage.postsData,
         newPostText: state.profilePage.newPostText,
-        // ava: state.profilePage.userProfile?.photos.large,// holder
         userProfile: state.profilePage.userProfile
+
     }
+}
+function withRouter(Component:any) {
+    function ComponentWithRouterProp(props:any) {
+        let location = useLocation();
+        let navigate = useNavigate();
+        let params = useParams();
+        return <Component {...props} router={{ location, navigate, params }} />;
+    }
+    return ComponentWithRouterProp;
 }
 
 
-export const ProfileContainer = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
     likesCounter,
     addPost,
     updateNewPostText,
     setIsFetching,
     setUserProfile
-})(ProfileClassContainer);
+})(withRouter(ProfileContainer));
 
 
 

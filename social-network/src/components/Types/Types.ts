@@ -1,5 +1,7 @@
 import React, {ChangeEvent} from 'react';
-import {setUserProfile} from '../Reducers/profilePageReducer';
+// @ts-ignore
+import {RouteComponentProps} from 'react-router-dom';
+
 
 
 export type ButtonType = {
@@ -124,8 +126,12 @@ export type ProfileMapDispatchToPropsType = {
     setIsFetching: (isFetching: boolean) => void
     setUserProfile: (userProfile: UserProfileType) => void
 }
+type PathParamsType = {
+    userId: string;
+}
+export type ProfileConnectType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType
+export type ProfileContainerType = ProfileConnectType & RouteComponentProps<PathParamsType>
 
-export type ProfileClassContainerType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType
 
 
 type ContactsType = {
@@ -351,8 +357,9 @@ export type UsersMapStateToPropsType = {
 export type ProfileMapStateToPropsType = {
     postsData: PostsDataType[]
     newPostText: string
-    // ava: string | undefined
     userProfile: null | UserProfileType
+
+
 
 }
 export type PreloaderType = {}
@@ -365,3 +372,4 @@ export type NameDescriptionType = {
     contacts: ContactsType | undefined
 
 }
+

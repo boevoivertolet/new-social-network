@@ -8,8 +8,8 @@ import {Settings} from './components/Settings/Settings';
 import {AppType} from './components/Types/Types';
 import {DialogsContainer} from './components/Dialogs/DialogsContainer';
 import {NavbarContainer} from './components/Navbar/NavbarContainer';
-import {ProfileContainer} from './components/Profile/ProfileContainer';
 import { UsersContainer } from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 
@@ -21,6 +21,7 @@ export function AppRedux(props: AppType) {
             <NavbarContainer/>
             <div className={styles.content}>
                 <Routes>
+                    <Route path='/profile/:userId' element={<ProfileContainer />} />
                     <Route path="/profile" element={<ProfileContainer
 
                     />}/>
