@@ -1,18 +1,18 @@
-import React from 'react';
+import React, {ComponentType} from 'react';
 import {ProfileContainerType, ProfileMapStateToPropsType} from '../Types/Types';
 import {Profile} from './Profile';
 import {addPost, likesCounter, setIsFetching, setUserProfile, updateNewPostText} from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import axios from 'axios';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {NavigateFunction, Params, useLocation, useNavigate, useParams} from 'react-router-dom';
 
 
 class ProfileContainer extends React.Component<ProfileContainerType> {
     componentDidMount() {
         this.props.setIsFetching(true)
-         let userId = this.props.router.params.userId;
-         if (!userId) userId = 2;
+        let userId = this.props.router.params.userId;
+        if (!userId) userId = 11;
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then(response => {
             this.props.setIsFetching(false)
             this.props.setUserProfile(response.data)
@@ -45,8 +45,11 @@ export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsTy
 
     }
 }
-function withRouter(Component:React.ElementType) {
-    function ComponentWithRouterProp(props:ProfileContainerType) {
+
+type WithRouterType = Location & NavigateFunction & Readonly<Params<string>>
+
+function withRouter<T>(Component:ComponentType<T>) {
+    function ComponentWithRouterProp(props: T & WithRouterType ) {
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();

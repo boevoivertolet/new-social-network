@@ -16,7 +16,7 @@ export const Users = (props: UsersType) => {
     return <div className={styles.users}>
         <div>
             {
-                pages.map(p => <span  onClick={(e: MouseEvent<HTMLSpanElement>) => {
+                pages.map(p => <span key={p}  onClick={(e: MouseEvent<HTMLSpanElement>) => {
                     props.onPageChanged(p)
                 }} className={props.currentPage === p ? styles.selectedPage : ''}>{ p } </span>)
             }
@@ -33,7 +33,7 @@ export const Users = (props: UsersType) => {
             return <div className={styles.user_block} key={u.id}>
                 <div>
                     <div>
-                        <NavLink to={'/profile'}>
+                        <NavLink to={`/profile/${u.id}`}>
                             <img src={u.photos.small != null ? u.photos.small : userPhoto}/>
                         </NavLink>
                     </div>

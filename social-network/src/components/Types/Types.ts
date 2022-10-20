@@ -3,7 +3,6 @@ import React, {ChangeEvent} from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 
 
-
 export type ButtonType = {
     title: string
     callBack: () => void
@@ -130,8 +129,10 @@ type PathParamsType = {
     userId: string;
 }
 export type ProfileConnectType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType
-export type ProfileContainerType = ProfileConnectType & RouteComponentProps<PathParamsType>
-
+export type ProfileContainerType =
+    ProfileConnectType
+    & RouteComponentProps<PathParamsType>
+    & { router: { params: PathParamsType } }
 
 
 type ContactsType = {
@@ -358,7 +359,6 @@ export type ProfileMapStateToPropsType = {
     postsData: PostsDataType[]
     newPostText: string
     userProfile: null | UserProfileType
-
 
 
 }

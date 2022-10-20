@@ -21,10 +21,10 @@ export function AppRedux(props: AppType) {
             <NavbarContainer/>
             <div className={styles.content}>
                 <Routes>
-                    <Route path='/profile/:userId' element={<ProfileContainer />} />
-                    <Route path="/profile" element={<ProfileContainer
-
-                    />}/>
+                    <Route path="/profile">
+                        <Route index element={<ProfileContainer />} />
+                        <Route path=':userId' element={<ProfileContainer />} />
+                    </Route>
 
                     <Route path="/dialogs" element={<DialogsContainer
 
