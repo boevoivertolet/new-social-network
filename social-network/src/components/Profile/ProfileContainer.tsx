@@ -13,7 +13,7 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
         this.props.setIsFetching(true)
          let userId = this.props.router.params.userId;
          if (!userId) userId = 2;
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${11}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then(response => {
             this.props.setIsFetching(false)
             this.props.setUserProfile(response.data)
 
@@ -45,8 +45,8 @@ export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsTy
 
     }
 }
-function withRouter(Component:any) {
-    function ComponentWithRouterProp(props:any) {
+function withRouter(Component:React.ElementType) {
+    function ComponentWithRouterProp(props:ProfileContainerType) {
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();

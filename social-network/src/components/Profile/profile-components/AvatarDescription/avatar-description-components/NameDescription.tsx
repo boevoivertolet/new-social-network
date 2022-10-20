@@ -8,7 +8,7 @@ export const NameDescription = (props: NameDescriptionType) => {
         <div className={styles.description}>
             <ul>
                 <li>Обо мне: {props.aboutMe}</li>
-                <li>Ищу работу: <input type="checkbox" checked={props.lookingForAJob}/></li>
+                <li>Ищу работу: {props.lookingForAJob ? 'да' : 'нет'}</li>
                 <li>Описание поиска: {props.lookingForAJobDescription} </li>
             </ul>
             <div>contacts:
