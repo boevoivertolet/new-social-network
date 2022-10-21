@@ -238,7 +238,11 @@ export type ActionType =
     | SetUsersTotalCountActionType
     | SetIsFetchingActionType
     | SetUserProfileActionType
+    | SetUserDataActionType
 
+export type SetUserDataActionType = {
+    type: 'SET-USER-DATA'
+}
 
 export type AddPostActionType = {
     type: 'ADD-POST'
@@ -371,5 +375,11 @@ export type NameDescriptionType = {
     lookingForAJobDescription: string
     contacts: ContactsType | undefined
 
+}
+export type InitialAuthStateType = {
+    id: number | null
+    email: string | null
+    login: string | null
+    isFetching: boolean
 }
 
