@@ -16,7 +16,7 @@ function App(props: AppType) {
     return (
 
             <div className={styles.appWrapper}>
-                <Header/>
+               {/* <Header/>*/}
                {/* <Navbar sidebar={props.store.getState().sidebar}/>*/}
                 <div className={styles.content}>
                     <Routes>

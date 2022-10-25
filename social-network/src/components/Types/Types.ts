@@ -23,6 +23,26 @@ export type StoreType = {
     subscribe: (observer: any) => void
     dispatch: (action: ActionType) => void
 }
+export type UserDataType = {
+    id: number | null
+    email: string | null
+    login: string | null
+}
+
+export type HeaderType = {
+    isAuth: boolean
+    data: UserDataType
+}
+
+export type HeaderMapDispatchToPropsType = {
+    setIsFetching: (isFetching: boolean) => void
+    setAuthUserData: (data: UserDataType) => void
+}
+
+type HeaderConnectType = HeaderMapStateToPropsType & HeaderMapDispatchToPropsType
+
+
+export type HeaderContainerType = HeaderConnectType
 
 
 export type StateType = {
@@ -242,6 +262,7 @@ export type ActionType =
 
 export type SetUserDataActionType = {
     type: 'SET-USER-DATA'
+    data: UserDataType
 }
 
 export type AddPostActionType = {
@@ -377,9 +398,15 @@ export type NameDescriptionType = {
 
 }
 export type InitialAuthStateType = {
-    id: number | null
-    email: string | null
-    login: string | null
+    // id: number | null
+    // email: string | null
+    // login: string | null
+    data: UserDataType
+    isAuth: boolean
     isFetching: boolean
 }
 
+export type HeaderMapStateToPropsType = {
+    isAuth: boolean
+    data: UserDataType
+}
