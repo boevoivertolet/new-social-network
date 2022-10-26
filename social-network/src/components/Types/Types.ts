@@ -398,9 +398,6 @@ export type NameDescriptionType = {
 
 }
 export type InitialAuthStateType = {
-    // id: number | null
-    // email: string | null
-    // login: string | null
     data: UserDataType
     isAuth: boolean
     isFetching: boolean

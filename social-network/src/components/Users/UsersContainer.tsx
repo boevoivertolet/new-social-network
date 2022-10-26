@@ -22,19 +22,19 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
 
     componentDidMount() {
         this.props.setIsFetching(true)
-        getUsers(this.props.currentPage, this.props.pageSize).then(response => {
+        getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.setIsFetching(false)
-            this.props.setUsers(response.data.items)
+            this.props.setUsers(data.items)
             this.props.setTotalUsersCount(this.props.totalCount)
         })
     }
 
     onPageChanged = (pageNumber: number) => {
-        this.props.setIsFetching(true)
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}` ,{withCredentials:true}).then(response => {
+        this.props.setIsFetching(true)
+        getUsers(pageNumber, this.props.pageSize).then(data => {
             this.props.setIsFetching(false)
-            this.props.setUsers(response.data.items)
+            this.props.setUsers(data.items)
         })
     }
 
@@ -55,7 +55,6 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
             />
 
 
-
         </>
     }
 }
@@ -72,7 +71,6 @@ const mapStateToProps = (state: ReduxStoreType): UsersMapStateToPropsType => {
 
     }
 }
-
 
 
 export const UsersContainer = connect(mapStateToProps, {
