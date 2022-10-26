@@ -11,15 +11,24 @@ export const NameDescription = (props: NameDescriptionType) => {
                 <li>Ищу работу: {props.lookingForAJob ? 'да' : 'нет'}</li>
                 <li>Описание поиска: {props.lookingForAJobDescription} </li>
             </ul>
-            <div>contacts:
-                <ul>
-                    <li><a> {props.contacts ? props.contacts.vk : null}</a></li>
-                    <li><a> {props.contacts ? props.contacts.github : null}</a></li>
-                    <li><a> {props.contacts ? props.contacts.facebook : null}</a></li>
-                    <li><a> {props.contacts ? props.contacts.twitter : null}</a></li>
-                    <li><a> {props.contacts ? props.contacts.instagram : null}</a></li>
-                </ul>
-            </div>
+            {
+                props.contacts
+                    ? <div>
+                        <ul>
+                            contacts:
+                            {props.contacts.vk ? <li><a href={props.contacts.vk}>vk</a></li> : null}
+                            {props.contacts.github ?
+                                <li><a href={props.contacts.github}>github</a></li> : null}
+                            {props.contacts.facebook ?
+                                <li><a href={props.contacts.facebook}>facebook</a></li> : null}
+                            {props.contacts.twitter ?
+                                <li><a href={props.contacts.twitter}>twitter</a></li> : null}
+                            {props.contacts.instagram ?
+                                <li><a href={props.contacts.instagram}>instagram</a></li> : null}
+                        </ul>
+                    </div>
+                    : null
+            }
         </div>
     </div>
 

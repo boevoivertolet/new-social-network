@@ -26,10 +26,7 @@ export function AppRedux(props: AppType) {
                         <Route path=':userId' element={<ProfileContainer />} />
                     </Route>
 
-                    <Route path="/dialogs" element={<DialogsContainer
-
-
-                    />}/>
+                    <Route path="/dialogs" element={<DialogsContainer/>}/>
 
                     <Route path="/news" element={<News/>}/>
 
