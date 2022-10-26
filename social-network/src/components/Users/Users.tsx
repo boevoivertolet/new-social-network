@@ -4,6 +4,7 @@ import userPhoto from '../../assets/images/user.jpg';
 import {Button} from '../Button/Button';
 import {UsersType} from '../Types/Types';
 import {NavLink} from 'react-router-dom';
+import axios from 'axios';
 
 export const Users = (props: UsersType) => {
     const pagesCount = Math.ceil(props.totalCount / props.pageSize);
@@ -16,18 +17,29 @@ export const Users = (props: UsersType) => {
     return <div className={styles.users}>
         <div>
             {
-                pages.map(p => <span key={p}  onClick={(e: MouseEvent<HTMLSpanElement>) => {
+                pages.map(p => <span key={p} onClick={(e: MouseEvent<HTMLSpanElement>) => {
                     props.onPageChanged(p)
-                }} className={props.currentPage === p ? styles.selectedPage : ''}>{ p } </span>)
+                }} className={props.currentPage === p ? styles.selectedPage : ''}>{p} </span>)
             }
 
         </div>
         {props.users.map((u) => {
             const follow = () => {
-                props.follow(u.id)
+                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {withCredentials: true, headers:{ 'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}}).then(response => {
+                    if (response.data.resultCode === 0) {
+                        props.follow(u.id)
+                    }
+
+                })
+
             }
             const unfollow = () => {
-                props.unfollow(u.id)
+                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{withCredentials: true, headers:{ 'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}}).then(response => {
+                    if (response.data.resultCode === 0) {
+                        props.unfollow(u.id)
+                    }
+
+                })
             }
 
             return <div className={styles.user_block} key={u.id}>

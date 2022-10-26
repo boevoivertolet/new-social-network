@@ -15,3 +15,9 @@
 .loginBlock a{
     color: white;
 }
+.avatar{
+    float: left;
+    width: max-content;
+    height: 30px;
+    border: 1px solid black;
+}
