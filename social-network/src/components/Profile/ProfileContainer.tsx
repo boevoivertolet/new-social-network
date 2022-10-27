@@ -9,6 +9,7 @@ import {NavigateFunction, Params, useLocation, useNavigate, useParams} from 'rea
 
 
 class ProfileContainer extends React.Component<ProfileContainerType> {
+
     componentDidMount() {
         this.props.setIsFetching(true)
         let userId = this.props.router.params.userId;
