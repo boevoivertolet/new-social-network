@@ -1,6 +1,5 @@
 import React from 'react';
-import {UsersClassContainerType, UsersMapDispatchToPropsType, UsersMapStateToPropsType,} from '../Types/Types';
-import {Dispatch} from 'redux';
+import {UsersClassContainerType, UsersMapStateToPropsType,} from '../Types/Types';
 import {
     follow,
     setCurrentPage,
@@ -11,7 +10,6 @@ import {
 } from '../Reducers/usersReducer';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
-import axios from 'axios';
 import {Users} from './Users';
 import {Preloader} from '../Preloader/Preloader';
 import {getUsers} from '../../api/api';

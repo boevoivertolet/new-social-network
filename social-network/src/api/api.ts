@@ -1,9 +1,6 @@
 import axios from 'axios'
 
 
-// const baseURL = 'https://social-network.samuraijs.com/api/1.0/'
-
-
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -17,6 +14,9 @@ export const getUsers = (currentPage: number = 2, pageSize: number = 10) => {
     return instance.get(`users?page=${currentPage}&count=${pageSize}`)
         .then(response => response.data)
 }
+
+
 export const getProfile = (userId: number) => {
-    instance.get(`profile/${userId}`).then(response => response.data)
+    if (!userId) userId = 2
+    return instance.get(`profile/${userId}`).then(response => response.data)
 }

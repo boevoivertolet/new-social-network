@@ -6,17 +6,18 @@ import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import axios from 'axios';
 import {NavigateFunction, Params, useLocation, useNavigate, useParams} from 'react-router-dom';
+import {getProfile} from '../../api/api';
 
 
 class ProfileContainer extends React.Component<ProfileContainerType> {
 
     componentDidMount() {
         this.props.setIsFetching(true)
-        let userId = this.props.router.params.userId;
-        if (!userId) userId = 2;
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`).then(response => {
+        // let userId = this.props.router.params.userId;
+        // if (!userId) userId = 2;
+        getProfile(this.props.router.params.userId).then(data => {
             this.props.setIsFetching(false)
-            this.props.setUserProfile(response.data)
+            this.props.setUserProfile(data)
         })
 
     }
