@@ -20,3 +20,7 @@ export const getProfile = (userId: number) => {
     if (!userId) userId = 2
     return instance.get(`profile/${userId}`).then(response => response.data)
 }
+
+export const getAuthMe = () => {
+    return instance.get(`auth/me`).then(response => response.data)
+}
