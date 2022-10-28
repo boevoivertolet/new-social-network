@@ -4,6 +4,7 @@ import userPhoto from '../../assets/images/user.jpg';
 import {Button} from '../Button/Button';
 import {UsersType} from '../Types/Types';
 import {NavLink} from 'react-router-dom';
+import {deleteFollow, postFollow} from '../../api/api';
 import axios from 'axios';
 
 export const Users = (props: UsersType) => {
@@ -24,18 +25,39 @@ export const Users = (props: UsersType) => {
 
         </div>
         {props.users.map((u) => {
-            const follow = () => {
-                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {withCredentials: true, headers:{ 'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}}).then(response => {
+          /*   const follow = () => {
+                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {withCredentials: true, headers:{ 'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}}).then(response => {
+                     if (response.data.resultCode === 0) {
+                         props.follow(u.id)
+                     }
+
+                 })
+
+             }
+
+              const unfollow = () => {
+                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{withCredentials: true, headers:{ 'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}}).then(response => {
                     if (response.data.resultCode === 0) {
+                        props.unfollow(u.id)
+                    }
+
+                })
+            }*/
+
+
+            const follow = () => {
+                postFollow(u.id).then(data => {
+                    if (data.resultCode === 0) {
                         props.follow(u.id)
                     }
 
                 })
 
             }
+
             const unfollow = () => {
-                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{withCredentials: true, headers:{ 'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}}).then(response => {
-                    if (response.data.resultCode === 0) {
+                deleteFollow(u.id).then(data => {
+                    if (data.resultCode === 0) {
                         props.unfollow(u.id)
                     }
 
@@ -51,8 +73,8 @@ export const Users = (props: UsersType) => {
                     </div>
                     <div>
                         {u.followed
-                            ? <Button title={'follow'} callBack={unfollow}/>
-                            : <Button title={'unfollow'} callBack={follow}/>
+                            ? <Button title={'unfollow'} callBack={unfollow}/>
+                            : <Button title={'follow'} callBack={follow}/>
                         }
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Header} from './Header';
-import axios from 'axios';
 import {HeaderContainerType, HeaderMapStateToPropsType} from '../Types/Types';
 import {connect} from 'react-redux';
 import {setAuthUserData} from '../Reducers/authReducer';
