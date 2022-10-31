@@ -1,6 +1,7 @@
 import React, {ChangeEvent} from 'react';
 // @ts-ignore
 import {RouteComponentProps} from 'react-router-dom';
+import {setIsFollowingProgress} from '../Reducers/usersReducer';
 
 
 export type ButtonType = {
@@ -112,6 +113,8 @@ export type UsersMapDispatchToPropsType = {
     setCurrentPage: (currentPage: number) => void
     setTotalUsersCount: (totalCount: number) => void
     setIsFetching: (isFetching: boolean) => void
+    setIsFollowingProgress: (isFetching: boolean) => void
+
 }
 
 export type DialogsType = DialogsMapStateToPropsType & DialogsMapDispatchToPropsType/*{
@@ -259,6 +262,7 @@ export type ActionType =
     | SetIsFetchingActionType
     | SetUserProfileActionType
     | SetUserDataActionType
+    | SetIsFollowingProgressType
 
 export type SetUserDataActionType = {
     type: 'SET-USER-DATA'
@@ -314,6 +318,11 @@ export type SetIsFetchingActionType = {
     type: 'SET-IS-FETCHING'
     isFetching: boolean
 }
+export type SetIsFollowingProgressType = {
+    type: 'SET-IS-FOLLOWING-PROGRESS'
+    isFetching: boolean
+
+}
 
 
 export type DialogsContainerType = {
@@ -342,6 +351,7 @@ export type UsersType = {
     setCurrentPage: (currentPage: number) => void
     setTotalUsersCount: (totalCount: number) => void
     onPageChanged: (pageNumber: number) => void
+    setIsFollowingProgress:(isFetching: boolean)=> void
 
 }
 export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
@@ -349,10 +359,11 @@ export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatc
 
 export type InitialUsersStateType = {
     users: Array<UserType>
-    pageSize: number,
+    pageSize: number
     totalCount: number
     currentPage: number
     isFetching: boolean
+    followingInProgress: boolean
 }
 
 type PhotosType = {
@@ -378,6 +389,7 @@ export type UsersMapStateToPropsType = {
     totalCount: number
     currentPage: number
     isFetching: boolean
+    followingInProgress:boolean
 }
 
 export type ProfileMapStateToPropsType = {

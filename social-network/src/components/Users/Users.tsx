@@ -4,8 +4,9 @@ import userPhoto from '../../assets/images/user.jpg';
 import {Button} from '../Button/Button';
 import {UsersType} from '../Types/Types';
 import {NavLink} from 'react-router-dom';
-import {deleteFollow, postFollow} from '../../api/api';
+import {usersAPI} from '../../api/api';
 import axios from 'axios';
+
 
 export const Users = (props: UsersType) => {
     const pagesCount = Math.ceil(props.totalCount / props.pageSize);
@@ -25,44 +26,53 @@ export const Users = (props: UsersType) => {
 
         </div>
         {props.users.map((u) => {
-          /*   const follow = () => {
-                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {withCredentials: true, headers:{ 'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}}).then(response => {
-                     if (response.data.resultCode === 0) {
-                         props.follow(u.id)
-                     }
-
-                 })
-
-             }
-
-              const unfollow = () => {
-                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{withCredentials: true, headers:{ 'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}}).then(response => {
-                    if (response.data.resultCode === 0) {
-                        props.unfollow(u.id)
-                    }
-
-                })
-            }*/
-
-
             const follow = () => {
-                postFollow(u.id).then(data => {
-                    if (data.resultCode === 0) {
+                props.setIsFollowingProgress(true)
+                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                    withCredentials: true,
+                    headers: {'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}
+                }).then(response => {
+                    if (response.data.resultCode === 0) {
                         props.follow(u.id)
                     }
+                    props.setIsFollowingProgress(false)
 
                 })
 
             }
 
             const unfollow = () => {
-                deleteFollow(u.id).then(data => {
-                    if (data.resultCode === 0) {
+                props.setIsFollowingProgress(true)
+                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                    withCredentials: true,
+                    headers: {'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}
+                }).then(response => {
+                    if (response.data.resultCode === 0) {
                         props.unfollow(u.id)
                     }
+                    props.setIsFollowingProgress(false)
 
                 })
             }
+
+            /*      const follow = () => {
+                      usersAPI.postFollow(u.id).then(data => {
+                          if (data.resultCode === 0) {
+                              props.follow(u.id)
+                          }
+
+                      })
+
+                  }
+
+                  const unfollow = () => {
+                      usersAPI.deleteFollow(u.id).then(data => {
+                          if (data.resultCode === 0) {
+                              props.unfollow(u.id)
+                          }
+
+                      })
+                  }*/
 
             return <div className={styles.user_block} key={u.id}>
                 <div>

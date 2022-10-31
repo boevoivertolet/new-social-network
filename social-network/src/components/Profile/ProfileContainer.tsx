@@ -4,9 +4,8 @@ import {Profile} from './Profile';
 import {addPost, likesCounter, setIsFetching, setUserProfile, updateNewPostText} from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
-import axios from 'axios';
 import {NavigateFunction, Params, useLocation, useNavigate, useParams} from 'react-router-dom';
-import {getProfile} from '../../api/api';
+import {usersAPI} from '../../api/api';
 
 
 class ProfileContainer extends React.Component<ProfileContainerType> {
@@ -15,7 +14,7 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
         this.props.setIsFetching(true)
         // let userId = this.props.router.params.userId;
         // if (!userId) userId = 2;
-        getProfile(this.props.router.params.userId).then(data => {
+        usersAPI.getProfile(this.props.router.params.userId).then(data => {
             this.props.setIsFetching(false)
             this.props.setUserProfile(data)
         })

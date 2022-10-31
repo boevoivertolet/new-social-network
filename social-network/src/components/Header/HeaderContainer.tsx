@@ -5,14 +5,15 @@ import {connect} from 'react-redux';
 import {setAuthUserData} from '../Reducers/authReducer';
 import {setIsFetching} from '../Reducers/authReducer';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
-import {getAuthMe} from '../../api/api';
+import {authAPI} from '../../api/api';
+
 
 
 class HeaderContainer extends React.Component<HeaderContainerType> {
 
     componentDidMount() {
         this.props.setIsFetching(true)
-        getAuthMe().then(data => {
+        authAPI.getAuthMe().then(data => {
             this.props.setIsFetching(false)
             if (data.resultCode === 0) {
                 this.props.setAuthUserData(data)
