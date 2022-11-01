@@ -354,6 +354,8 @@ export type UsersType = {
     setTotalUsersCount: (totalCount: number) => void
     onPageChanged: (pageNumber: number) => void
     setIsFollowingProgress:(isFetching: boolean)=> void
+    followingInProgress: boolean
+
 
 }
 export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
