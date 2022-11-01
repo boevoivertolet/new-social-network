@@ -4,7 +4,6 @@ import userPhoto from '../../assets/images/user.jpg';
 import {Button} from '../Button/Button';
 import {UsersType} from '../Types/Types';
 import {NavLink} from 'react-router-dom';
-import {usersAPI} from '../../api/api';
 import axios from 'axios';
 
 
@@ -83,8 +82,8 @@ export const Users = (props: UsersType) => {
                     </div>
                     <div>
                         {u.followed
-                            ? <Button title={'unfollow'} callBack={unfollow}/>
-                            : <Button title={'follow'} callBack={follow}/>
+                            ? <Button disabled={props.followingInProgress} title={'unfollow'} callBack={unfollow}/>
+                            : <Button  disabled={props.followingInProgress}  title={'follow'} callBack={follow}/>
                         }
                     </div>
                 </div>
