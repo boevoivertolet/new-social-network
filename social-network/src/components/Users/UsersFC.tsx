@@ -1,3 +1,4 @@
+// @ts-ignore
 import {UsersType} from '../Types/Types';
 import React from 'react';
 import styles from './Users.module.css'
@@ -9,6 +10,7 @@ const UsersFC = (props: UsersType) => {
     const getUsers = () => {
         if (props.users.length === 0) {
             axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+                // @ts-ignore
                 props.setUsers(response.data.items)
             })
         }
@@ -24,6 +26,7 @@ const UsersFC = (props: UsersType) => {
                 props.follow(u.id)
             }
             const unfollow = () => {
+                // @ts-ignore
                 props.unfollow(u.id)
             }
 

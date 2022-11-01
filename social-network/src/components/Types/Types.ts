@@ -110,12 +110,14 @@ export type DialogsMapDispatchToPropsType = {
     onChangeHandler: (text: string) => void
 }
 export type UsersMapDispatchToPropsType = {
-    follow: (usersId: string) => void
-    unfollow: (usersId: string) => void
-    setUsers: (users: UserType[]) => void
+    follow:(userId: string) => void
+    unFollow:(userId: string) => void
+    // acceptFollow: (usersId: string) => void
+    // acceptUnfollow: (usersId: string) => void
+    //setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
-    setTotalUsersCount: (totalCount: number) => void
-    setIsFetching: (isFetching: boolean) => void
+    //setTotalUsersCount: (totalCount: number) => void
+   // setIsFetching: (isFetching: boolean) => void
     setIsFollowingProgress: (isFetching: boolean, userId:string) => void
     getUsers:(currentPage:number,pageSize:number)=> void
 
@@ -346,15 +348,17 @@ export type ProviderType = {
 }
 
 export type UsersType = {
+    follow:(userId: string) => void
+    unFollow:(userId: string) => void
     users: UserType[]
     pageSize: number
     totalCount: number
     currentPage: number
-    follow: (usersId: string) => void
-    unfollow: (usersId: string) => void
-    setUsers: (users: UserType[]) => void
+    // acceptFollow: (usersId: string) => void
+    // acceptUnfollow: (usersId: string) => void
+    //setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
-    setTotalUsersCount: (totalCount: number) => void
+    //setTotalUsersCount: (totalCount: number) => void
     onPageChanged: (pageNumber: number) => void
     setIsFollowingProgress: (isFetching: boolean, userId: string) => void
     followingInProgress: FollowingInProgressType

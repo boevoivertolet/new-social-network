@@ -1,12 +1,10 @@
 import React from 'react';
 import {UsersClassContainerType, UsersMapStateToPropsType,} from '../Types/Types';
 import {
-    follow, getUsers,
+    acceptFollow, getUsers,
     setCurrentPage,
-    setIsFetching, setIsFollowingProgress,
-    setTotalUsersCount,
-    setUsers,
-    unfollow
+    setIsFollowingProgress,
+    acceptUnfollow, follow, unFollow
 } from '../Reducers/usersReducer';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
@@ -36,17 +34,17 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
             {this.props.isFetching ? <Preloader/> : null}
             <Users
                 onPageChanged={this.onPageChanged}
-               /* users={this.props.users}
-                setUsers={this.props.setUsers}
-                currentPage={this.props.currentPage}
-                pageSize={this.props.pageSize}
-                follow={this.props.follow}
-                setCurrentPage={this.props.setCurrentPage}
-                setTotalUsersCount={this.props.setTotalUsersCount}
-                totalCount={this.props.totalCount}
-                unfollow={this.props.unfollow}
-                setIsFollowingProgress={this.props.setIsFollowingProgress}
-                followingInProgress={this.props.followingInProgress}*/
+                /* users={this.props.users}
+                 setUsers={this.props.setUsers}
+                 currentPage={this.props.currentPage}
+                 pageSize={this.props.pageSize}
+                 follow={this.props.follow}
+                 setCurrentPage={this.props.setCurrentPage}
+                 setTotalUsersCount={this.props.setTotalUsersCount}
+                 totalCount={this.props.totalCount}
+                 unfollow={this.props.unfollow}
+                 setIsFollowingProgress={this.props.setIsFollowingProgress}
+                 followingInProgress={this.props.followingInProgress}*/
                 {...this.props}
             />
 
@@ -70,11 +68,11 @@ const mapStateToProps = (state: ReduxStoreType): UsersMapStateToPropsType => {
 
 export const UsersContainer = connect(mapStateToProps, {
     follow,
-    unfollow,
-    setUsers,
+    unFollow,
+    //setUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    setIsFetching,
+    // setTotalUsersCount,
+    // setIsFetching,
     setIsFollowingProgress,
     getUsers
 })(UsersClassContainer);
