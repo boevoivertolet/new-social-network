@@ -1,6 +1,7 @@
 import React, {ChangeEvent} from 'react';
 // @ts-ignore
 import {RouteComponentProps} from 'react-router-dom';
+import {Dispatch} from 'redux';
 
 
 
@@ -116,6 +117,7 @@ export type UsersMapDispatchToPropsType = {
     setTotalUsersCount: (totalCount: number) => void
     setIsFetching: (isFetching: boolean) => void
     setIsFollowingProgress: (isFetching: boolean, userId:string) => void
+    getUsersThunkCreator:(dispatch: Dispatch)=> void
 
 }
 

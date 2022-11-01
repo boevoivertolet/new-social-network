@@ -1,4 +1,4 @@
-import {combineReducers, legacy_createStore} from 'redux';
+import {combineReducers, legacy_createStore, applyMiddleware} from 'redux';
 import profilePageReducer from '../Reducers/profilePageReducer';
 import dialogsPageReducer from '../Reducers/dialogsPageReducer';
 import sidebarReducer from '../Reducers/sidebarReducer';
@@ -19,7 +19,7 @@ let rootReducer = combineReducers(
 
 export type ReduxStoreType = ReturnType<typeof rootReducer>
 
-export const store = legacy_createStore(rootReducer);
+export const store = legacy_createStore(rootReducer, applyMiddleware());
 
 
 // @ts-ignore
