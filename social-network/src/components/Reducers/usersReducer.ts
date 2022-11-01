@@ -42,7 +42,7 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
             }
         case 'SET-IS-FOLLOWING-PROGRESS':
             return {
-                ...state, isFetching: action.isFetching
+                ...state, followingInProgress: action.isFetching
             }
 
         default:

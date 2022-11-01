@@ -51,6 +51,7 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
                 totalCount={this.props.totalCount}
                 unfollow={this.props.unfollow}
                 setIsFollowingProgress={this.props.setIsFollowingProgress}
+                followingInProgress={this.props.followingInProgress}
             />
 
 

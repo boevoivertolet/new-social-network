@@ -83,8 +83,8 @@ export const Users = (props: UsersType) => {
                     </div>
                     <div>
                         {u.followed
-                            ? <Button title={'unfollow'} callBack={unfollow}/>
-                            : <Button title={'follow'} callBack={follow}/>
+                            ? <Button disabled={props.followingInProgress} title={'unfollow'} callBack={unfollow}/>
+                            : <Button disabled={props.followingInProgress} title={'follow'} callBack={follow}/>
                         }
                     </div>
                 </div>
