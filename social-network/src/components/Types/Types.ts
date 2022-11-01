@@ -117,7 +117,7 @@ export type UsersMapDispatchToPropsType = {
     setTotalUsersCount: (totalCount: number) => void
     setIsFetching: (isFetching: boolean) => void
     setIsFollowingProgress: (isFetching: boolean, userId:string) => void
-    getUsersThunkCreator:(dispatch: Dispatch)=> void
+    getUsersThunkCreator:(currentPage:number,pageSize:number)=> void
 
 }
 

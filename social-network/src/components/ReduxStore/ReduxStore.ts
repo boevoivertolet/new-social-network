@@ -4,6 +4,7 @@ import dialogsPageReducer from '../Reducers/dialogsPageReducer';
 import sidebarReducer from '../Reducers/sidebarReducer';
 import usersReducer from '../Reducers/usersReducer';
 import authReducer from '../Reducers/authReducer';
+import ThunkMiddleware from 'redux-thunk'
 
 
 let rootReducer = combineReducers(
@@ -19,7 +20,7 @@ let rootReducer = combineReducers(
 
 export type ReduxStoreType = ReturnType<typeof rootReducer>
 
-export const store = legacy_createStore(rootReducer, applyMiddleware());
+export const store = legacy_createStore(rootReducer, applyMiddleware(ThunkMiddleware));
 
 
 // @ts-ignore

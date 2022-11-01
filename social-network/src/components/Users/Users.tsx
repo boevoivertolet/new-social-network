@@ -16,7 +16,7 @@ export const Users = (props: UsersType) => {
     }
 
     return <div className={styles.users}>
-        <div>
+        <div className={styles.pageNumbers}>
             {
                 pages.map(p => <span key={p} onClick={(e: MouseEvent<HTMLSpanElement>) => {
                     props.onPageChanged(p)

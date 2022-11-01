@@ -15,3 +15,13 @@
 .selectedPage{
     font-weight: bold;
 }
+.pageNumbers {
+    width: 200px;
+    border: 1px solid black;
+    padding: 3px;
+    margin: 5px;
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: clip; /* Обрезаем все, что не помещается в область */
+    background: lightskyblue; /* Цвет фона */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+}

@@ -26,7 +26,7 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
         //     this.props.setUsers(data.items)
         //     this.props.setTotalUsersCount(this.props.totalCount)
         // })
-        this.props.getUsersThunkCreator()
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber: number) => {
