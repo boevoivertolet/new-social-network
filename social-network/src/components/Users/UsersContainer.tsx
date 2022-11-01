@@ -1,7 +1,7 @@
 import React from 'react';
 import {UsersClassContainerType, UsersMapStateToPropsType,} from '../Types/Types';
 import {
-    follow, getUsersThunkCreator,
+    follow, getUsers,
     setCurrentPage,
     setIsFetching, setIsFollowingProgress,
     setTotalUsersCount,
@@ -12,30 +12,23 @@ import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
 import {Users} from './Users';
 import {Preloader} from '../Preloader/Preloader';
-import {usersAPI} from '../../api/api';
 
 
 class UsersClassContainer extends React.Component<UsersClassContainerType> {
 
 
     componentDidMount() {
-        //
-        // this.props.setIsFetching(true)
-        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-        //     this.props.setIsFetching(false)
-        //     this.props.setUsers(data.items)
-        //     this.props.setTotalUsersCount(this.props.totalCount)
-        // })
-        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
 
     onPageChanged = (pageNumber: number) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.setIsFetching(true)
-        usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-            this.props.setIsFetching(false)
-            this.props.setUsers(data.items)
-        })
+        this.props.getUsers(pageNumber, this.props.pageSize);
+        // this.props.setCurrentPage(pageNumber);
+        // this.props.setIsFetching(true)
+        // usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
+        //     this.props.setIsFetching(false)
+        //     this.props.setUsers(data.items)
+        // })
     }
 
     render() {
@@ -83,7 +76,7 @@ export const UsersContainer = connect(mapStateToProps, {
     setTotalUsersCount,
     setIsFetching,
     setIsFollowingProgress,
-    getUsersThunkCreator
+    getUsers
 })(UsersClassContainer);
 
 
