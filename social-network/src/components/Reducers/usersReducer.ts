@@ -7,7 +7,7 @@ let initialState: InitialUsersStateType = {
     totalCount: 50,
     currentPage: 1,
     isFetching: false,
-    followingInProgress: false
+    followingInProgress: []
 }
 
 
@@ -42,7 +42,10 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
             }
         case 'SET-IS-FOLLOWING-PROGRESS':
             return {
-                ...state, followingInProgress: action.isFetching
+                ...state,
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id != action.userId)
             }
 
         default:
@@ -58,6 +61,9 @@ export const setUsers = (users: UserType[]) => ({type: 'SET-USERS', users} as co
 export const setCurrentPage = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)//Action Create
 export const setTotalUsersCount = (totalCount: number) => ({type: 'SET-USERS-TOTAL-COUNT', totalCount} as const)//Action Create
 export const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
-export const setIsFollowingProgress = (isFetching: boolean) => ({type: 'SET-IS-FOLLOWING-PROGRESS', isFetching} as const)//Action Create
+export const setIsFollowingProgress = (isFetching: boolean, userId:string) => ({
+    type: 'SET-IS-FOLLOWING-PROGRESS',
+    isFetching, userId
+} as const)//Action Create
 
 export default usersReducer

@@ -115,7 +115,7 @@ export type UsersMapDispatchToPropsType = {
     setCurrentPage: (currentPage: number) => void
     setTotalUsersCount: (totalCount: number) => void
     setIsFetching: (isFetching: boolean) => void
-    setIsFollowingProgress: (isFetching: boolean) => void
+    setIsFollowingProgress: (isFetching: boolean, userId:string) => void
 
 }
 
@@ -323,6 +323,7 @@ export type SetIsFetchingActionType = {
 export type SetIsFollowingProgressType = {
     type: 'SET-IS-FOLLOWING-PROGRESS'
     isFetching: boolean
+    userId:string
 
 }
 
@@ -353,13 +354,14 @@ export type UsersType = {
     setCurrentPage: (currentPage: number) => void
     setTotalUsersCount: (totalCount: number) => void
     onPageChanged: (pageNumber: number) => void
-    setIsFollowingProgress:(isFetching: boolean)=> void
-    followingInProgress: boolean
+    setIsFollowingProgress: (isFetching: boolean, userId: string) => void
+    followingInProgress: FollowingInProgressType
 
 
 }
 export type UsersClassContainerType = UsersMapStateToPropsType & UsersMapDispatchToPropsType
 
+type FollowingInProgressType = Array<string>
 
 export type InitialUsersStateType = {
     users: Array<UserType>
@@ -367,7 +369,7 @@ export type InitialUsersStateType = {
     totalCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress: boolean
+    followingInProgress: FollowingInProgressType
 }
 
 type PhotosType = {
@@ -393,7 +395,7 @@ export type UsersMapStateToPropsType = {
     totalCount: number
     currentPage: number
     isFetching: boolean
-    followingInProgress:boolean
+    followingInProgress: FollowingInProgressType
 }
 
 export type ProfileMapStateToPropsType = {
