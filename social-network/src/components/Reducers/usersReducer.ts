@@ -1,4 +1,6 @@
 import {ActionType, UserType, InitialUsersStateType} from '../Types/Types';
+import {usersAPI} from '../../api/api';
+import {Dispatch} from 'redux';
 
 
 let initialState: InitialUsersStateType = {
@@ -55,15 +57,30 @@ const usersReducer = (state: InitialUsersStateType = initialState, action: Actio
 
 }
 
+//Action Creators
 export const follow = (userId: string) => ({type: 'FOLLOW', userId} as const)//Action Create
 export const unfollow = (userId: string) => ({type: 'UNFOLLOW', userId} as const)//Action Create
 export const setUsers = (users: UserType[]) => ({type: 'SET-USERS', users} as const)//Action Create
 export const setCurrentPage = (currentPage: number) => ({type: 'SET-CURRENT-PAGE', currentPage} as const)//Action Create
 export const setTotalUsersCount = (totalCount: number) => ({type: 'SET-USERS-TOTAL-COUNT', totalCount} as const)//Action Create
 export const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
-export const setIsFollowingProgress = (isFetching: boolean, userId:string) => ({
+export const setIsFollowingProgress = (isFetching: boolean, userId: string) => ({
     type: 'SET-IS-FOLLOWING-PROGRESS',
     isFetching, userId
 } as const)//Action Create
+
+//Thunk Creator
+
+export const getUsersThunkCreator = (currentPage:number,pageSize:number) => {
+    return (dispatch: Dispatch) => {
+        dispatch(setIsFetching(true))
+        usersAPI.getUsers(currentPage, pageSize).then(data => {
+            dispatch(setIsFetching(false))
+            dispatch(setUsers(data.items))
+            dispatch(setTotalUsersCount(data.totalCount))
+        })
+    }
+}
+
 
 export default usersReducer

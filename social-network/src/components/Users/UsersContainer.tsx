@@ -19,6 +19,7 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
 
 
     componentDidMount() {
+
         this.props.setIsFetching(true)
         usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.setIsFetching(false)
@@ -41,7 +42,7 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
             {this.props.isFetching ? <Preloader/> : null}
             <Users
                 onPageChanged={this.onPageChanged}
-                users={this.props.users}
+               /* users={this.props.users}
                 setUsers={this.props.setUsers}
                 currentPage={this.props.currentPage}
                 pageSize={this.props.pageSize}
@@ -51,7 +52,8 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
                 totalCount={this.props.totalCount}
                 unfollow={this.props.unfollow}
                 setIsFollowingProgress={this.props.setIsFollowingProgress}
-                followingInProgress={this.props.followingInProgress}
+                followingInProgress={this.props.followingInProgress}*/
+                {...this.props}
             />
 
 

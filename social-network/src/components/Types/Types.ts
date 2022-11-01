@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 // @ts-ignore
 import {RouteComponentProps} from 'react-router-dom';
-import {setIsFollowingProgress} from '../Reducers/usersReducer';
+
 
 
 export type ButtonType = {
@@ -328,10 +328,10 @@ export type SetIsFollowingProgressType = {
 }
 
 
-export type DialogsContainerType = {
-    // store: StoreType
-
-}
+// export type DialogsContainerType = {
+//     // store: StoreType
+//
+// }
 
 
 export type NavbarContainerType = {
@@ -384,10 +384,10 @@ export type UserType = {
     photos: PhotosType
 
 }
-export type LocationType = {
-    country: string
-    city: string
-}
+// export type LocationType = {
+//     country: string
+//     city: string
+// }
 
 export type UsersMapStateToPropsType = {
     users: UserType[]
