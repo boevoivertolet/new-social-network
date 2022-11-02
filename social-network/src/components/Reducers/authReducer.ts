@@ -40,12 +40,11 @@ const setAuthUserData = (data: UserDataType) => ({type: 'SET-USER-DATA', data} a
 const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
 
 
-
 // Thunk Creators
 
 
-export const getAuthUserData = () => (dispatch: Dispatch)=> {
-   dispatch(setIsFetching(true))
+export const getAuthUserData = () => (dispatch: Dispatch) => {
+    dispatch(setIsFetching(true))
     authAPI.getMe().then(data => {
         dispatch(setIsFetching(false))
         if (data.resultCode === 0) {

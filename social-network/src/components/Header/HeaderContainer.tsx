@@ -6,12 +6,10 @@ import {getAuthUserData} from '../Reducers/authReducer';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 
 
-
-
 class HeaderContainer extends React.Component<HeaderContainerType> {
 
     componentDidMount() {
-     this.props.getAuthUserData()
+        this.props.getAuthUserData()
     }
 
 

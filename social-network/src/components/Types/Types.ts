@@ -432,3 +432,8 @@ export type HeaderMapStateToPropsType = {
     isAuth: boolean
     data: UserDataType
 }
+
+
+export type LoginType ={
+
+}
