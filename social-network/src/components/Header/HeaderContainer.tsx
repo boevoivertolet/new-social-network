@@ -13,7 +13,7 @@ class HeaderContainer extends React.Component<HeaderContainerType> {
 
     componentDidMount() {
         this.props.setIsFetching(true)
-        authAPI.getAuthMe().then(data => {
+        authAPI.getMe().then(data => {
             this.props.setIsFetching(false)
             if (data.resultCode === 0) {
                 this.props.setAuthUserData(data)

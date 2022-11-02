@@ -11,10 +11,9 @@ import {usersAPI} from '../../api/api';
 class ProfileContainer extends React.Component<ProfileContainerType> {
 
     componentDidMount() {
+        let userId = this.props.router.params.userId
         this.props.setIsFetching(true)
-        // let userId = this.props.router.params.userId;
-        // if (!userId) userId = 2;
-        usersAPI.getProfile(this.props.router.params.userId).then(data => {
+        usersAPI.getProfile(userId).then(data => {
             this.props.setIsFetching(false)
             this.props.setUserProfile(data)
         })
