@@ -1,22 +1,24 @@
 import React, {ComponentType} from 'react';
 import {ProfileContainerType, ProfileMapStateToPropsType} from '../Types/Types';
 import {Profile} from './Profile';
-import {addPost, likesCounter, setIsFetching, setUserProfile, updateNewPostText} from '../Reducers/profilePageReducer';
+import {
+    addPost,
+    getUserProfile,
+    likesCounter,
+    setIsFetching,
+    updateNewPostText
+} from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {NavigateFunction, Params, useLocation, useNavigate, useParams} from 'react-router-dom';
-import {usersAPI} from '../../api/api';
+
 
 
 class ProfileContainer extends React.Component<ProfileContainerType> {
 
     componentDidMount() {
         let userId = this.props.router.params.userId
-        this.props.setIsFetching(true)
-        usersAPI.getProfile(userId).then(data => {
-            this.props.setIsFetching(false)
-            this.props.setUserProfile(data)
-        })
+        this.props.getUserProfile(userId)
 
     }
 
@@ -63,7 +65,7 @@ export default connect(mapStateToProps, {
     addPost,
     updateNewPostText,
     setIsFetching,
-    setUserProfile
+    getUserProfile
 })(withRouter(ProfileContainer));
 
 

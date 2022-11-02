@@ -153,6 +153,7 @@ export type ProfileMapDispatchToPropsType = {
     updateNewPostText: (text: string) => void
     setIsFetching: (isFetching: boolean) => void
     setUserProfile: (userProfile: UserProfileType) => void
+    getUserProfile:(userId: number)=> void
 }
 type PathParamsType = {
     userId: string;
