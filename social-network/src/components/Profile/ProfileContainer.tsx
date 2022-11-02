@@ -5,7 +5,6 @@ import {
     addPost,
     getUserProfile,
     likesCounter,
-    setIsFetching,
     updateNewPostText
 } from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
@@ -64,7 +63,6 @@ export default connect(mapStateToProps, {
     likesCounter,
     addPost,
     updateNewPostText,
-    setIsFetching,
     getUserProfile
 })(withRouter(ProfileContainer));
 

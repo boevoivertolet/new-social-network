@@ -2,6 +2,7 @@ import React, {ChangeEvent} from 'react';
 // @ts-ignore
 import {RouteComponentProps} from 'react-router-dom';
 import {Dispatch} from 'redux';
+import {getAuthUserData} from '../Reducers/authReducer';
 
 
 
@@ -39,8 +40,7 @@ export type HeaderType = {
 }
 
 export type HeaderMapDispatchToPropsType = {
-    setIsFetching: (isFetching: boolean) => void
-    setAuthUserData: (data: UserDataType) => void
+    getAuthUserData:()=> void
 }
 
 type HeaderConnectType = HeaderMapStateToPropsType & HeaderMapDispatchToPropsType
@@ -151,7 +151,7 @@ export type ProfileMapDispatchToPropsType = {
     likesCounter: () => void
     addPost: () => void
     updateNewPostText: (text: string) => void
-    setIsFetching: (isFetching: boolean) => void
+    // setIsFetching: (isFetching: boolean) => void
     setUserProfile: (userProfile: UserProfileType) => void
     getUserProfile:(userId: number)=> void
 }

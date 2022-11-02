@@ -57,8 +57,8 @@ const profilePageReducer = (state: InitialProfilePageType = initialState, action
 export const addPost = () => ({type: 'ADD-POST'} as const)
 export const updateNewPostText = (text: string) => ({type: 'UPDATE-NEW-POST-TEXT', newPostText: text} as const)
 export const likesCounter = () => ({type: 'LIKES-COUNTER'} as const)
-export const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
-export const setUserProfile = (userProfile: UserProfileType) => ({type: 'SET-USER-PROFILE', userProfile} as const)//Action Create
+const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
+const setUserProfile = (userProfile: UserProfileType) => ({type: 'SET-USER-PROFILE', userProfile} as const)//Action Create
 
 // Thunk Creators
 

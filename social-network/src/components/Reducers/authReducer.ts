@@ -1,4 +1,6 @@
 import {ActionType, InitialAuthStateType, UserDataType} from '../Types/Types';
+import {Dispatch} from 'redux';
+import {authAPI} from '../../api/api';
 
 
 let initialState: InitialAuthStateType = {
@@ -30,11 +32,29 @@ const authReducer = (state: InitialAuthStateType = initialState, action: ActionT
 
 
 }
+// Action Creators
 
-export const setAuthUserData = (data: UserDataType) => ({type: 'SET-USER-DATA', data} as const)//Action Create
+const setAuthUserData = (data: UserDataType) => ({type: 'SET-USER-DATA', data} as const)//Action Create
 
 
-export const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
+const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
 
+
+
+// Thunk Creators
+
+
+export const getAuthUserData = () => (dispatch: Dispatch)=> {
+   dispatch(setIsFetching(true))
+    authAPI.getMe().then(data => {
+        dispatch(setIsFetching(false))
+        if (data.resultCode === 0) {
+            dispatch(setAuthUserData(data))
+        }
+
+    })
+
+
+}
 
 export default authReducer
