@@ -104,6 +104,7 @@ export type PostsDataType = {
 
 export type DialogsMapStateToPropsType = {
     dialogsPage: DialogsPageType
+    isAuth: boolean
 }
 export type DialogsMapDispatchToPropsType = {
     addMessage: () => void
@@ -123,11 +124,7 @@ export type UsersMapDispatchToPropsType = {
 
 }
 
-export type DialogsType = DialogsMapStateToPropsType & DialogsMapDispatchToPropsType/*{
-    dialogsPage: DialogsPageType
-    addMessage: () => void
-    onChangeHandler: (text: string) => void
-}*/
+export type DialogsType = DialogsMapStateToPropsType & DialogsMapDispatchToPropsType
 
 
 export type NewsType = {}

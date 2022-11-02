@@ -6,13 +6,15 @@ import {DialogsNames} from './dialogs-components/DialogsNames/DialogsNames';
 import {DialogsHeader} from './dialogs-components/DialogsHeader/DialogsHeader';
 import {UniversalTextarea} from '../UniversalTextarea/UniversalTextarea';
 import {Button} from '../Button/Button';
+import {Navigate} from 'react-router-dom';
+
 
 
 export const Dialogs = (props: DialogsType) => {
     let dialogsData = props.dialogsPage.dialogsData
 
     const addMessage = () => {
-        if(props.dialogsPage.newMessageText){
+        if (props.dialogsPage.newMessageText) {
             props.addMessage()
         }
 
@@ -24,11 +26,14 @@ export const Dialogs = (props: DialogsType) => {
     }
 
 
+
     let dialogName = dialogsData.map(dialog => <DialogsNames key={dialog.id}
                                                              name={dialog.name}
                                                              id={dialog.id}
                                                              ava={dialog.ava}/>);
 
+
+    if (props.isAuth === false) return <Navigate to ={'/login'}/>;
 
     return <div className={styles.dialogs}>
         <div>
