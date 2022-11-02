@@ -7,6 +7,7 @@ import {ProfileType} from '../Types/Types';
 import {NewPosts} from './profile-components/NewPosts/NewPosts';
 import {MainContent} from './profile-components/MainContent/MainContent';
 import {Preloader} from '../Preloader/Preloader';
+import {Navigate} from 'react-router-dom';
 
 
 export const Profile = (props: ProfileType) => {
@@ -14,7 +15,7 @@ export const Profile = (props: ProfileType) => {
         return <Preloader/>
 
     }
-
+    if (props.isAuth === false) return <Navigate to ={'/login'}/>;
     return <div className={styles.profile}>
         <WallImg/>
         <AvatarDescription userProfile={props.userProfile}/>

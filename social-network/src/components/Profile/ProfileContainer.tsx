@@ -30,6 +30,8 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
                      postsData={this.props.postsData}
                      likesCounter={this.props.likesCounter}
                      userProfile={this.props.userProfile}
+                     isAuth={this.props.isAuth}
+
             />
         )
     }
@@ -41,7 +43,8 @@ export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsTy
     return {
         postsData: state.profilePage.postsData,
         newPostText: state.profilePage.newPostText,
-        userProfile: state.profilePage.userProfile
+        userProfile: state.profilePage.userProfile,
+        isAuth: state.auth.isAuth
 
     }
 }

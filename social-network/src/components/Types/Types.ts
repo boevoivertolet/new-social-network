@@ -187,6 +187,7 @@ export type ProfileType = {
     postsData: PostsDataType[]
     likesCounter: () => void
     userProfile: UserProfileType | null
+    isAuth: boolean
 
 }
 
@@ -406,6 +407,7 @@ export type ProfileMapStateToPropsType = {
     postsData: PostsDataType[]
     newPostText: string
     userProfile: null | UserProfileType
+    isAuth: boolean
 
 
 }
