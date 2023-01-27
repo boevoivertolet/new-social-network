@@ -33,7 +33,7 @@ export const Dialogs = (props: DialogsType) => {
                                                              ava={dialog.ava}/>);
 
 
-    if (props.isAuth === false) return <Navigate to ={'/login'}/>;
+
 
     return <div className={styles.dialogs}>
         <div>

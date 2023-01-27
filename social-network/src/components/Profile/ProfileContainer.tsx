@@ -9,8 +9,8 @@ import {
 } from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
-import {NavigateFunction, Params, useLocation, useNavigate, useParams} from 'react-router-dom';
-
+import {Navigate, NavigateFunction, Params, useLocation, useNavigate, useParams} from 'react-router-dom';
+import {withAuthRedirect} from '../../hoc/WithAuthRedirect';
 
 
 class ProfileContainer extends React.Component<ProfileContainerType> {
@@ -23,6 +23,7 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
 
 
     render() {
+
         return (
             <Profile updateNewPostText={this.props.updateNewPostText}
                      addPost={this.props.addPost}
@@ -38,6 +39,8 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
 
 }
 
+const AuthRedirectComponent = withAuthRedirect(ProfileContainer)
+
 
 export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsType => {
     return {
@@ -51,13 +54,14 @@ export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsTy
 
 type WithRouterType = Location & NavigateFunction & Readonly<Params<string>>
 
-function withRouter<T>(Component:ComponentType<T>) {
-    function ComponentWithRouterProp(props: T & WithRouterType ) {
+function withRouter<T>(Component: ComponentType<T>) {
+    function ComponentWithRouterProp(props: T & WithRouterType) {
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();
-        return <Component {...props} router={{ location, navigate, params }} />;
+        return <Component {...props} router={{location, navigate, params}}/>;
     }
+
     return ComponentWithRouterProp;
 }
 
@@ -67,7 +71,7 @@ export default connect(mapStateToProps, {
     addPost,
     updateNewPostText,
     getUserProfile
-})(withRouter(ProfileContainer));
+})(withRouter(AuthRedirectComponent));
 
 
 

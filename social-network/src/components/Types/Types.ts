@@ -156,6 +156,7 @@ type PathParamsType = {
     userId: string;
 }
 export type ProfileConnectType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType
+
 export type ProfileContainerType =
     ProfileConnectType
     & RouteComponentProps<PathParamsType>
