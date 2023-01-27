@@ -1,16 +1,11 @@
-import React, {ComponentType} from 'react';
+import React from 'react';
 import {ProfileContainerType, ProfileMapStateToPropsType} from '../Types/Types';
 import {Profile} from './Profile';
-import {
-    addPost,
-    getUserProfile,
-    likesCounter,
-    updateNewPostText
-} from '../Reducers/profilePageReducer';
+import {addPost, getUserProfile, likesCounter, updateNewPostText} from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
-import {Navigate, NavigateFunction, Params, useLocation, useNavigate, useParams} from 'react-router-dom';
 import {withAuthRedirect} from '../../hoc/WithAuthRedirect';
+import {withRouter} from '../../hoc/WithRouter';
 
 
 class ProfileContainer extends React.Component<ProfileContainerType> {
@@ -50,19 +45,6 @@ export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsTy
         isAuth: state.auth.isAuth
 
     }
-}
-
-type WithRouterType = Location & NavigateFunction & Readonly<Params<string>>
-
-function withRouter<T>(Component: ComponentType<T>) {
-    function ComponentWithRouterProp(props: T & WithRouterType) {
-        let location = useLocation();
-        let navigate = useNavigate();
-        let params = useParams();
-        return <Component {...props} router={{location, navigate, params}}/>;
-    }
-
-    return ComponentWithRouterProp;
 }
 
 
