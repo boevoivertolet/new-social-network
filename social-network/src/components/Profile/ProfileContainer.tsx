@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {withAuthRedirect} from '../../hoc/WithAuthRedirect';
 import {withRouter} from '../../hoc/WithRouter';
+import {compose} from 'redux';
 
 
 class ProfileContainer extends React.Component<ProfileContainerType> {
@@ -35,8 +36,6 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
 }
 
 
-
-
 const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsType => {
     return {
         postsData: state.profilePage.postsData,
@@ -46,15 +45,19 @@ const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsType => {
 
     }
 }
-const WithUrlDataContainerComponent = withRouter(ProfileContainer)
 
 
-export default withAuthRedirect(connect(mapStateToProps, {
-    likesCounter,
-    addPost,
-    updateNewPostText,
-    getUserProfile
-})(WithUrlDataContainerComponent))
+
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, {
+        likesCounter,
+        addPost,
+        updateNewPostText,
+        getUserProfile
+    }),
+    withRouter,
+    withAuthRedirect,
+)(ProfileContainer)
 
 
 

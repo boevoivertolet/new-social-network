@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {Users} from './Users';
 import {Preloader} from '../Preloader/Preloader';
 import {withAuthRedirect} from '../../hoc/WithAuthRedirect';
+import {compose} from 'redux';
 
 
 class UsersClassContainer extends React.Component<UsersClassContainerType> {
@@ -50,16 +51,19 @@ const mapStateToProps = (state: ReduxStoreType): UsersMapStateToPropsType => {
     }
 }
 
-let withRedirect = withAuthRedirect(UsersClassContainer)
-export const UsersContainer = connect(mapStateToProps, {
-    follow,
-    unFollow,
-    //setUsers,
-    setCurrentPage,
-    // setTotalUsersCount,
-    // setIsFetching,
-    setIsFollowingProgress,
-    getUsers
-})(withRedirect);
+
+
+
+
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, {
+        follow,
+        unFollow,
+        setCurrentPage,
+        setIsFollowingProgress,
+        getUsers
+    }),
+    withAuthRedirect
+)(UsersClassContainer)
 
 

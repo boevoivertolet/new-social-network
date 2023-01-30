@@ -5,13 +5,12 @@ import {News} from './components/News/News';
 import {Music} from './components/Music/Music';
 import {Settings} from './components/Settings/Settings';
 import {AppType} from './components/Types/Types';
-import {DialogsContainer} from './components/Dialogs/DialogsContainer';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import {NavbarContainer} from './components/Navbar/NavbarContainer';
-import { UsersContainer } from './components/Users/UsersContainer';
+import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import {Login} from './components/Login/Login';
-
 
 
 export function AppRedux(props: AppType) {
@@ -23,8 +22,8 @@ export function AppRedux(props: AppType) {
             <div className={styles.content}>
                 <Routes>
                     <Route path="/profile">
-                        <Route index element={<ProfileContainer />} />
-                        <Route path=':userId' element={<ProfileContainer />} />
+                        <Route index element={<ProfileContainer/>}/>
+                        <Route path=":userId" element={<ProfileContainer/>}/>
                     </Route>
 
                     <Route path="/dialogs" element={<DialogsContainer/>}/>
