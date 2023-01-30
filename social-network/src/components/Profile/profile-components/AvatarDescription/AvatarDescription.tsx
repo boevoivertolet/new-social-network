@@ -3,6 +3,7 @@ import {Img} from './avatar-description-components/Img';
 import {NameDescription} from './avatar-description-components/NameDescription';
 import styles from './AvatarDescription.module.css'
 import {AvatarDescriptionType} from '../../../Types/Types';
+import {ProfileStatus} from './ProfileStatus';
 
 
 export const AvatarDescription = (props: AvatarDescriptionType) => {
@@ -16,5 +17,6 @@ export const AvatarDescription = (props: AvatarDescriptionType) => {
             contacts={props.userProfile.contacts}
             lookingForAJob={props.userProfile.lookingForAJob}
         />
+        <ProfileStatus status={'hi'}/>
     </div>
 }
