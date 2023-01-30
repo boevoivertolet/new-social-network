@@ -7,6 +7,9 @@ import authReducer from '../Reducers/authReducer';
 import ThunkMiddleware from 'redux-thunk'
 
 
+
+
+
 let rootReducer = combineReducers(
     {
         profilePage: profilePageReducer,

@@ -1,15 +1,11 @@
 import React from 'react';
 import {UsersClassContainerType, UsersMapStateToPropsType,} from '../Types/Types';
-import {
-    acceptFollow, getUsers,
-    setCurrentPage,
-    setIsFollowingProgress,
-    acceptUnfollow, follow, unFollow
-} from '../Reducers/usersReducer';
+import {follow, getUsers, setCurrentPage, setIsFollowingProgress, unFollow} from '../Reducers/usersReducer';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {connect} from 'react-redux';
 import {Users} from './Users';
 import {Preloader} from '../Preloader/Preloader';
+import {withAuthRedirect} from '../../hoc/WithAuthRedirect';
 
 
 class UsersClassContainer extends React.Component<UsersClassContainerType> {
@@ -34,17 +30,6 @@ class UsersClassContainer extends React.Component<UsersClassContainerType> {
             {this.props.isFetching ? <Preloader/> : null}
             <Users
                 onPageChanged={this.onPageChanged}
-                /* users={this.props.users}
-                 setUsers={this.props.setUsers}
-                 currentPage={this.props.currentPage}
-                 pageSize={this.props.pageSize}
-                 follow={this.props.follow}
-                 setCurrentPage={this.props.setCurrentPage}
-                 setTotalUsersCount={this.props.setTotalUsersCount}
-                 totalCount={this.props.totalCount}
-                 unfollow={this.props.unfollow}
-                 setIsFollowingProgress={this.props.setIsFollowingProgress}
-                 followingInProgress={this.props.followingInProgress}*/
                 {...this.props}
             />
 
@@ -65,7 +50,7 @@ const mapStateToProps = (state: ReduxStoreType): UsersMapStateToPropsType => {
     }
 }
 
-
+let withRedirect = withAuthRedirect(UsersClassContainer)
 export const UsersContainer = connect(mapStateToProps, {
     follow,
     unFollow,
@@ -75,6 +60,6 @@ export const UsersContainer = connect(mapStateToProps, {
     // setIsFetching,
     setIsFollowingProgress,
     getUsers
-})(UsersClassContainer);
+})(withRedirect);
 
 

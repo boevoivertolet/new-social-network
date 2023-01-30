@@ -34,26 +34,27 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
 
 }
 
-const AuthRedirectComponent = withAuthRedirect(ProfileContainer)
 
 
-export const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsType => {
+
+const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsType => {
     return {
         postsData: state.profilePage.postsData,
         newPostText: state.profilePage.newPostText,
-        userProfile: state.profilePage.userProfile,
-        isAuth: state.auth.isAuth
+        userProfile: state.profilePage.userProfile
+
 
     }
 }
+const WithUrlDataContainerComponent = withRouter(ProfileContainer)
 
 
-export default connect(mapStateToProps, {
+export default withAuthRedirect(connect(mapStateToProps, {
     likesCounter,
     addPost,
     updateNewPostText,
     getUserProfile
-})(withRouter(AuthRedirectComponent));
+})(WithUrlDataContainerComponent))
 
 
 

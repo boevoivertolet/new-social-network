@@ -5,7 +5,6 @@ import {Dispatch} from 'redux';
 import {getAuthUserData} from '../Reducers/authReducer';
 
 
-
 export type ButtonType = {
     title: string
     callBack: () => void
@@ -40,7 +39,7 @@ export type HeaderType = {
 }
 
 export type HeaderMapDispatchToPropsType = {
-    getAuthUserData:()=> void
+    getAuthUserData: () => void
 }
 
 type HeaderConnectType = HeaderMapStateToPropsType & HeaderMapDispatchToPropsType
@@ -111,16 +110,16 @@ export type DialogsMapDispatchToPropsType = {
     onChangeHandler: (text: string) => void
 }
 export type UsersMapDispatchToPropsType = {
-    follow:(userId: string) => void
-    unFollow:(userId: string) => void
+    follow: (userId: string) => void
+    unFollow: (userId: string) => void
     // acceptFollow: (usersId: string) => void
     // acceptUnfollow: (usersId: string) => void
     //setUsers: (users: UserType[]) => void
     setCurrentPage: (currentPage: number) => void
     //setTotalUsersCount: (totalCount: number) => void
-   // setIsFetching: (isFetching: boolean) => void
-    setIsFollowingProgress: (isFetching: boolean, userId:string) => void
-    getUsers:(currentPage:number,pageSize:number)=> void
+    // setIsFetching: (isFetching: boolean) => void
+    setIsFollowingProgress: (isFetching: boolean, userId: string) => void
+    getUsers: (currentPage: number, pageSize: number) => void
 
 }
 
@@ -150,12 +149,15 @@ export type ProfileMapDispatchToPropsType = {
     updateNewPostText: (text: string) => void
     // setIsFetching: (isFetching: boolean) => void
     setUserProfile: (userProfile: UserProfileType) => void
-    getUserProfile:(userId: number)=> void
+    getUserProfile: (userId: number) => void
 }
 type PathParamsType = {
     userId: string;
 }
-export type ProfileConnectType = ProfileMapStateToPropsType & ProfileMapDispatchToPropsType
+export type ProfileConnectType =
+    ProfileMapStateToPropsType
+    & MapStateToPropsForRedirectType
+    & ProfileMapDispatchToPropsType
 
 export type ProfileContainerType =
     ProfileConnectType
@@ -327,7 +329,7 @@ export type SetIsFetchingActionType = {
 export type SetIsFollowingProgressType = {
     type: 'SET-IS-FOLLOWING-PROGRESS'
     isFetching: boolean
-    userId:string
+    userId: string
 
 }
 
@@ -348,8 +350,8 @@ export type ProviderType = {
 }
 
 export type UsersType = {
-    follow:(userId: string) => void
-    unFollow:(userId: string) => void
+    follow: (userId: string) => void
+    unFollow: (userId: string) => void
     users: UserType[]
     pageSize: number
     totalCount: number
@@ -408,9 +410,12 @@ export type ProfileMapStateToPropsType = {
     postsData: PostsDataType[]
     newPostText: string
     userProfile: null | UserProfileType
+    /*    isAuth: boolean*/
+
+
+}
+export type MapStateToPropsForRedirectType = {
     isAuth: boolean
-
-
 }
 export type PreloaderType = {}
 
@@ -434,6 +439,4 @@ export type HeaderMapStateToPropsType = {
 }
 
 
-export type LoginType ={
-
-}
+export type LoginType = {}
