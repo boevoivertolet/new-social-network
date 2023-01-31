@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './NameDescription.module.css'
 import {NameDescriptionType} from '../../../../Types/Types';
+import {ProfileStatus} from '../ProfileStatus';
 
 export const NameDescription = (props: NameDescriptionType) => {
     return <div>
         <div className={styles.name}>{props.userName}.</div>
+        <ProfileStatus status={'hi'}/>
         <div className={styles.description}>
             <ul>
                 <li>Обо мне: {props.aboutMe}</li>

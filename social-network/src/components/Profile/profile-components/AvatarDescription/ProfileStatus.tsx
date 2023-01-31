@@ -1,10 +1,12 @@
 import React from 'react';
+import styles from './AvatarDescription.module.css'
 
 export class ProfileStatus extends React.Component<ProfileStatusPropsType> {
     state = {
         editMode: false
     }
     activateEditMode = () => {
+        console.log('this:', this)
         this.setState({
             editMode: true
         });
@@ -19,21 +21,21 @@ export class ProfileStatus extends React.Component<ProfileStatusPropsType> {
 
     render() {
 
-        return <>
+        return <div className={styles.profileStatus}>
             {!this.state.editMode &&
                 <div>
-                    <span onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</span>
+                    status: <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
                 </div>
             }
             {this.state.editMode &&
                 <div>
-                    <input autoFocus onBlur={this.deActivateEditMode.bind(this)} value={this.props.status}/>
+                    status: <input autoFocus onBlur={this.deActivateEditMode} value={this.props.status}/>
                 </div>
 
             }
 
 
-        </>
+        </div>
     }
 }
 

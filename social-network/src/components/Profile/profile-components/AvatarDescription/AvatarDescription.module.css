@@ -1,11 +1,23 @@
 .avatarDescription {
-    display: grid;
-    grid-template-columns: 1fr 11fr;
-    grid-template-areas:
-    'ava name discription';
+    /* display: grid;
+     grid-template-columns: 1fr 11fr;
+     grid-template-areas:
+     'ava name discription';
+     margin: 5px;
+     padding: 5px;
+     border: 1px solid black;
+ */
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
     margin: 5px;
     padding: 5px;
     border: 1px solid black;
-
+}
+.profileStatus{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
 }
 

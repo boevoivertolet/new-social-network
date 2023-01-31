@@ -22,6 +22,7 @@ export const Profile = (props: ProfileType) => {
         <PostsHeader/>
         <NewPosts updateNewPost={props.updateNewPostText} addPost={props.addPost} newPostText={props.newPostText}/>
         <MainContent postsData={props.postsData} likesCounter={props.likesCounter}/>
+
     </div>
 
 
