@@ -1,17 +1,18 @@
-import {ActionType, InitialProfilePageType,  UserProfileType} from '../Types/Types';
-import {v1} from 'uuid';
-import {avatars} from '../Avatars/Avatars';
-import {Dispatch} from 'redux';
-import {usersAPI} from '../../api/api';
+import { ActionType, InitialProfilePageType, UserProfileType } from '../Types/Types';
+import { v1 } from 'uuid';
+import { avatars } from '../Avatars/Avatars';
+import { Dispatch } from 'redux';
+import { profileAPI } from '../../api/api';
 
 
 let initialState: InitialProfilePageType = {
     postsData: [
-        {postId: v1(), message: 'mes', likesCount: 0, ava: avatars[3].link},
+        { postId: v1(), message: 'mes', likesCount: 0, ava: avatars[3].link },
     ],
     newPostText: '',
     isFetching: false,
-    userProfile: null
+    userProfile: null,
+    status: ''
 }
 
 
@@ -48,27 +49,51 @@ const profilePageReducer = (state: InitialProfilePageType = initialState, action
             return {
                 ...state, userProfile: action.userProfile
             }
+        case 'SET-STATUS':
+            return {
+                ...state, status: action.status
+            }
         default:
             return state;
     }
 
 }
 // Action Creators
-export const addPost = () => ({type: 'ADD-POST'} as const)
-export const updateNewPostText = (text: string) => ({type: 'UPDATE-NEW-POST-TEXT', newPostText: text} as const)
-export const likesCounter = () => ({type: 'LIKES-COUNTER'} as const)
-const setIsFetching = (isFetching: boolean) => ({type: 'SET-IS-FETCHING', isFetching} as const)//Action Create
-const setUserProfile = (userProfile: UserProfileType) => ({type: 'SET-USER-PROFILE', userProfile} as const)//Action Create
+export const addPost = () => ({ type: 'ADD-POST' } as const)
+export const updateNewPostText = (text: string) => ({ type: 'UPDATE-NEW-POST-TEXT', newPostText: text } as const)
+export const likesCounter = () => ({ type: 'LIKES-COUNTER' } as const)
+const setIsFetching = (isFetching: boolean) => ({ type: 'SET-IS-FETCHING', isFetching } as const)//Action Create
+const setUserProfile = (userProfile: UserProfileType) => ({ type: 'SET-USER-PROFILE', userProfile } as const)//Action Create
+const setStatusProfile = (status: string) => ({ type: 'SET-STATUS', status } as const)//Action Create
 
 // Thunk Creators
 
-export const getUserProfile = (userId: number) => (dispatch:Dispatch)=> {
+export const getUserProfile = (userId: number) => (dispatch: Dispatch) => {
     dispatch(setIsFetching(true))
-    usersAPI.getProfile(userId).then(data => {
+    profileAPI.getProfile(userId).then(data => {
         dispatch(setIsFetching(false))
         dispatch(setUserProfile(data))
     })
 }
+export const getStatusProfile = (userId: number) => (dispatch: Dispatch) => {
+    // dispatch(setIsFetching(true))
+    profileAPI.getStatus(userId).then(res => {
+        // dispatch(setIsFetching(false))
+        dispatch(setStatusProfile(res.data))
+    })
+}
+export const updateStatusProfile = (status: string) => (dispatch: Dispatch) => {
+    dispatch(setIsFetching(true))
+    profileAPI.updateStatus(status).then(res => {
+        dispatch(setIsFetching(false))
+        if (res.data.resultCode === 0) {
+            dispatch(setStatusProfile(status))
+        }
+
+    })
+}
+
+
 
 
 

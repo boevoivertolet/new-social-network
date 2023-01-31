@@ -1,8 +1,7 @@
 import React, {ChangeEvent} from 'react';
 // @ts-ignore
 import {RouteComponentProps} from 'react-router-dom';
-import {Dispatch} from 'redux';
-import {getAuthUserData} from '../Reducers/authReducer';
+
 
 
 export type ButtonType = {
@@ -68,6 +67,7 @@ export type InitialProfilePageType = {
     newPostText: string
     isFetching: boolean
     userProfile: null | UserProfileType
+    status: string
 }
 
 
@@ -191,6 +191,8 @@ export type ProfileType = {
     likesCounter: () => void
     userProfile: UserProfileType | null
     isAuth: boolean
+    status: string
+    updateStatus:()=> void
 
 }
 
@@ -216,6 +218,8 @@ export type DialogsMessagesOutType = {
 }
 export type AvatarDescriptionType = {
     userProfile: UserProfileType
+    status: string
+    updateStatus:()=> void
 }
 export type ImgType = {
     ava: string | undefined
@@ -271,6 +275,7 @@ export type ActionType =
     | SetUserProfileActionType
     | SetUserDataActionType
     | SetIsFollowingProgressType
+    | SetStatusProfileType
 
 export type SetUserDataActionType = {
     type: 'SET-USER-DATA'
@@ -332,6 +337,12 @@ export type SetIsFollowingProgressType = {
     userId: string
 
 }
+export type SetStatusProfileType = {
+    type: 'SET-STATUS'
+    status: string
+
+}
+
 
 
 // export type DialogsContainerType = {
@@ -406,11 +417,16 @@ export type UsersMapStateToPropsType = {
     followingInProgress: FollowingInProgressType
 }
 
+// type StatusType ={
+//     status: string
+// }
 export type ProfileMapStateToPropsType = {
     postsData: PostsDataType[]
     newPostText: string
     userProfile: null | UserProfileType
+    // status: StatusType
     /*    isAuth: boolean*/
+    status: string
 
 
 }
@@ -425,6 +441,8 @@ export type NameDescriptionType = {
     lookingForAJob: boolean
     lookingForAJobDescription: string
     contacts: ContactsType | undefined
+    status: string
+    updateStatus:()=> void
 
 }
 export type InitialAuthStateType = {

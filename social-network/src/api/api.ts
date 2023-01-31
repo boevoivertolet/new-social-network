@@ -22,15 +22,27 @@ export const usersAPI = {
     deleteFollow(id: string) {
         return instance.delete(`follow/${id}`)
             .then(response => response.data)
-    },
-    getProfile(userId: number) {
-        if (!userId) userId = 2
-        return instance.get(`profile/${userId}`).then(response => response.data)
     }
 }
 export const authAPI = {
     getMe() {
         return instance.get(`auth/me`).then(response => response.data)
+    }
+}
+
+export const profileAPI = {
+
+    getProfile(userId: number) {
+        // if (!userId) userId = 2
+        return instance.get(`profile/${userId}`).then(response => response.data)
+    },
+    getStatus(userId: number) {
+        // if (!userId) userId = 2
+        return instance.get(`profile/status ${userId}`).then(response => response.data)
+    },
+    updateStatus(status: string) {
+        // if (!userId) userId = 2
+        return instance.put(`profile/status`,{status}).then(response => response.data)
     }
 }
 

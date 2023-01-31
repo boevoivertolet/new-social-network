@@ -14,11 +14,11 @@ export const Profile = (props: ProfileType) => {
         return <Preloader/>
 
     }
-    
+
 
     return <div className={styles.profile}>
         <WallImg/>
-        <AvatarDescription userProfile={props.userProfile}/>
+        <AvatarDescription userProfile={props.userProfile} status={props.status} updateStatus={props.updateStatus}/>
         <PostsHeader/>
         <NewPosts updateNewPost={props.updateNewPostText} addPost={props.addPost} newPostText={props.newPostText}/>
         <MainContent postsData={props.postsData} likesCounter={props.likesCounter}/>
