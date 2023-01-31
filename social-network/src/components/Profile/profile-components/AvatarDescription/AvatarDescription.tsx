@@ -3,7 +3,7 @@ import {Ava} from './avatar-description-components/Ava';
 import {NameDescription} from './avatar-description-components/NameDescription';
 import styles from './AvatarDescription.module.css'
 import {AvatarDescriptionType} from '../../../Types/Types';
-import {ProfileStatus} from './ProfileStatus';
+
 
 
 export const AvatarDescription = (props: AvatarDescriptionType) => {
