@@ -1,7 +1,14 @@
 import React from 'react';
 import {ProfileContainerType, ProfileMapStateToPropsType} from '../Types/Types';
 import {Profile} from './Profile';
-import {addPost, getUserProfile, likesCounter, updateNewPostText,getStatusProfile,updateStatusProfile} from '../Reducers/profilePageReducer';
+import {
+    addPost,
+    getUserProfile,
+    likesCounter,
+    updateNewPostText,
+    getStatusProfile,
+    updateStatusProfile
+} from '../Reducers/profilePageReducer';
 import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {withAuthRedirect} from '../../hoc/WithAuthRedirect';
@@ -13,6 +20,9 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
 
     componentDidMount() {
         let userId = this.props.router.params.userId
+        if (!userId) {
+            userId = 2;
+        }
         this.props.getUserProfile(userId)
         this.props.getStatusProfile(userId)
 
@@ -30,7 +40,7 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
                      userProfile={this.props.userProfile}
                      isAuth={this.props.isAuth}
                      status={this.props.status}
-                     updateStatus ={this.props.updateStatus}
+                     updateStatus={this.props.updateStatusProfile}
 
             />
         )
@@ -51,7 +61,6 @@ const mapStateToProps = (state: ReduxStoreType): ProfileMapStateToPropsType => {
 }
 
 
-
 export default compose<React.ComponentType>(
     connect(mapStateToProps, {
         likesCounter,
@@ -63,7 +72,7 @@ export default compose<React.ComponentType>(
 
     }),
     withRouter,
-  /*  withAuthRedirect,*/
+    /*  withAuthRedirect,*/
 )(ProfileContainer)
 
 

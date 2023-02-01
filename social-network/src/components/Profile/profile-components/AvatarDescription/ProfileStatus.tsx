@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import styles from './AvatarDescription.module.css'
 
 export class ProfileStatus extends React.Component<ProfileStatusPropsType> {
+
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.status
     }
     activateEditMode = () => {
         console.log('this:', this)
@@ -16,7 +18,11 @@ export class ProfileStatus extends React.Component<ProfileStatusPropsType> {
         this.setState({
             editMode: false
         });
-
+        this.props.updateStatus(this.state.status)
+        console.log(this.state.status)
+    }
+    onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
+        this.setState({status: e.currentTarget.value})
     }
 
     render() {
@@ -24,12 +30,13 @@ export class ProfileStatus extends React.Component<ProfileStatusPropsType> {
         return <div className={styles.profileStatus}>
             {!this.state.editMode &&
                 <div>
-                    status: <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+                    status: <span onDoubleClick={this.activateEditMode}>{this.state.status}</span>
                 </div>
             }
             {this.state.editMode &&
                 <div>
-                    status: <input autoFocus onBlur={this.deActivateEditMode} value={this.props.status}/>
+                    status: <input onChange={this.onStatusChange} autoFocus onBlur={this.deActivateEditMode}
+                                   value={this.state.status}/>
                 </div>
 
             }
@@ -42,4 +49,5 @@ export class ProfileStatus extends React.Component<ProfileStatusPropsType> {
 
 type ProfileStatusPropsType = {
     status: string
+    updateStatus: (status: string) => void
 }

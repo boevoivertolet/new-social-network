@@ -33,15 +33,14 @@ export const authAPI = {
 export const profileAPI = {
 
     getProfile(userId: number) {
-        // if (!userId) userId = 2
+        if (!userId) userId = 2
         return instance.get(`profile/${userId}`).then(response => response.data)
     },
     getStatus(userId: number) {
-        // if (!userId) userId = 2
-        return instance.get(`profile/status ${userId}`).then(response => response.data)
+        if (!userId) userId = 2
+        return instance.get(`profile/status/${userId}`).then(response => response.data)
     },
     updateStatus(status: string) {
-        // if (!userId) userId = 2
         return instance.put(`profile/status`,{status}).then(response => response.data)
     }
 }

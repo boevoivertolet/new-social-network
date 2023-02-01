@@ -7,7 +7,7 @@ export const NameDescription = (props: NameDescriptionType) => {
   return (
     <div>
       <div className={styles.name}>{props.userName}.</div>
-      <ProfileStatus status={props.status} />
+      <ProfileStatus updateStatus={props.updateStatus} status={props.status} />
       <div className={styles.description}>
         <ul>
           <li>Обо мне: {props.aboutMe}</li>

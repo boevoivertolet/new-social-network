@@ -3,7 +3,6 @@ import React, {ChangeEvent} from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 
 
-
 export type ButtonType = {
     title: string
     callBack: () => void
@@ -150,6 +149,8 @@ export type ProfileMapDispatchToPropsType = {
     // setIsFetching: (isFetching: boolean) => void
     setUserProfile: (userProfile: UserProfileType) => void
     getUserProfile: (userId: number) => void
+    getStatusProfile: (userId: number) => void
+    updateStatusProfile: (mess: string) => void
 }
 type PathParamsType = {
     userId: string;
@@ -192,7 +193,7 @@ export type ProfileType = {
     userProfile: UserProfileType | null
     isAuth: boolean
     status: string
-    updateStatus:()=> void
+    updateStatus: (status: string) => void
 
 }
 
@@ -219,7 +220,7 @@ export type DialogsMessagesOutType = {
 export type AvatarDescriptionType = {
     userProfile: UserProfileType
     status: string
-    updateStatus:()=> void
+    updateStatus: (status: string) => void
 }
 export type ImgType = {
     ava: string | undefined
@@ -344,7 +345,6 @@ export type SetStatusProfileType = {
 }
 
 
-
 // export type DialogsContainerType = {
 //     // store: StoreType
 //
@@ -442,7 +442,7 @@ export type NameDescriptionType = {
     lookingForAJobDescription: string
     contacts: ContactsType | undefined
     status: string
-    updateStatus:()=> void
+    updateStatus: (status: string) => void
 
 }
 export type InitialAuthStateType = {
