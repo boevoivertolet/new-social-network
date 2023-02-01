@@ -1,9 +1,10 @@
 import React from 'react';
 import {LoginType} from '../Types/Types';
 import styles from './Login.module.css'
+import {reduxForm} from 'redux-form'
 
 
-export const LoginForm = (props: LoginType) => {
+const LoginForm = () => {
     return <form action="">
         <div>
             <input type="text" placeholder={'login'}/>
@@ -19,11 +20,12 @@ export const LoginForm = (props: LoginType) => {
         </div>
     </form>
 }
+const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 export const Login = (props: LoginType) => {
     return <div className={styles.login}>
         <h1>Login</h1>
-        <LoginForm/>
+        <LoginReduxForm/>
     </div>
 
 }
