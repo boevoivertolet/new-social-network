@@ -8,7 +8,7 @@ export const Navbar = (props: NavbarType) => {
     return <nav className={styles.nav}>
 
         <div className={styles.nav_div}><NavLink
-            className={navData => navData.isActive ? styles.active : styles.nav_link} to="/profile">Profile</NavLink>
+            className={navData => navData.isActive ? styles.active : styles.nav_link} to="/profile/24563">Profile</NavLink>
         </div>
 
         <div className={styles.nav_div}><NavLink
