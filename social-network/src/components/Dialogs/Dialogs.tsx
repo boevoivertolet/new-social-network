@@ -1,22 +1,20 @@
 import React from "react";
-import { DialogsType} from "../Types/Types";
+import { DialogsType } from "../Types/Types";
 import styles from "./Dialogs.module.css";
 import { DialogsMessages } from "./dialogs-components/DialogsMessages/DialogsMessages";
 import { DialogsNames } from "./dialogs-components/DialogsNames/DialogsNames";
 import { DialogsHeader } from "./dialogs-components/DialogsHeader/DialogsHeader";
-import { AddMEssageFormDataType, AddMEssageFormRedux } from "./dialogs-components/AddMessageForm";
+import {
+  AddMEssageFormDataType,
+  AddMEssageFormRedux,
+} from "./dialogs-components/AddMessageForm";
 
 export const Dialogs = (props: DialogsType) => {
-
-    const addNewMess = (values: AddMEssageFormDataType) => {
-        if(values.newMEssageBody){
-            props.addMessage(values.newMEssageBody)
-            console.log(values.newMEssageBody);
-        }
-    };
+  const addNewMess = (values: AddMEssageFormDataType) => {
+    props.addMessage(values.newMEssageBody);
+  };
 
   let dialogsData = props.dialogsPage.dialogsData;
-
 
   let dialogName = dialogsData.map((dialog) => (
     <DialogsNames
@@ -40,10 +38,8 @@ export const Dialogs = (props: DialogsType) => {
         <DialogsMessages dialogsPage={props.dialogsPage} />
       </div>
       <div className={styles.textarea}>
-
         <AddMEssageFormRedux onSubmit={addNewMess} />
       </div>
     </div>
   );
 };
-

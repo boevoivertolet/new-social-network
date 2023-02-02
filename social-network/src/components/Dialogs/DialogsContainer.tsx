@@ -22,9 +22,7 @@ const mapDispatchToProps = (dispatch: Dispatch): DialogsMapDispatchToPropsType =
         addMessage: (newMEssageBody: string) => {
             dispatch(addMessageAC(newMEssageBody));
         }
-        // onChangeHandler: (text: string) => {
-        //     dispatch(updateNewMessageTextAC(text));
-        // }
+
     }
 
 }

@@ -69,7 +69,7 @@ export default compose<React.ComponentType>(
 
     }),
     withRouter,
-    /*  withAuthRedirect,*/
+    withAuthRedirect
 )(ProfileContainer)
 
 
