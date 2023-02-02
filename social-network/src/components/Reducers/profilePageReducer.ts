@@ -21,7 +21,7 @@ const profilePageReducer = (state: InitialProfilePageType = initialState, action
         case 'ADD-POST':
             let newPost = {
                 postId: v1(),
-                message: state.newPostText,
+                message: action.newMEssageBody,
                 likesCount: 0,
                 ava: avatars[3].link
             }
@@ -31,11 +31,11 @@ const profilePageReducer = (state: InitialProfilePageType = initialState, action
                 postsData: [...state.postsData, newPost],
                 newPostText: ''
             }
-        case 'UPDATE-NEW-POST-TEXT':
-            return {
-                ...state,
-                newPostText: action.newPostText
-            }
+        // case 'UPDATE-NEW-POST-TEXT':
+        //     return {
+        //         ...state,
+        //         newPostText: action.newPostText
+        //     }
 
         case 'LIKES-COUNTER':
             console.log('like')
@@ -59,8 +59,8 @@ const profilePageReducer = (state: InitialProfilePageType = initialState, action
 
 }
 // Action Creators
-export const addPost = () => ({ type: 'ADD-POST' } as const)
-export const updateNewPostText = (text: string) => ({ type: 'UPDATE-NEW-POST-TEXT', newPostText: text } as const)
+export const addPost = (newMEssageBody: string) => ({ type: 'ADD-POST',newMEssageBody } as const)
+// export const updateNewPostText = (text: string) => ({ type: 'UPDATE-NEW-POST-TEXT', newPostText: text } as const)
 export const likesCounter = () => ({ type: 'LIKES-COUNTER' } as const)
 const setIsFetching = (isFetching: boolean) => ({ type: 'SET-IS-FETCHING', isFetching } as const)//Action Create
 const setUserProfile = (userProfile: UserProfileType) => ({ type: 'SET-USER-PROFILE', userProfile } as const)//Action Create

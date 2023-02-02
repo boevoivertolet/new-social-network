@@ -5,7 +5,6 @@ import {
     addPost,
     getUserProfile,
     likesCounter,
-    updateNewPostText,
     getStatusProfile,
     updateStatusProfile
 } from '../Reducers/profilePageReducer';
@@ -32,8 +31,7 @@ class ProfileContainer extends React.Component<ProfileContainerType> {
     render() {
 
         return (
-            <Profile updateNewPostText={this.props.updateNewPostText}
-                     addPost={this.props.addPost}
+            <Profile addPost={this.props.addPost}
                      newPostText={this.props.newPostText}
                      postsData={this.props.postsData}
                      likesCounter={this.props.likesCounter}
@@ -65,7 +63,6 @@ export default compose<React.ComponentType>(
     connect(mapStateToProps, {
         likesCounter,
         addPost,
-        updateNewPostText,
         getUserProfile,
         getStatusProfile,
         updateStatusProfile

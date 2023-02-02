@@ -21,7 +21,7 @@ import { Field, InjectedFormProps, reduxForm } from "redux-form";
   };
 
 export const AddMEssageFormRedux = reduxForm<AddMEssageFormDataType>({
-    form: "dialogAddMessageForm",
+    form: "AddMessageForm",
   })(AddMEssageForm);
 
 export  type AddMEssageFormDataType = {

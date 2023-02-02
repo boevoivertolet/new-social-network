@@ -9,8 +9,10 @@ import { AddMEssageFormDataType, AddMEssageFormRedux } from "./dialogs-component
 export const Dialogs = (props: DialogsType) => {
 
     const addNewMess = (values: AddMEssageFormDataType) => {
-        props.addMessage(values.newMEssageBody)
-        console.log(values.newMEssageBody);
+        if(values.newMEssageBody){
+            props.addMessage(values.newMEssageBody)
+            console.log(values.newMEssageBody);
+        }
     };
 
   let dialogsData = props.dialogsPage.dialogsData;

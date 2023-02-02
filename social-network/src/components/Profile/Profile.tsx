@@ -20,7 +20,7 @@ export const Profile = (props: ProfileType) => {
         <WallImg/>
         <AvatarDescription userProfile={props.userProfile} status={props.status} updateStatus={props.updateStatus}/>
         <PostsHeader/>
-        <NewPosts updateNewPost={props.updateNewPostText} addPost={props.addPost} newPostText={props.newPostText}/>
+        <NewPosts  addPost={props.addPost} newPostText={props.newPostText}/>
         <MainContent postsData={props.postsData} likesCounter={props.likesCounter}/>
 
     </div>

@@ -151,8 +151,7 @@ export type DialogsHeaderType = {
 
 export type ProfileMapDispatchToPropsType = {
     likesCounter: () => void
-    addPost: () => void
-    updateNewPostText: (text: string) => void
+    addPost: (newMEssageBody: string) => void
     // setIsFetching: (isFetching: boolean) => void
     setUserProfile: (userProfile: UserProfileType) => void
     getUserProfile: (userId: number) => void
@@ -192,8 +191,7 @@ export type UserProfileType = {
 
 }
 export type ProfileType = {
-    updateNewPostText: (text: string) => void
-    addPost: () => void
+    addPost: (newMEssageBody: string) => void
     newPostText: string
     postsData: PostsDataType[]
     likesCounter: () => void
@@ -259,8 +257,7 @@ export type PeoplesType = {
 }
 export type NewPostType = {
     newPostText: string
-    updateNewPost: (text: string) => void
-    addPost: () => void
+    addPost: (newMEssageBody: string) => void
 }
 export type UniversalTextareaType = {
     newText: string
@@ -270,7 +267,7 @@ export type UniversalTextareaType = {
 
 export type ActionType =
     AddPostActionType
-    | updateNewPostTextActionType
+    // | updateNewPostTextActionType
     | updateNewMessageTextActionType
     | AddMessageActionType
     | likesCounterActionType
@@ -292,15 +289,16 @@ export type SetUserDataActionType = {
 
 export type AddPostActionType = {
     type: 'ADD-POST'
+    newMEssageBody: string
 }
 export type AddMessageActionType = {
     type: 'ADD-MESSAGE'
     newMEssageBody: string
 }
-export type updateNewPostTextActionType = {
-    type: 'UPDATE-NEW-POST-TEXT'
-    newPostText: string
-}
+// export type updateNewPostTextActionType = {
+//     type: 'UPDATE-NEW-POST-TEXT'
+//     newPostText: string
+// }
 export type updateNewMessageTextActionType = {
     type: 'UPDATE-NEW-MESSAGE-TEXT'
     newMessageText: string
