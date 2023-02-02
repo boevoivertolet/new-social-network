@@ -8,7 +8,7 @@ export const Textarea: React.FC<any> = ({ input, meta, ...props }) => {
       <div>
         <textarea {...input} {...props}></textarea>
       </div>
-      {hasError && <span>some error</span>}
+      {hasError && <span>{meta.error}</span>}
     </div>
   );
 };
