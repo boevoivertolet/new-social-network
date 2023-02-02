@@ -105,7 +105,7 @@ export type DialogsMapStateToPropsType = {
     isAuth: boolean
 }
 export type DialogsMapDispatchToPropsType = {
-    addMessage: () => void
+    addMessage: (newMEssageBody: string) => void
     onChangeHandler: (text: string) => void
 }
 export type UsersMapDispatchToPropsType = {
@@ -288,6 +288,7 @@ export type AddPostActionType = {
 }
 export type AddMessageActionType = {
     type: 'ADD-MESSAGE'
+    newMEssageBody: string
 }
 export type updateNewPostTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'

@@ -19,8 +19,8 @@ const mapStateToProps = (state: ReduxStoreType): DialogsMapStateToPropsType => {
 }
 const mapDispatchToProps = (dispatch: Dispatch): DialogsMapDispatchToPropsType => {
     return {
-        addMessage: () => {
-            dispatch(addMessageAC());
+        addMessage: (newMEssageBody: string) => {
+            dispatch(addMessageAC(newMEssageBody));
         },
         onChangeHandler: (text: string) => {
             dispatch(updateNewMessageTextAC(text));

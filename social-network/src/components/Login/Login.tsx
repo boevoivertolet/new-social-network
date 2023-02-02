@@ -4,6 +4,8 @@ import styles from "./Login.module.css";
 import { reduxForm, Field, InjectedFormProps } from "redux-form";
 
 const LoginForm: React.FC<InjectedFormProps<LoginFormDataType>> = (props) => {
+    console.log('Rerender');
+
   return (
     <form onSubmit={props.handleSubmit}>
       <div>

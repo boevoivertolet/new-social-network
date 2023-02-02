@@ -38,7 +38,7 @@ const dialogsPageReducer = (state: DialogsPageType = initialState, action: Actio
 
     switch (action.type) {
         case 'ADD-MESSAGE':
-            let newMessageText = state.newMessageText
+            let newMessageText = action.newMEssageBody
             return {
                 ...state, newMessageText: '',
                 messagesData: {
@@ -59,7 +59,7 @@ const dialogsPageReducer = (state: DialogsPageType = initialState, action: Actio
 }
 
 
-export const addMessageAC = () => ({type: 'ADD-MESSAGE'} as const)
+export const addMessageAC = (newMEssageBody: string) => ({type: 'ADD-MESSAGE' , newMEssageBody} as const)
 export const updateNewMessageTextAC = (text: string) => ({
     type: 'UPDATE-NEW-MESSAGE-TEXT',
     newMessageText: text
