@@ -68,7 +68,7 @@ let avatars: AvatarsType[] = [
 
             ],
         },
-        newMessageText: ''
+         newMessageText: ''
     },
     profilePage: {
         postsData: [

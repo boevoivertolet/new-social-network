@@ -85,6 +85,7 @@ import sidebarReducer from '../Reducers/sidebarReducer';
     dispatch(action: ActionType) {
         // @ts-ignore
         this._state.profilePage = profilePageReducer(this._state.profilePage, action)
+        // @ts-ignore
         this._state.dialogsPage = dialogsPageReducer(this._state.dialogsPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
         this._callSubscriber(this._state);

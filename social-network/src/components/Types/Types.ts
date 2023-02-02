@@ -47,14 +47,21 @@ export type HeaderContainerType = HeaderConnectType
 
 
 export type StateType = {
-    dialogsPage: DialogsPageType
+    dialogsPage: OldDialogsPageType
     profilePage: ProfilePageType
     sidebar: SidebarType
 }
 export type DialogsPageType = {
+
     dialogsData: DialogsDataType[]
     messagesData: MessagesDataType
-    newMessageText: string
+
+}
+export type OldDialogsPageType = {
+
+    dialogsData: DialogsDataType[]
+    messagesData: MessagesDataType
+     newMessageText: string
 }
 export type ProfilePageType = {
     postsData: PostsDataType[]
@@ -106,7 +113,7 @@ export type DialogsMapStateToPropsType = {
 }
 export type DialogsMapDispatchToPropsType = {
     addMessage: (newMEssageBody: string) => void
-    onChangeHandler: (text: string) => void
+    // onChangeHandler: (text: string) => void
 }
 export type UsersMapDispatchToPropsType = {
     follow: (userId: string) => void

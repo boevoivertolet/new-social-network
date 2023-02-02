@@ -30,8 +30,8 @@ let initialState = {
             {id: avatars[3].id, messageOut: ' message  message '}
 
         ],
-    },
-    newMessageText: ''
+    }
+    // newMessageText: ''
 }
 
 const dialogsPageReducer = (state: DialogsPageType = initialState, action: ActionType): DialogsPageType => {
@@ -40,17 +40,17 @@ const dialogsPageReducer = (state: DialogsPageType = initialState, action: Actio
         case 'ADD-MESSAGE':
             let newMessageText = action.newMEssageBody
             return {
-                ...state, newMessageText: '',
+                ...state,
                 messagesData: {
                     ...state.messagesData,
                     messagesDataOut: [...state.messagesData.messagesDataOut,{id:v1(),messageOut:newMessageText}]
                 }
             }
 
-        case 'UPDATE-NEW-MESSAGE-TEXT':
-            return {
-                ...state, newMessageText: action.newMessageText
-            }
+        // case 'UPDATE-NEW-MESSAGE-TEXT':
+        //     return {
+        //         ...state, newMessageText: action.newMessageText
+        //     }
 
         default:
             return state
@@ -60,10 +60,10 @@ const dialogsPageReducer = (state: DialogsPageType = initialState, action: Actio
 
 
 export const addMessageAC = (newMEssageBody: string) => ({type: 'ADD-MESSAGE' , newMEssageBody} as const)
-export const updateNewMessageTextAC = (text: string) => ({
-    type: 'UPDATE-NEW-MESSAGE-TEXT',
-    newMessageText: text
-} as const)
+// export const updateNewMessageTextAC = (text: string) => ({
+//     type: 'UPDATE-NEW-MESSAGE-TEXT',
+//     newMessageText: text
+// } as const)
 
 
 export default dialogsPageReducer;
