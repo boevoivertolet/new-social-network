@@ -28,7 +28,7 @@ const profilePageReducer = (state: InitialProfilePageType = initialState, action
 
             return {
                 ...state,
-                postsData: [...state.postsData, newPost],
+                postsData: [newPost,...state.postsData],
                 newPostText: ''
             }
         // case 'UPDATE-NEW-POST-TEXT':
