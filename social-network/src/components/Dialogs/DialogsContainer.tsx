@@ -14,7 +14,7 @@ const mapStateToProps = (state: ReduxStoreType): DialogsMapStateToPropsType => {
 
     return {
         dialogsPage: state.dialogsPage,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.data.isAuth
     }
 }
 const mapDispatchToProps = (dispatch: Dispatch): DialogsMapDispatchToPropsType => {

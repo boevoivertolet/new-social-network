@@ -1,24 +1,35 @@
 import React from "react";
-import { LoginType } from "../Types/Types";
 import styles from "./Login.module.css";
 import { reduxForm, Field, InjectedFormProps } from "redux-form";
 import { Input } from "../FormsControl/FormsControls";
 import { requiredField } from "../../utils/validators/validators";
+import { connect } from "react-redux";
+import login from "../Reducers/authReducer";
 
 const LoginForm: React.FC<InjectedFormProps<LoginFormDataType>> = (props) => {
-    console.log('Rerender');
+  console.log("Rerender");
 
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field placeholder={"login"} name={"login"} component={Input} validate={requiredField} />
+        <Field
+          placeholder={"login"}
+          name={"login"}
+          component={Input}
+          validate={requiredField}
+        />
       </div>
       <div>
-        <Field placeholder={"password"} name={"password"} component={Input} validate={requiredField} />
+        <Field
+          placeholder={"password"}
+          name={"password"}
+          component={Input}
+          validate={requiredField}
+        />
       </div>
       <div>
-        <Field component={Input} type="checkbox" name={"rememberMe"}  />{" "}
-        remember me
+        <Field component={Input} type="checkbox" name={"rememberMe"} /> remember
+        me
       </div>
       <div>
         <button>login</button>
@@ -29,11 +40,9 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormDataType>> = (props) => {
 const LoginReduxForm = reduxForm<LoginFormDataType>({ form: "login" })(
   LoginForm
 );
-console.log(LoginReduxForm);
-
-export const Login = () => {
+const Login = (props: any) => {
   const onSubmit = (formData: LoginFormDataType) => {
-    console.log(formData);
+    props.login(formData);
   };
   return (
     <div className={styles.login}>
@@ -42,9 +51,13 @@ export const Login = () => {
     </div>
   );
 };
-
-type LoginFormDataType = {
+export type LoginFormDataType = {
   login: string;
   password: string;
   rememberMe: boolean;
 };
+type LoginPropsType={
+  login: (formData: LoginFormDataType) => void
+}
+
+export default connect(null, { login })(Login);

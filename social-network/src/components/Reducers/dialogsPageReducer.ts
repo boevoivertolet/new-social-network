@@ -1,4 +1,4 @@
-import {ActionType, DialogsPageType, StoreType} from '../Types/Types';
+import {ActionType, DialogsPageType} from '../Types/Types';
 import {v1} from 'uuid';
 import {avatars} from '../Avatars/Avatars';
 

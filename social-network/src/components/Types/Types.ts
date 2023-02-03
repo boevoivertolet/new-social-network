@@ -29,6 +29,7 @@ export type UserDataType = {
     id: number | null
     email: string | null
     login: string | null
+    isAuth: boolean
 }
 
 export type HeaderType = {
@@ -453,7 +454,6 @@ export type NameDescriptionType = {
 }
 export type InitialAuthStateType = {
     data: UserDataType
-    isAuth: boolean
     isFetching: boolean
 }
 

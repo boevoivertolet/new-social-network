@@ -21,7 +21,7 @@ class HeaderContainer extends React.Component<HeaderContainerType> {
 
 const mapStateToProps = (state: ReduxStoreType): HeaderMapStateToPropsType => {
     return {
-        isAuth: state.auth.isAuth,
+        isAuth: state.auth.data.isAuth,
         data: state.auth.data
     }
 
