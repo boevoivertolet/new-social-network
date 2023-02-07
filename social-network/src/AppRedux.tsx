@@ -15,6 +15,8 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 export function AppRedux(props: AppType) {
+
+
     return (
 
         <div className={styles.appWrapper}>
