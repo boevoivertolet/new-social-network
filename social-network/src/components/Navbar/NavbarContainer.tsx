@@ -1,31 +1,12 @@
 import React from 'react';
-import {
-    NavbarContainerType, NavbarMapDispatchToPropsType, NavbarMapStateToPropsType,
-    StateType,
-    StoreType
-} from '../Types/Types';
+import {NavbarMapDispatchToPropsType, NavbarMapStateToPropsType} from '../Types/Types';
 import {Navbar} from './Navbar';
-import StoreContext from '../../StoreContext';
 import {Dispatch} from 'redux';
-
 import {connect} from 'react-redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 
 
-// export const NavbarContainer = (props: NavbarContainerType) => {
-//     return (
-//         <StoreContext.Consumer>
-//             {
-//                 (store:StoreType) => {
-//                     return <Navbar sidebar={store.getState().sidebar}/>
-//                 }
-//             }
-//         </StoreContext.Consumer>
-//
-//     )
-// }
-//
-//
+
 
 export const mapStateToProps = (state: ReduxStoreType): NavbarMapStateToPropsType => {
     return {

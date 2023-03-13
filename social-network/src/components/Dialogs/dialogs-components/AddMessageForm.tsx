@@ -8,7 +8,7 @@ import { Textarea } from "../../FormsControl/FormsControls";
 
 const maxLengthCreator10 = maxLengthCreator(10)
 
-const AddMEssageForm: React.FC<InjectedFormProps<AddMEssageFormDataType>> = (
+const AddMessageForm: React.FC<InjectedFormProps<AddMessageFormDataType>> = (
   props
 ) => {
   return (
@@ -17,7 +17,7 @@ const AddMEssageForm: React.FC<InjectedFormProps<AddMEssageFormDataType>> = (
         <Field
           validate={[requiredField, maxLengthCreator10]}
           component={Textarea}
-          name={"newMEssageBody"}
+          name={"newMessageBody"}
           placeholder={"Enter your message"}
         />
       </div>
@@ -28,10 +28,10 @@ const AddMEssageForm: React.FC<InjectedFormProps<AddMEssageFormDataType>> = (
   );
 };
 
-export const AddMEssageFormRedux = reduxForm<AddMEssageFormDataType>({
+export const AddMessageFormRedux = reduxForm<AddMessageFormDataType>({
   form: "AddMessageForm",
-})(AddMEssageForm);
+})(AddMessageForm);
 
-export type AddMEssageFormDataType = {
-  newMEssageBody: string;
+export type AddMessageFormDataType = {
+  newMessageBody: string;
 };

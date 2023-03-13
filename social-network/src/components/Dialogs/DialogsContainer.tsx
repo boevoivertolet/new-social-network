@@ -4,7 +4,6 @@ import {addMessageAC} from '../Reducers/dialogsPageReducer';
 import {Dialogs} from './Dialogs';
 import {compose} from 'redux'
 import {connect} from 'react-redux';
-
 import {Dispatch} from 'redux';
 import {ReduxStoreType} from '../ReduxStore/ReduxStore';
 import {withAuthRedirect} from '../../hoc/WithAuthRedirect';

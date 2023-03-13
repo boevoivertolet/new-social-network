@@ -157,6 +157,14 @@ export type ProfileConnectType = ProfileMapStateToPropsType &
 export type ProfileContainerType = ProfileConnectType &
   RouteComponentProps<PathParamsType> & { router: { params: PathParamsType } };
 
+
+
+
+
+
+
+
+
 type ContactsType = {
   facebook?: string;
   github?: string;

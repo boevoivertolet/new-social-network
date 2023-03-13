@@ -25,54 +25,13 @@ export const Users = (props: UsersType) => {
 
         </div>
         {props.users.map((u) => {
-            /*            const follow = () => {
-                            props.setIsFollowingProgress(true, u.id)
-                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                withCredentials: true,
-                                headers: {'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}
-                            }).then(response => {
-                                if (response.data.resultCode === 0) {
-                                    props.follow(u.id)
-                                }
-                                props.setIsFollowingProgress(false, u.id)
 
-                            })
-
-                        }
-
-                        const unfollow = () => {
-                            props.setIsFollowingProgress(true, u.id)
-                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                                withCredentials: true,
-                                headers: {'API-KEY': 'b9a47b16-0cbb-4fe2-8152-303706b5e3c1'}
-                            }).then(response => {
-                                if (response.data.resultCode === 0) {
-                                    props.unfollow(u.id)
-                                }
-                                props.setIsFollowingProgress(false, u.id)
-
-                            })
-                        }*/
 
             const follow = () => {
-          /*      props.setIsFollowingProgress(true, u.id)
-                usersAPI.postFollow(u.id).then(data => {
-                    if (data.resultCode === 0) {
-                        props.acceptFollow(u.id)
-                    }
-                    props.setIsFollowingProgress(false, u.id)
-                })*/
                 props.follow(u.id);
             }
 
             const unfollow = () => {
-                // props.setIsFollowingProgress(true, u.id)
-                // usersAPI.deleteFollow(u.id).then(data => {
-                //     if (data.resultCode === 0) {
-                //         props.acceptUnfollow(u.id)
-                //     }
-                //     props.setIsFollowingProgress(false, u.id)
-                // })
                 props.unFollow(u.id);
             }
 

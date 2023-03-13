@@ -8,7 +8,7 @@ import {login} from '../Reducers/authReducer';
 
 
 const LoginForm: React.FC<InjectedFormProps<LoginFormDataType>> = (props) => {
-    console.log('Rerender')
+
 
     return (
         <form onSubmit={props.handleSubmit}>
